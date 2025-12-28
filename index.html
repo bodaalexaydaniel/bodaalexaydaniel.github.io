@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Invitación - Alexandra & Daniel</title>
 
+  <!-- =========================
+       FUENTES (Google Fonts)
+       - Great Vibes: títulos elegantes tipo firma
+       - Montserrat: texto general
+       ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -13,6 +18,9 @@
   />
 
   <style>
+    /* =========================
+       VARIABLES DE COLORES / ESTILO
+       ========================= */
     :root{
       --bg: #f6f1ea;
       --card: rgba(255,255,255,0.90);
@@ -28,11 +36,17 @@
       --body: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
+    /* =========================
+       ESTILO BASE
+       ========================= */
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: var(--body);
       color: var(--text);
+
+      /* Fondo usando tu archivo en el repo */
       background-color: var(--bg);
       background-image: url("fondo-playa.jpg");
       background-size: cover;
@@ -40,6 +54,7 @@
       background-attachment: fixed;
     }
 
+    /* Capa suave arriba del fondo para que el texto se lea bien */
     .bg-overlay{
       min-height:100vh;
       background: linear-gradient(
@@ -49,11 +64,13 @@
       padding: 18px 14px 60px;
     }
 
+    /* Contenedor central con ancho máximo */
     .wrap{
       max-width: var(--maxw);
       margin: 0 auto;
     }
 
+    /* Tarjetas (secciones) */
     .card{
       background: var(--card);
       border-radius: var(--radius);
@@ -63,6 +80,7 @@
       backdrop-filter: blur(6px);
     }
 
+    /* Espaciado interno de secciones */
     .section{
       margin-top: 16px;
       padding: 22px 18px;
@@ -74,6 +92,9 @@
       margin: 18px 0;
     }
 
+    /* =========================
+       PORTADA (solo imagen)
+       ========================= */
     .hero-img{
       width:100%;
       height: clamp(240px, 38vw, 480px);
@@ -81,6 +102,9 @@
       display:block;
     }
 
+    /* =========================
+       TEXTO DE INTRO
+       ========================= */
     .intro-text{
       text-align:center;
       font-size: 16px;
@@ -92,6 +116,9 @@
       color: #4f4a45;
     }
 
+    /* =========================
+       TÍTULOS DE SECCIÓN
+       ========================= */
     .sec-title{
       font-family: var(--script);
       text-align:center;
@@ -107,6 +134,9 @@
       color: #7a746f;
     }
 
+    /* =========================
+       NOMBRES / FECHA / LUGAR
+       ========================= */
     .names{
       font-family: var(--script);
       text-align:center;
@@ -131,6 +161,9 @@
       color: #6d6863;
     }
 
+    /* =========================
+       CONTADOR
+       ========================= */
     .countdown{
       display:flex;
       gap: 10px;
@@ -162,7 +195,10 @@
       margin-top: 4px;
     }
 
-    /* VIDEO */
+    /* =========================
+       VIDEO (si lo usas)
+       - Súbelo como: video.mp4
+       ========================= */
     .video-wrap{ display:flex; justify-content:center; }
     video{
       width: 100%;
@@ -173,7 +209,51 @@
       background: #000;
     }
 
-    /* VESTIMENTA */
+    /* =========================
+       GALERÍA (20 fotos grandes)
+       - Usa: fotos/foto-01.jpg ... foto-20.jpg
+       ========================= */
+    .masonry{
+      column-count: 1;        /* móvil: 1 columna -> se ven GRANDES */
+      column-gap: 14px;
+    }
+    @media (min-width: 700px){
+      .masonry{ column-count: 2; } /* tablet y desktop: 2 columnas */
+    }
+
+    .masonry img{
+      width: 100%;
+      margin: 0 0 14px;
+      border-radius: 18px;
+      display:block;
+      break-inside: avoid;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+
+      /* Animación inicial (ocultas) */
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 650ms ease, transform 650ms ease;
+      will-change: opacity, transform;
+    }
+
+    /* Cuando entran en pantalla, se muestran */
+    .masonry img.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Variantes para que aparezcan desde lados */
+    .masonry img.from-left{ transform: translateX(-26px); }
+    .masonry img.from-right{ transform: translateX(26px); }
+    .masonry img.from-left.show,
+    .masonry img.from-right.show{
+      transform: translateX(0);
+    }
+
+    /* =========================
+       VESTIMENTA
+       ========================= */
     .grid-2{
       display:grid;
       gap: 14px;
@@ -195,6 +275,7 @@
       line-height: 1.8;
     }
 
+    /* Importante: object-fit contain para que NO se corten raro */
     .ref-img{
       width:100%;
       aspect-ratio: 16 / 10;
@@ -216,49 +297,41 @@
     }
 
     /* =========================
-       GALERÍA MÁS GRANDE (20 fotos)
-       - Menos columnas => fotos más grandes
-       - Más gap y sombras suaves
+       CONFIRMACIÓN (texto + WhatsApp)
        ========================= */
-    .masonry{
-      column-count: 1;          /* móvil: 1 columna (se ven GRANDES) */
-      column-gap: 14px;
+    .important{
+      text-align:center;
+      line-height: 1.8;
+      font-size: 15px;
+      padding: 0 8px;
     }
-    @media (min-width: 700px){
-      .masonry{ column-count: 2; } /* tablet: 2 columnas */
-    }
-    @media (min-width: 1100px){
-      .masonry{ column-count: 2; } /* desktop: 2 columnas para que sigan grandes */
-    }
+    .important b{ color:#4f4a45; }
 
-    .masonry img{
-      width: 100%;
-      margin: 0 0 14px;
-      border-radius: 18px;
-      display:block;
-      break-inside: avoid;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
-
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 650ms ease, transform 650ms ease;
-      will-change: opacity, transform;
+    .whats{
+      display:flex;
+      justify-content:center;
+      margin-top: 14px;
     }
-
-    .masonry img.show{
-      opacity: 1;
-      transform: translateY(0);
+    .whats a{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.08);
+      text-decoration:none;
+      color: #3f3b37;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
     }
+    .wa-icon{ width: 22px; height: 22px; display:inline-block; }
 
-    .masonry img.from-left{ transform: translateX(-26px); }
-    .masonry img.from-right{ transform: translateX(26px); }
-    .masonry img.from-left.show,
-    .masonry img.from-right.show{
-      transform: translateX(0);
-    }
-
-    /* RSVP */
+    /* =========================
+       FORMULARIO (RSVP)
+       - AQUÍ está lo que pediste:
+         labels y cajas centradas
+       ========================= */
     .form-title{
       font-weight: 900;
       font-size: 34px;
@@ -276,16 +349,35 @@
       line-height:1.6;
     }
 
-    .row{ display:grid; gap: 10px; }
+    /* CONTENEDOR DEL FORMULARIO centrado */
+    form#rsvpForm{
+      width: 100%;
+      max-width: 720px;     /* ancho máximo del formulario */
+      margin: 0 auto;       /* centra el bloque completo */
+      display: grid;
+      gap: 12px;
+    }
 
+    /* Cada bloque (label + input) centrado */
+    .field{
+      display: grid;
+      gap: 8px;
+      justify-items: center; /* centra el label y el input */
+    }
+
+    /* Labels centrados */
     label{
       font-size: 14px;
       color: #6f6a65;
-      font-weight: 600;
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
     }
 
+    /* Inputs centrados */
     input, select, textarea{
-      width:100%;
+      width: 100%;
+      max-width: 680px;     /* evita que se vaya demasiado ancho */
       padding: 14px 14px;
       border-radius: 14px;
       border: 1px solid rgba(0,0,0,0.15);
@@ -293,14 +385,16 @@
       font-family: var(--body);
       font-size: 16px;
       background: rgba(255,255,255,0.92);
+      text-align: center;   /* centra lo que escriben */
     }
 
     textarea{
       min-height: 120px;
       resize: vertical;
+      text-align: left;     /* texto largo se lee mejor a la izquierda */
     }
 
-    /* Asistencia centrada */
+    /* Radios centrados y bonitos */
     .radio-row{
       display:flex;
       gap: 18px;
@@ -325,9 +419,12 @@
       min-width: 210px;
     }
 
+    /* Botón enviar */
     .btn{
-      margin-top: 14px;
+      margin-top: 10px;
       width: 100%;
+      max-width: 680px;
+      justify-self: center;
       padding: 16px 16px;
       border-radius: 14px;
       border: none;
@@ -345,46 +442,18 @@
       text-align:center;
       font-size: 13px;
       color: #6f6a65;
-      margin-top: 12px;
+      margin-top: 6px;
     }
 
     .status{
-      margin-top: 10px;
+      margin-top: 6px;
       text-align:center;
-      font-weight: 700;
-    }
-
-    /* CONFIRMACIÓN */
-    .important{
-      text-align:center;
-      line-height: 1.8;
-      font-size: 15px;
-      padding: 0 8px;
-    }
-    .important b{ color:#4f4a45; }
-
-    /* WhatsApp */
-    .whats{
-      display:flex;
-      justify-content:center;
-      margin-top: 14px;
-    }
-    .whats a{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(0,0,0,0.08);
-      text-decoration:none;
-      color: #3f3b37;
       font-weight: 800;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
     }
-    .wa-icon{ width: 22px; height: 22px; display:inline-block; }
 
-    /* Audio toast */
+    /* =========================
+       AVISO PARA AUDIO (cuando el navegador bloquea autoplay)
+       ========================= */
     .audio-toast{
       position: fixed;
       left: 50%;
@@ -405,18 +474,28 @@
 </head>
 
 <body>
+  <!-- =========================
+       AUDIO DE FONDO
+       - Archivo: musica.mp3 (en la raíz del repo)
+       - Autoplay se intenta, pero si el navegador lo bloquea
+         mostramos un aviso para que toquen.
+       ========================= -->
   <audio id="bgMusic" src="musica.mp3" preload="auto" loop></audio>
   <div id="audioToast" class="audio-toast">🔊 Toca aquí para activar el sonido</div>
 
   <div class="bg-overlay">
     <div class="wrap">
 
-      <!-- PORTADA -->
+      <!-- =========================
+           PORTADA (SOLO IMAGEN)
+           ========================= -->
       <div class="card">
         <img class="hero-img" src="foto-portada.jpg" alt="Foto de portada de Alexandra y Daniel" />
       </div>
 
-      <!-- MENSAJE INICIAL -->
+      <!-- =========================
+           MENSAJE INICIAL
+           ========================= -->
       <div class="card section">
         <div class="intro-text">
           Teniendo principalmente como testigo y guía de nuestra historia a <span class="intro-strong">Dios</span>,
@@ -430,7 +509,9 @@
         </div>
       </div>
 
-      <!-- NOMBRES / FECHA / LUGAR / CONTADOR -->
+      <!-- =========================
+           NOMBRES / FECHA / LUGAR / CONTADOR
+           ========================= -->
       <div class="card section">
         <p class="sec-sub">Nuestra Boda</p>
         <div class="names">Alexandra Gil &amp; Daniel Álvarez</div>
@@ -457,7 +538,10 @@
         </div>
       </div>
 
-      <!-- VIDEO -->
+      <!-- =========================
+           VIDEO (OPCIONAL)
+           - Súbelo como: video.mp4
+           ========================= -->
       <div class="card section">
         <div class="sec-title">Video</div>
         <p class="sec-sub">Un pedacito de nosotros 💛</p>
@@ -476,7 +560,10 @@
         </div>
       </div>
 
-      <!-- GALERÍA 20 FOTOS (foto-01.jpg ... foto-20.jpg) -->
+      <!-- =========================
+           GALERÍA 20 FOTOS
+           - RUTA: fotos/foto-01.jpg ... foto-20.jpg
+           ========================= -->
       <div class="card section">
         <div class="sec-title">Fotos</div>
         <p class="sec-sub">Algunos momentos que queremos compartir contigo</p>
@@ -506,7 +593,9 @@
         </div>
       </div>
 
-      <!-- VESTIMENTA -->
+      <!-- =========================
+           VESTIMENTA
+           ========================= -->
       <div class="card section">
         <div class="sec-title">Vestimenta</div>
         <p class="sec-sub">Guía sugerida para la boda</p>
@@ -536,7 +625,9 @@
         <div class="hint-center">(Estas imágenes son solo una guía de estilo)</div>
       </div>
 
-      <!-- CONFIRMACION -->
+      <!-- =========================
+           CONFIRMACIÓN (1 MES + WHATSAPP)
+           ========================= -->
       <div class="card section">
         <div class="sec-title">Confirmación</div>
         <div class="important">
@@ -558,7 +649,10 @@
         </div>
       </div>
 
-      <!-- FORM -->
+      <!-- =========================
+           FORMULARIO RSVP (CENTRADO)
+           - Labels y cajas centradas (como pediste)
+           ========================= -->
       <div class="card section">
         <div class="form-title">CONFIRMAR ASISTENCIA</div>
         <p class="form-sub">
@@ -566,7 +660,8 @@
           ¡Esperamos que estés allí!
         </p>
 
-        <form id="rsvpForm" class="row">
+        <form id="rsvpForm">
+          <!-- Radios centrados -->
           <div class="radio-row">
             <label>
               <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
@@ -578,12 +673,14 @@
             </label>
           </div>
 
-          <div>
+          <!-- Campo: responsable -->
+          <div class="field">
             <label for="responsable">Nombre del responsable (quien confirma)</label>
             <input id="responsable" name="responsable" type="text" placeholder="Ej: Juan Pérez" required>
           </div>
 
-          <div>
+          <!-- Campo: cantidad -->
+          <div class="field">
             <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
             <select id="cantidad" name="cantidad" required>
               <option value="1">1 persona</option>
@@ -595,19 +692,23 @@
             </select>
           </div>
 
+          <!-- Aquí se pintan dinámicamente los invitados (Invitado 1..N) -->
           <div id="guestFields"></div>
 
-          <div>
+          <!-- Campo: alergias -->
+          <div class="field">
             <label for="alergias">Intolerancias o alergias alimentarias</label>
             <input id="alergias" name="alergias" type="text" placeholder="Ej: Ninguna">
           </div>
 
-          <div>
+          <!-- Campo: canción -->
+          <div class="field">
             <label for="cancion">¿Qué canción no puede faltar?</label>
             <input id="cancion" name="cancion" type="text" placeholder="Ej: Nuestra canción favorita">
           </div>
 
-          <div>
+          <!-- Campo: mensaje -->
+          <div class="field">
             <label for="mensaje">Mensaje para los novios</label>
             <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..."></textarea>
           </div>
@@ -622,9 +723,18 @@
   </div>
 
   <script>
+    /* ==========================================================
+       1) URL DEL APPS SCRIPT
+       - Aquí llega el POST del formulario
+       ========================================================== */
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
+    /* ==========================================================
+       2) CONTADOR
+       - Ajusta la hora si lo necesitas
+       ========================================================== */
     const weddingDate = new Date("2026-11-13T17:00:00-05:00");
+
     function pad2(n){ return String(n).padStart(2, "0"); }
 
     function updateCountdown(){
@@ -635,6 +745,8 @@
       const hEl = document.getElementById("cdHours");
       const mEl = document.getElementById("cdMins");
       const sEl = document.getElementById("cdSecs");
+
+      if (!dEl) return; // por si quitas el contador en algún momento
 
       if (diff <= 0){
         dEl.textContent = "0";
@@ -655,18 +767,24 @@
       mEl.textContent = pad2(mins);
       sEl.textContent = pad2(secs);
     }
+
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Invitados dinámicos
+    /* ==========================================================
+       3) INVITADOS DINÁMICOS
+       - Crea Invitado 1..N según la cantidad seleccionada
+       ========================================================== */
     const cantidadEl = document.getElementById("cantidad");
     const guestFields = document.getElementById("guestFields");
 
     function renderGuestFields(){
       const n = Number(cantidadEl.value || 1);
       guestFields.innerHTML = "";
+
       for (let i = 1; i <= n; i++){
         const wrap = document.createElement("div");
+        wrap.className = "field"; // IMPORTANTE: para que quede centrado también
         wrap.innerHTML = `
           <label for="inv${i}">Nombre del invitado ${i}</label>
           <input id="inv${i}" name="inv${i}" type="text" placeholder="Invitado ${i}" ${i === 1 ? "required" : ""}>
@@ -674,68 +792,78 @@
         guestFields.appendChild(wrap);
       }
     }
-    cantidadEl.addEventListener("change", renderGuestFields);
-    renderGuestFields();
 
-    // Enviar form
+    if (cantidadEl){
+      cantidadEl.addEventListener("change", renderGuestFields);
+      renderGuestFields();
+    }
+
+    /* ==========================================================
+       4) ENVÍO DEL FORMULARIO (fetch -> Apps Script)
+       ========================================================== */
     const form = document.getElementById("rsvpForm");
     const statusEl = document.getElementById("status");
     const submitBtn = document.getElementById("submitBtn");
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    if (form){
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = "ENVIANDO...";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "ENVIANDO...";
 
-      statusEl.textContent = "";
-      statusEl.style.color = "";
+        statusEl.textContent = "";
+        statusEl.style.color = "";
 
-      const asistencia = form.querySelector('input[name="asistencia"]:checked')?.value || "";
-      const responsable = document.getElementById("responsable").value.trim();
-      const cantidad = Number(document.getElementById("cantidad").value || 0);
+        const asistencia = form.querySelector('input[name="asistencia"]:checked')?.value || "";
+        const responsable = document.getElementById("responsable").value.trim();
+        const cantidad = Number(document.getElementById("cantidad").value || 0);
 
-      const invitados = [];
-      for (let i = 1; i <= cantidad; i++){
-        invitados.push((document.getElementById(`inv${i}`)?.value || "").trim());
-      }
-
-      const alergias = (document.getElementById("alergias").value || "").trim();
-      const cancion = (document.getElementById("cancion").value || "").trim();
-      const mensaje = (document.getElementById("mensaje").value || "").trim();
-      const info = navigator.userAgent || "";
-
-      const payload = { asistencia, responsable, cantidad, invitados, alergias, cancion, mensaje, info };
-
-      try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          mode: "cors",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json();
-
-        if (data.ok){
-          statusEl.style.color = "#2f6f3e";
-          statusEl.textContent = "✅ " + (data.message || "Confirmación registrada correctamente.");
-          form.reset();
-          renderGuestFields();
-        } else {
-          statusEl.style.color = "#b00020";
-          statusEl.textContent = "⚠️ " + (data.message || "No se pudo registrar. Intenta de nuevo.");
+        const invitados = [];
+        for (let i = 1; i <= cantidad; i++){
+          invitados.push((document.getElementById(`inv${i}`)?.value || "").trim());
         }
-      } catch (err){
-        statusEl.style.color = "#b00020";
-        statusEl.textContent = "⚠️ Error enviando la confirmación. Intenta de nuevo.";
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "ENVIAR RESPUESTA";
-      }
-    });
 
-    // Música automática + fallback
+        const alergias = (document.getElementById("alergias").value || "").trim();
+        const cancion = (document.getElementById("cancion").value || "").trim();
+        const mensaje = (document.getElementById("mensaje").value || "").trim();
+        const info = navigator.userAgent || "";
+
+        const payload = { asistencia, responsable, cantidad, invitados, alergias, cancion, mensaje, info };
+
+        try {
+          const res = await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await res.json();
+
+          if (data.ok){
+            statusEl.style.color = "#2f6f3e";
+            statusEl.textContent = "✅ " + (data.message || "Confirmación registrada correctamente.");
+            form.reset();
+            renderGuestFields();
+          } else {
+            statusEl.style.color = "#b00020";
+            statusEl.textContent = "⚠️ " + (data.message || "No se pudo registrar. Intenta de nuevo.");
+          }
+        } catch (err){
+          statusEl.style.color = "#b00020";
+          statusEl.textContent = "⚠️ Error enviando la confirmación. Intenta de nuevo.";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "ENVIAR RESPUESTA";
+        }
+      });
+    }
+
+    /* ==========================================================
+       5) MÚSICA AUTOMÁTICA (con fallback)
+       - iPhone suele bloquear autoplay -> aparece el toast
+       ========================================================== */
     const bgMusic = document.getElementById("bgMusic");
     const audioToast = document.getElementById("audioToast");
 
@@ -759,12 +887,16 @@
 
     document.addEventListener("DOMContentLoaded", tryAutoplay);
 
-    // Animación galería
+    /* ==========================================================
+       6) ANIMACIÓN DE FOTOS (cuando entran a pantalla)
+       - Efecto: aparecen desde abajo/izq/der
+       ========================================================== */
     const galleryImgs = Array.from(document.querySelectorAll("#photoMasonry img"));
     galleryImgs.forEach((img) => {
       const r = Math.random();
       if (r < 0.33) img.classList.add("from-left");
       else if (r < 0.66) img.classList.add("from-right");
+      // Si no entra en left/right, queda con translateY (desde abajo)
     });
 
     const io = new IntersectionObserver((entries) => {
