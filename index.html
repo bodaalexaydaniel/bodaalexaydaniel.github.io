@@ -44,7 +44,7 @@
       font-family: var(--body);
       color: var(--text);
 
-      /* Fondo real (archivo fondo-playa.jpg) */
+      /* Fondo real */
       background-color: var(--bg);
       background-image: url("fondo-playa.jpg");
       background-size: cover;
@@ -52,7 +52,7 @@
       background-attachment: fixed;
     }
 
-    /* Capa suave para lectura sobre el fondo */
+    /* Capa suave para lectura */
     .bg-overlay{
       min-height:100vh;
       background: linear-gradient(
@@ -67,7 +67,7 @@
       margin: 0 auto;
     }
 
-    /* Tarjetas (cada sección dentro de un “card”) */
+    /* Tarjetas */
     .card{
       background: var(--card);
       border-radius: var(--radius);
@@ -113,7 +113,7 @@
     }
 
     /* =========================
-       TÍTULOS GENERALES
+       TÍTULOS
        ========================= */
     .sec-title{
       font-family: var(--script);
@@ -221,7 +221,7 @@
       border: 1px solid rgba(0,0,0,0.06);
       box-shadow: 0 8px 18px rgba(0,0,0,0.10);
 
-      /* Animación (aparecen al hacer scroll) */
+      /* Animación */
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 650ms ease, transform 650ms ease;
@@ -279,17 +279,6 @@
     }
 
     /* =========================
-       BLOQUES DE TEXTO IMPORTANTES
-       ========================= */
-    .important{
-      text-align:center;
-      line-height: 1.8;
-      font-size: 15px;
-      padding: 0 8px;
-    }
-    .important b{ color:#4f4a45; }
-
-    /* =========================
        LLUVIA DE SOBRES
        ========================= */
     .gift-title{
@@ -308,7 +297,7 @@
     }
 
     /* =========================
-       ITINERARIO
+       ITINERARIO (CENTRADO COMPLETO)
        ========================= */
     .itinerary{
       text-align:center;
@@ -329,14 +318,12 @@
       gap: 10px;
       margin-top: 12px;
     }
-
-    /* ✅ CAMBIO: cada “Día” completamente centrado */
     .itinerary .day{
       border: 1px solid rgba(0,0,0,0.06);
       background: rgba(255,255,255,0.75);
       border-radius: 16px;
       padding: 12px 14px;
-      text-align: center; /* <- antes estaba left */
+      text-align: center;
     }
     .itinerary .day b{ color:#4f4a45; }
 
@@ -424,6 +411,7 @@
       text-align: left;
     }
 
+    /* Radios izquierda/derecha */
     .radio-row{
       display:flex;
       justify-content: space-between;
@@ -501,7 +489,7 @@
 
 <body>
   <!-- =========================
-       AUDIO (música de fondo)
+       AUDIO
        ========================= -->
   <audio id="bgMusic" src="musica.mp3" preload="auto" loop></audio>
   <div id="audioToast" class="audio-toast">🔊 Toca aquí para activar el sonido</div>
@@ -542,27 +530,15 @@
         <p class="place"><b>Lugar:</b> En alguna playa de Coveñas, Sucre 🏖️</p>
 
         <div class="countdown" id="countdown">
-          <div class="cd-box">
-            <div class="cd-num" id="cdDays">--</div>
-            <div class="cd-lbl">Días</div>
-          </div>
-          <div class="cd-box">
-            <div class="cd-num" id="cdHours">--</div>
-            <div class="cd-lbl">Horas</div>
-          </div>
-          <div class="cd-box">
-            <div class="cd-num" id="cdMins">--</div>
-            <div class="cd-lbl">Min</div>
-          </div>
-          <div class="cd-box">
-            <div class="cd-num" id="cdSecs">--</div>
-            <div class="cd-lbl">Seg</div>
-          </div>
+          <div class="cd-box"><div class="cd-num" id="cdDays">--</div><div class="cd-lbl">Días</div></div>
+          <div class="cd-box"><div class="cd-num" id="cdHours">--</div><div class="cd-lbl">Horas</div></div>
+          <div class="cd-box"><div class="cd-num" id="cdMins">--</div><div class="cd-lbl">Min</div></div>
+          <div class="cd-box"><div class="cd-num" id="cdSecs">--</div><div class="cd-lbl">Seg</div></div>
         </div>
       </div>
 
       <!-- =========================
-           VIDEO (AUTOPLAY)
+           VIDEO
            ========================= -->
       <div class="card section">
         <div class="sec-title">Cuando nos dijimos que SI</div>
@@ -609,6 +585,10 @@
           <img src="fotos/foto-14.jpg" alt="Foto 14">
           <img src="fotos/foto-15.jpg" alt="Foto 15">
           <img src="fotos/foto-16.jpg" alt="Foto 16">
+          <img src="fotos/foto-17.jpg" alt="Foto 17">
+          <img src="fotos/foto-18.jpg" alt="Foto 18">
+          <img src="fotos/foto-19.jpg" alt="Foto 19">
+          <img src="fotos/foto-20.jpg" alt="Foto 20">
         </div>
       </div>
 
@@ -663,12 +643,10 @@
               <b>Día 1 – 13 de Noviembre:</b><br>
               Fecha del matrimonio y <b>Boda</b>, evento principal.
             </div>
-
             <div class="day">
               <b>Día 2 – 14 de Noviembre:</b><br>
               <b>Desenguayabe</b> con los novios.
             </div>
-
             <div class="day">
               <b>Día 3 – 15 de Noviembre:</b><br>
               <b>Día Final</b>.
@@ -703,11 +681,7 @@
 
         <div class="whats">
           <a href="https://wa.me/573212363753" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
-            <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M16 3C9.1 3 3.5 8.5 3.5 15.3c0 2.4.7 4.7 2 6.7L4 29l7.2-1.9c1.9 1 4.1 1.6 6.3 1.6 6.9 0 12.5-5.5 12.5-12.3S22.9 3 16 3Z" fill="#25D366"/>
-              <path d="M24.1 19.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.6-.2-.9.2-.3.4-1 1-1.2 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.9-2.2-1.2-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.3 2.4 3.8 5.9 5.1.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z" fill="#fff"/>
-            </svg>
-            ¿Dudas? Escríbenos por WhatsApp: <b>+57 321 236 3753</b>
+            <span>¿Dudas? Escríbenos por WhatsApp: <b>+57 321 236 3753</b></span>
           </a>
         </div>
       </div>
@@ -778,15 +752,14 @@
 
   <script>
     /* ==========================================================
-       1) URL DE APPS SCRIPT
+       1) URL DE APPS SCRIPT (TU ENDPOINT)
        ========================================================== */
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
     /* ==========================================================
-       2) CONTADOR (4:00 PM)
+       2) CONTADOR
        ========================================================== */
     const weddingDate = new Date("2026-11-13T16:00:00-05:00");
-
     function pad2(n){ return String(n).padStart(2, "0"); }
 
     function updateCountdown(){
@@ -817,7 +790,6 @@
       mEl.textContent = pad2(mins);
       sEl.textContent = pad2(secs);
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
@@ -841,12 +813,12 @@
         guestFields.appendChild(wrap);
       }
     }
-
     cantidadEl.addEventListener("change", renderGuestFields);
     renderGuestFields();
 
     /* ==========================================================
        4) ENVÍO DEL FORMULARIO
+       - Sin validación por IP en el frontend.
        ========================================================== */
     const form = document.getElementById("rsvpForm");
     const statusEl = document.getElementById("status");
@@ -906,7 +878,7 @@
     });
 
     /* ==========================================================
-       5) MÚSICA AUTOMÁTICA
+       5) MÚSICA AUTOMÁTICA (con fallback)
        ========================================================== */
     const bgMusic = document.getElementById("bgMusic");
     const audioToast = document.getElementById("audioToast");
