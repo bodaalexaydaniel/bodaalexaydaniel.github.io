@@ -41,20 +41,21 @@
        BASE
        ========================= */
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: var(--body);
       color: var(--text);
       background-color: var(--bg);
 
-      /* Fondo usando tu archivo real */
+      /* ✅ Fondo usando tu archivo real */
       background-image: url("fondo-playa.jpg");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
     }
 
-    /* Capa suave encima del fondo */
+    /* ✅ Capa suave encima del fondo (NO lo tapa, solo lo suaviza) */
     .bg-overlay{
       min-height:100vh;
       background: linear-gradient(
@@ -102,6 +103,10 @@
       display:block;
     }
 
+    /* ✅ Quitamos el bloque debajo de la portada:
+       .hero-head, .tiny, .hero-title, .hero-sub se pueden dejar,
+       pero NO se usan en el HTML.
+    */
     .hero-head{
       text-align:center;
       padding: 22px 18px 10px;
@@ -248,18 +253,19 @@
       line-height: 1.8;
     }
 
-    /* FIX: imagenes de referencia no se deforman */
+    /* ✅ FIX real: las imágenes NO se deforman en desktop ni móvil */
     .ref-img{
       width:100%;
-      height: 280px;
-      object-fit: cover;
+      height: 320px;              /* un poco más alto para que no se vea “cortada” */
+      object-fit: cover;          /* recorta sin deformar */
+      object-position: center;    /* centra */
       border-radius: 16px;
       border: 1px solid rgba(0,0,0,0.06);
       display:block;
       background: #fff;
     }
 
-    /* (Estas imágenes...) centrado */
+    /* ✅ texto centrado debajo de vestimenta */
     .hint-center{
       text-align:center;
       font-size: 14px;
@@ -443,6 +449,7 @@
        AUDIO (AUTOMÁTICO)
        =========================
        Tu archivo real: musica.mp3
+       Nota: iOS/Chrome pueden bloquear autoplay, por eso existe el toast.
   -->
   <audio id="bgMusic" src="musica.mp3" preload="auto" loop></audio>
   <div id="audioToast" class="audio-toast">🔊 Toca aquí para activar el sonido</div>
@@ -455,11 +462,15 @@
            ========================= -->
       <div class="card">
         <img class="hero-img" src="foto-portada.jpg" alt="Foto de portada de Alexandra y Daniel" />
+
+        <!-- ✅ ELIMINADO: bloque debajo de la portada -->
+        <!--
         <div class="hero-head">
           <div class="tiny">ESTÁS INVITADO A</div>
           <div class="hero-title">nuestra boda</div>
           <p class="hero-sub">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
         </div>
+        -->
       </div>
 
       <!-- =========================
@@ -510,29 +521,31 @@
 
       <!-- =========================
            GALERÍA DE FOTOS (RÁFAGA)
-           ========================= -->
+           =========================
+           ✅ Recomendado: crear carpeta "fotos" y subir:
+              foto-01.jpg ... foto-15.jpg
+       ========================= -->
       <div class="card section">
         <div class="sec-title">Fotos</div>
         <p class="sec-sub">Algunos momentos que queremos compartir contigo</p>
         <div class="hr"></div>
 
-        <!-- Si aún no tienes la carpeta fotos/, puedes dejarlo así y luego subirlas -->
         <div class="masonry">
-          <img src="fotos/01.jpg" alt="Foto 01">
-          <img src="fotos/02.jpg" alt="Foto 02">
-          <img src="fotos/03.jpg" alt="Foto 03">
-          <img src="fotos/04.jpg" alt="Foto 04">
-          <img src="fotos/05.jpg" alt="Foto 05">
-          <img src="fotos/06.jpg" alt="Foto 06">
-          <img src="fotos/07.jpg" alt="Foto 07">
-          <img src="fotos/08.jpg" alt="Foto 08">
-          <img src="fotos/09.jpg" alt="Foto 09">
-          <img src="fotos/10.jpg" alt="Foto 10">
-          <img src="fotos/11.jpg" alt="Foto 11">
-          <img src="fotos/12.jpg" alt="Foto 12">
-          <img src="fotos/13.jpg" alt="Foto 13">
-          <img src="fotos/14.jpg" alt="Foto 14">
-          <img src="fotos/15.jpg" alt="Foto 15">
+          <img src="fotos/foto-01.jpg" alt="Foto 01">
+          <img src="fotos/foto-02.jpg" alt="Foto 02">
+          <img src="fotos/foto-03.jpg" alt="Foto 03">
+          <img src="fotos/foto-04.jpg" alt="Foto 04">
+          <img src="fotos/foto-05.jpg" alt="Foto 05">
+          <img src="fotos/foto-06.jpg" alt="Foto 06">
+          <img src="fotos/foto-07.jpg" alt="Foto 07">
+          <img src="fotos/foto-08.jpg" alt="Foto 08">
+          <img src="fotos/foto-09.jpg" alt="Foto 09">
+          <img src="fotos/foto-10.jpg" alt="Foto 10">
+          <img src="fotos/foto-11.jpg" alt="Foto 11">
+          <img src="fotos/foto-12.jpg" alt="Foto 12">
+          <img src="fotos/foto-13.jpg" alt="Foto 13">
+          <img src="fotos/foto-14.jpg" alt="Foto 14">
+          <img src="fotos/foto-15.jpg" alt="Foto 15">
         </div>
       </div>
 
@@ -553,8 +566,6 @@
               <li>Pantalón beige/arena o tonos neutros.</li>
               <li>Estilo playero elegante.</li>
             </ul>
-
-            <!-- Tu archivo real -->
             <img class="ref-img" src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
           </div>
 
@@ -565,8 +576,6 @@
               <li>Vestidos en tonos pasteles o neutros, estilo elegante y fresco.</li>
               <li><b>Recomendación:</b> por ser en playa, es recomendable <b>no</b> llevar tacón (ideal sandalias/flat).</li>
             </ul>
-
-            <!-- Tu archivo real -->
             <img class="ref-img" src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
           </div>
         </div>
@@ -587,7 +596,7 @@
           ¡Gracias por ayudarnos a planear este día tan especial!
         </div>
 
-        <!-- WhatsApp actualizado -->
+        <!-- ✅ WhatsApp actualizado -->
         <div class="whats">
           <a
             href="https://wa.me/573212363753"
@@ -597,7 +606,7 @@
           >
             <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M16 3C9.1 3 3.5 8.5 3.5 15.3c0 2.4.7 4.7 2 6.7L4 29l7.2-1.9c1.9 1 4.1 1.6 6.3 1.6 6.9 0 12.5-5.5 12.5-12.3S22.9 3 16 3Z" fill="#25D366"/>
-              <path d="M24.1 19.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.6-.2-.9.2-.3.4-1 1-1.2 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.9-2.2-1.2-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.3 2.4 3.8 5.9 5.1.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z" fill="#fff"/>
+              <path d="M24.1 19.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.6-.2-.9.2-.3.4-1 1-1.2 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.9-2.2-1.2-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.3 2.4 3.8 5.9 5.1.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z" fill="#fff"/>
             </svg>
             ¿Dudas? Escríbenos por WhatsApp: <b>+57 321 236 3753</b>
           </a>
@@ -811,6 +820,7 @@
         await bgMusic.play();
         audioToast.style.display = "none";
       } catch (e){
+        // ✅ Si el navegador bloquea autoplay, mostramos el aviso
         audioToast.style.display = "block";
       }
     }
