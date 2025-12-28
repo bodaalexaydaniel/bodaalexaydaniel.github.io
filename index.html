@@ -7,8 +7,6 @@
 
   <!-- =========================
        FUENTES (Google Fonts)
-       - Great Vibes: títulos elegantes tipo firma
-       - Montserrat: texto general
        ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +17,7 @@
 
   <style>
     /* =========================
-       VARIABLES DE COLORES / ESTILO
+       VARIABLES DE DISEÑO
        ========================= */
     :root{
       --bg: #f6f1ea;
@@ -37,7 +35,7 @@
     }
 
     /* =========================
-       ESTILO BASE
+       BASE
        ========================= */
     *{ box-sizing:border-box; }
 
@@ -46,7 +44,7 @@
       font-family: var(--body);
       color: var(--text);
 
-      /* Fondo usando tu archivo en el repo */
+      /* Fondo real */
       background-color: var(--bg);
       background-image: url("fondo-playa.jpg");
       background-size: cover;
@@ -54,7 +52,7 @@
       background-attachment: fixed;
     }
 
-    /* Capa suave arriba del fondo para que el texto se lea bien */
+    /* Capa suave para lectura */
     .bg-overlay{
       min-height:100vh;
       background: linear-gradient(
@@ -64,13 +62,12 @@
       padding: 18px 14px 60px;
     }
 
-    /* Contenedor central con ancho máximo */
     .wrap{
       max-width: var(--maxw);
       margin: 0 auto;
     }
 
-    /* Tarjetas (secciones) */
+    /* Tarjetas */
     .card{
       background: var(--card);
       border-radius: var(--radius);
@@ -80,7 +77,6 @@
       backdrop-filter: blur(6px);
     }
 
-    /* Espaciado interno de secciones */
     .section{
       margin-top: 16px;
       padding: 22px 18px;
@@ -93,7 +89,7 @@
     }
 
     /* =========================
-       PORTADA (solo imagen)
+       PORTADA
        ========================= */
     .hero-img{
       width:100%;
@@ -103,7 +99,7 @@
     }
 
     /* =========================
-       TEXTO DE INTRO
+       INTRO
        ========================= */
     .intro-text{
       text-align:center;
@@ -117,7 +113,7 @@
     }
 
     /* =========================
-       TÍTULOS DE SECCIÓN
+       TÍTULOS
        ========================= */
     .sec-title{
       font-family: var(--script);
@@ -171,7 +167,6 @@
       flex-wrap: wrap;
       margin-top: 16px;
     }
-
     .cd-box{
       background: rgba(255,255,255,0.7);
       border: 1px solid rgba(0,0,0,0.06);
@@ -180,13 +175,11 @@
       min-width: 90px;
       text-align:center;
     }
-
     .cd-num{
       font-size: 26px;
       font-weight: 800;
       color: #4f4a45;
     }
-
     .cd-lbl{
       font-size: 11px;
       letter-spacing: 0.22em;
@@ -196,8 +189,8 @@
     }
 
     /* =========================
-       VIDEO (si lo usas)
-       - Súbelo como: video.mp4
+       VIDEO
+       - Autoplay: en móviles suele requerir muted
        ========================= */
     .video-wrap{ display:flex; justify-content:center; }
     video{
@@ -210,46 +203,37 @@
     }
 
     /* =========================
-       GALERÍA (20 fotos grandes)
-       - Usa: fotos/foto-01.jpg ... foto-20.jpg
+       GALERÍA (FOTOS un poco más pequeñas)
+       - Más columnas => menos espacio ocupado
        ========================= */
     .masonry{
-      column-count: 1;        /* móvil: 1 columna -> se ven GRANDES */
-      column-gap: 14px;
+      column-count: 2;        /* móvil: 2 columnas => fotos más pequeñas */
+      column-gap: 12px;
     }
     @media (min-width: 700px){
-      .masonry{ column-count: 2; } /* tablet y desktop: 2 columnas */
+      .masonry{ column-count: 3; } /* tablet/desktop: 3 columnas */
     }
 
     .masonry img{
       width: 100%;
-      margin: 0 0 14px;
-      border-radius: 18px;
+      margin: 0 0 12px;
+      border-radius: 16px;
       display:block;
       break-inside: avoid;
       border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.10);
 
-      /* Animación inicial (ocultas) */
+      /* Animación */
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 650ms ease, transform 650ms ease;
       will-change: opacity, transform;
     }
-
-    /* Cuando entran en pantalla, se muestran */
-    .masonry img.show{
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Variantes para que aparezcan desde lados */
-    .masonry img.from-left{ transform: translateX(-26px); }
-    .masonry img.from-right{ transform: translateX(26px); }
+    .masonry img.show{ opacity: 1; transform: translateY(0); }
+    .masonry img.from-left{ transform: translateX(-22px); }
+    .masonry img.from-right{ transform: translateX(22px); }
     .masonry img.from-left.show,
-    .masonry img.from-right.show{
-      transform: translateX(0);
-    }
+    .masonry img.from-right.show{ transform: translateX(0); }
 
     /* =========================
        VESTIMENTA
@@ -263,11 +247,13 @@
       .grid-2{ grid-template-columns: 1fr 1fr; }
     }
 
+    /* Centrar títulos Hombres/Mujeres */
     .mini-title{
       font-weight: 800;
       font-size: 18px;
       margin: 0 0 10px;
       color: #5b564f;
+      text-align: center;
     }
 
     ul{
@@ -275,7 +261,7 @@
       line-height: 1.8;
     }
 
-    /* Importante: object-fit contain para que NO se corten raro */
+    /* Imagenes sin deformarse */
     .ref-img{
       width:100%;
       aspect-ratio: 16 / 10;
@@ -297,7 +283,7 @@
     }
 
     /* =========================
-       CONFIRMACIÓN (texto + WhatsApp)
+       CONFIRMACIÓN (texto)
        ========================= */
     .important{
       text-align:center;
@@ -307,6 +293,7 @@
     }
     .important b{ color:#4f4a45; }
 
+    /* WhatsApp */
     .whats{
       display:flex;
       justify-content:center;
@@ -328,9 +315,7 @@
     .wa-icon{ width: 22px; height: 22px; display:inline-block; }
 
     /* =========================
-       FORMULARIO (RSVP)
-       - AQUÍ está lo que pediste:
-         labels y cajas centradas
+       FORMULARIO (CENTRADO)
        ========================= */
     .form-title{
       font-weight: 900;
@@ -349,23 +334,22 @@
       line-height:1.6;
     }
 
-    /* CONTENEDOR DEL FORMULARIO centrado */
+    /* Bloque del formulario centrado */
     form#rsvpForm{
       width: 100%;
-      max-width: 720px;     /* ancho máximo del formulario */
-      margin: 0 auto;       /* centra el bloque completo */
+      max-width: 720px;
+      margin: 0 auto;
       display: grid;
       gap: 12px;
     }
 
-    /* Cada bloque (label + input) centrado */
+    /* Cada campo centrado */
     .field{
       display: grid;
       gap: 8px;
-      justify-items: center; /* centra el label y el input */
+      justify-items: center;
     }
 
-    /* Labels centrados */
     label{
       font-size: 14px;
       color: #6f6a65;
@@ -374,10 +358,9 @@
       width: 100%;
     }
 
-    /* Inputs centrados */
     input, select, textarea{
       width: 100%;
-      max-width: 680px;     /* evita que se vaya demasiado ancho */
+      max-width: 680px;
       padding: 14px 14px;
       border-radius: 14px;
       border: 1px solid rgba(0,0,0,0.15);
@@ -385,41 +368,52 @@
       font-family: var(--body);
       font-size: 16px;
       background: rgba(255,255,255,0.92);
-      text-align: center;   /* centra lo que escriben */
+      text-align: center;
     }
 
     textarea{
       min-height: 120px;
       resize: vertical;
-      text-align: left;     /* texto largo se lee mejor a la izquierda */
+      text-align: left;
     }
 
-    /* Radios centrados y bonitos */
+    /* =========================
+       RADIO: UNO A LA IZQ Y OTRO A LA DER (como pediste)
+       ========================= */
     .radio-row{
       display:flex;
-      gap: 18px;
-      justify-content:center;
+      justify-content: space-between; /* izquierda / derecha */
       align-items:center;
-      flex-wrap: wrap;
+      gap: 12px;
+      flex-wrap: nowrap;
       margin: 14px 0 6px;
-      color: #6f6a65;
-      text-align:center;
+      width: 100%;
     }
 
     .radio-row label{
       display:flex;
       align-items:center;
-      justify-content:center;
       gap: 10px;
       font-weight: 700;
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(255,255,255,0.65);
       border: 1px solid rgba(0,0,0,0.06);
-      min-width: 210px;
+      width: 48%;
+      justify-content: center;
+      text-align: center;
     }
 
-    /* Botón enviar */
+    /* En pantallas pequeñas, que bajen uno debajo del otro */
+    @media (max-width: 420px){
+      .radio-row{
+        flex-wrap: wrap;
+      }
+      .radio-row label{
+        width: 100%;
+      }
+    }
+
     .btn{
       margin-top: 10px;
       width: 100%;
@@ -452,7 +446,7 @@
     }
 
     /* =========================
-       AVISO PARA AUDIO (cuando el navegador bloquea autoplay)
+       AUDIO toast
        ========================= */
     .audio-toast{
       position: fixed;
@@ -475,10 +469,7 @@
 
 <body>
   <!-- =========================
-       AUDIO DE FONDO
-       - Archivo: musica.mp3 (en la raíz del repo)
-       - Autoplay se intenta, pero si el navegador lo bloquea
-         mostramos un aviso para que toquen.
+       AUDIO
        ========================= -->
   <audio id="bgMusic" src="musica.mp3" preload="auto" loop></audio>
   <div id="audioToast" class="audio-toast">🔊 Toca aquí para activar el sonido</div>
@@ -487,7 +478,7 @@
     <div class="wrap">
 
       <!-- =========================
-           PORTADA (SOLO IMAGEN)
+           PORTADA
            ========================= -->
       <div class="card">
         <img class="hero-img" src="foto-portada.jpg" alt="Foto de portada de Alexandra y Daniel" />
@@ -516,7 +507,7 @@
         <p class="sec-sub">Nuestra Boda</p>
         <div class="names">Alexandra Gil &amp; Daniel Álvarez</div>
         <p class="date">Viernes 13 de noviembre de 2026</p>
-        <p class="place"><b>Lugar:</b> Pendiente por confirmar (Coveñas, Sucre)</p>
+        <p class="place"><b>Lugar:</b> En alguna playa de Coveñas, Sucre 🏖️</p>
 
         <div class="countdown" id="countdown">
           <div class="cd-box">
@@ -539,8 +530,9 @@
       </div>
 
       <!-- =========================
-           VIDEO (OPCIONAL)
-           - Súbelo como: video.mp4
+           VIDEO (AUTOPLAY)
+           - Archivo: video.mp4
+           - muted para permitir autoplay en móvil
            ========================= -->
       <div class="card section">
         <div class="sec-title">Video</div>
@@ -551,7 +543,9 @@
           <video
             id="ourVideo"
             src="video.mp4"
-            controls
+            autoplay
+            muted
+            loop
             playsinline
             preload="metadata"
           >
@@ -561,8 +555,8 @@
       </div>
 
       <!-- =========================
-           GALERÍA 20 FOTOS
-           - RUTA: fotos/foto-01.jpg ... foto-20.jpg
+           GALERÍA (20 fotos)
+           - fotos/foto-01.jpg ... foto-20.jpg
            ========================= -->
       <div class="card section">
         <div class="sec-title">Fotos</div>
@@ -602,24 +596,28 @@
         <div class="hr"></div>
 
         <div class="grid-2">
+
+          <!-- HOMBRES -->
           <div>
             <div class="mini-title">Hombres</div>
             <ul>
-              <li>Camisa de lino o manga larga (preferiblemente clara).</li>
-              <li>Pantalón beige/arena o tonos neutros.</li>
+              <li>Camisa <b>blanca</b> (preferiblemente como en la foto).</li>
+              <li>Pantalón color <b>beige/arena</b>.</li>
               <li>Estilo playero elegante.</li>
             </ul>
             <img class="ref-img" src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
           </div>
 
+          <!-- MUJERES -->
           <div>
             <div class="mini-title">Mujeres</div>
             <ul>
-              <li>Vestidos en tonos pasteles o neutros, estilo elegante y fresco.</li>
+              <li>Vestidos en tono <b>beige</b> (preferiblemente como en la foto).</li>
               <li><b>Recomendación:</b> por ser en playa, es recomendable <b>no</b> llevar tacón (ideal sandalias/flat).</li>
             </ul>
             <img class="ref-img" src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
           </div>
+
         </div>
 
         <div class="hint-center">(Estas imágenes son solo una guía de estilo)</div>
@@ -650,8 +648,7 @@
       </div>
 
       <!-- =========================
-           FORMULARIO RSVP (CENTRADO)
-           - Labels y cajas centradas (como pediste)
+           FORMULARIO RSVP
            ========================= -->
       <div class="card section">
         <div class="form-title">CONFIRMAR ASISTENCIA</div>
@@ -661,7 +658,8 @@
         </p>
 
         <form id="rsvpForm">
-          <!-- Radios centrados -->
+
+          <!-- Radios: izquierda y derecha -->
           <div class="radio-row">
             <label>
               <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
@@ -673,13 +671,11 @@
             </label>
           </div>
 
-          <!-- Campo: responsable -->
           <div class="field">
             <label for="responsable">Nombre del responsable (quien confirma)</label>
             <input id="responsable" name="responsable" type="text" placeholder="Ej: Juan Pérez" required>
           </div>
 
-          <!-- Campo: cantidad -->
           <div class="field">
             <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
             <select id="cantidad" name="cantidad" required>
@@ -692,22 +688,18 @@
             </select>
           </div>
 
-          <!-- Aquí se pintan dinámicamente los invitados (Invitado 1..N) -->
           <div id="guestFields"></div>
 
-          <!-- Campo: alergias -->
           <div class="field">
             <label for="alergias">Intolerancias o alergias alimentarias</label>
             <input id="alergias" name="alergias" type="text" placeholder="Ej: Ninguna">
           </div>
 
-          <!-- Campo: canción -->
           <div class="field">
             <label for="cancion">¿Qué canción no puede faltar?</label>
             <input id="cancion" name="cancion" type="text" placeholder="Ej: Nuestra canción favorita">
           </div>
 
-          <!-- Campo: mensaje -->
           <div class="field">
             <label for="mensaje">Mensaje para los novios</label>
             <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..."></textarea>
@@ -724,17 +716,14 @@
 
   <script>
     /* ==========================================================
-       1) URL DEL APPS SCRIPT
-       - Aquí llega el POST del formulario
+       1) URL DE APPS SCRIPT
        ========================================================== */
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
     /* ==========================================================
        2) CONTADOR
-       - Ajusta la hora si lo necesitas
        ========================================================== */
     const weddingDate = new Date("2026-11-13T17:00:00-05:00");
-
     function pad2(n){ return String(n).padStart(2, "0"); }
 
     function updateCountdown(){
@@ -745,8 +734,6 @@
       const hEl = document.getElementById("cdHours");
       const mEl = document.getElementById("cdMins");
       const sEl = document.getElementById("cdSecs");
-
-      if (!dEl) return; // por si quitas el contador en algún momento
 
       if (diff <= 0){
         dEl.textContent = "0";
@@ -773,7 +760,6 @@
 
     /* ==========================================================
        3) INVITADOS DINÁMICOS
-       - Crea Invitado 1..N según la cantidad seleccionada
        ========================================================== */
     const cantidadEl = document.getElementById("cantidad");
     const guestFields = document.getElementById("guestFields");
@@ -784,7 +770,7 @@
 
       for (let i = 1; i <= n; i++){
         const wrap = document.createElement("div");
-        wrap.className = "field"; // IMPORTANTE: para que quede centrado también
+        wrap.className = "field";
         wrap.innerHTML = `
           <label for="inv${i}">Nombre del invitado ${i}</label>
           <input id="inv${i}" name="inv${i}" type="text" placeholder="Invitado ${i}" ${i === 1 ? "required" : ""}>
@@ -793,76 +779,71 @@
       }
     }
 
-    if (cantidadEl){
-      cantidadEl.addEventListener("change", renderGuestFields);
-      renderGuestFields();
-    }
+    cantidadEl.addEventListener("change", renderGuestFields);
+    renderGuestFields();
 
     /* ==========================================================
-       4) ENVÍO DEL FORMULARIO (fetch -> Apps Script)
+       4) ENVÍO DEL FORMULARIO
        ========================================================== */
     const form = document.getElementById("rsvpForm");
     const statusEl = document.getElementById("status");
     const submitBtn = document.getElementById("submitBtn");
 
-    if (form){
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = "ENVIANDO...";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "ENVIANDO...";
 
-        statusEl.textContent = "";
-        statusEl.style.color = "";
+      statusEl.textContent = "";
+      statusEl.style.color = "";
 
-        const asistencia = form.querySelector('input[name="asistencia"]:checked')?.value || "";
-        const responsable = document.getElementById("responsable").value.trim();
-        const cantidad = Number(document.getElementById("cantidad").value || 0);
+      const asistencia = form.querySelector('input[name="asistencia"]:checked')?.value || "";
+      const responsable = document.getElementById("responsable").value.trim();
+      const cantidad = Number(document.getElementById("cantidad").value || 0);
 
-        const invitados = [];
-        for (let i = 1; i <= cantidad; i++){
-          invitados.push((document.getElementById(`inv${i}`)?.value || "").trim());
-        }
+      const invitados = [];
+      for (let i = 1; i <= cantidad; i++){
+        invitados.push((document.getElementById(`inv${i}`)?.value || "").trim());
+      }
 
-        const alergias = (document.getElementById("alergias").value || "").trim();
-        const cancion = (document.getElementById("cancion").value || "").trim();
-        const mensaje = (document.getElementById("mensaje").value || "").trim();
-        const info = navigator.userAgent || "";
+      const alergias = (document.getElementById("alergias").value || "").trim();
+      const cancion = (document.getElementById("cancion").value || "").trim();
+      const mensaje = (document.getElementById("mensaje").value || "").trim();
+      const info = navigator.userAgent || "";
 
-        const payload = { asistencia, responsable, cantidad, invitados, alergias, cancion, mensaje, info };
+      const payload = { asistencia, responsable, cantidad, invitados, alergias, cancion, mensaje, info };
 
-        try {
-          const res = await fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(payload)
-          });
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
 
-          const data = await res.json();
+        const data = await res.json();
 
-          if (data.ok){
-            statusEl.style.color = "#2f6f3e";
-            statusEl.textContent = "✅ " + (data.message || "Confirmación registrada correctamente.");
-            form.reset();
-            renderGuestFields();
-          } else {
-            statusEl.style.color = "#b00020";
-            statusEl.textContent = "⚠️ " + (data.message || "No se pudo registrar. Intenta de nuevo.");
-          }
-        } catch (err){
+        if (data.ok){
+          statusEl.style.color = "#2f6f3e";
+          statusEl.textContent = "✅ " + (data.message || "Confirmación registrada correctamente.");
+          form.reset();
+          renderGuestFields();
+        } else {
           statusEl.style.color = "#b00020";
-          statusEl.textContent = "⚠️ Error enviando la confirmación. Intenta de nuevo.";
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "ENVIAR RESPUESTA";
+          statusEl.textContent = "⚠️ " + (data.message || "No se pudo registrar. Intenta de nuevo.");
         }
-      });
-    }
+      } catch (err){
+        statusEl.style.color = "#b00020";
+        statusEl.textContent = "⚠️ Error enviando la confirmación. Intenta de nuevo.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "ENVIAR RESPUESTA";
+      }
+    });
 
     /* ==========================================================
        5) MÚSICA AUTOMÁTICA (con fallback)
-       - iPhone suele bloquear autoplay -> aparece el toast
        ========================================================== */
     const bgMusic = document.getElementById("bgMusic");
     const audioToast = document.getElementById("audioToast");
@@ -888,15 +869,13 @@
     document.addEventListener("DOMContentLoaded", tryAutoplay);
 
     /* ==========================================================
-       6) ANIMACIÓN DE FOTOS (cuando entran a pantalla)
-       - Efecto: aparecen desde abajo/izq/der
+       6) ANIMACIÓN DE FOTOS (aparecen al scrollear)
        ========================================================== */
     const galleryImgs = Array.from(document.querySelectorAll("#photoMasonry img"));
     galleryImgs.forEach((img) => {
       const r = Math.random();
       if (r < 0.33) img.classList.add("from-left");
       else if (r < 0.66) img.classList.add("from-right");
-      // Si no entra en left/right, queda con translateY (desde abajo)
     });
 
     const io = new IntersectionObserver((entries) => {
