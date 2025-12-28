@@ -7,8 +7,8 @@
 
   <!-- =========================
        FUENTES (TIPOGRAFÍA)
-       - Montserrat: texto general (limpio y elegante)
-       - Great Vibes: manuscrita tipo "nuestra boda" (como tu ejemplo)
+       - Montserrat: texto general
+       - Great Vibes: manuscrita (título tipo "nuestra boda")
        ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,9 +25,7 @@
       --menta: #8fb9a8;
       --linea: rgba(90,74,66,.12);
       --card: #ffffff;
-      --gris: #6b6b6b;
-      --borde: rgba(0,0,0,.15);
-      --btn: #9aa08f; /* similar al botón gris verdoso del ejemplo */
+      --btn: #9aa08f; /* similar al ejemplo */
     }
 
     body{
@@ -72,7 +70,6 @@
       box-shadow: 0 6px 26px rgba(0,0,0,.08);
     }
 
-    /* Texto pequeño arriba (ESTÁS INVITADO A) */
     .tiny-title{
       font-size: 14px;
       letter-spacing: 3px;
@@ -82,7 +79,6 @@
       margin: 22px 0 6px;
     }
 
-    /* Título manuscrito como tu ejemplo ("nuestra boda") */
     .script-title{
       font-family: 'Great Vibes', cursive;
       font-size: 56px;
@@ -93,8 +89,7 @@
     }
 
     /* =========================
-       MENSAJE INICIAL (CANCIÓN + DIOS)
-       - Te lo hago más pequeño como pediste
+       MENSAJE INICIAL (más pequeño)
        ========================= */
     .intro{
       font-style: italic;
@@ -105,7 +100,7 @@
 
     .intro p{
       margin: 16px 0;
-      font-size: 16px; /* antes 18px, ahora más pequeño */
+      font-size: 16px; /* más pequeño */
       opacity: .95;
     }
 
@@ -135,7 +130,7 @@
     /* =========================
        BOTÓN (MÚSICA)
        ========================= */
-    button{
+    button.music-btn{
       background: var(--dorado);
       color: white;
       border: none;
@@ -147,7 +142,7 @@
       font-weight: 600;
       box-shadow: 0 6px 18px rgba(0,0,0,.10);
     }
-    button:active{ transform: scale(0.99); }
+    button.music-btn:active{ transform: scale(0.99); }
 
     #countdown{
       font-size: 20px;
@@ -195,7 +190,7 @@
     }
 
     /* =========================
-       RSVP (FORMULARIO BONITO COMO TU EJEMPLO)
+       RSVP (FORMULARIO BONITO)
        ========================= */
     .rsvp-wrap{
       display: flex;
@@ -205,7 +200,7 @@
 
     .rsvp-card{
       width: 100%;
-      max-width: 520px;
+      max-width: 560px;
       background: #ffffff;
       border-radius: 14px;
       box-shadow: 0 8px 26px rgba(0,0,0,.08);
@@ -248,11 +243,20 @@
 
     .field{
       width: 100%;
-      max-width: 420px;
+      max-width: 460px;
       margin: 10px auto;
+      text-align: left;
     }
 
-    .input, .textarea{
+    .label{
+      font-size: 12px;
+      opacity: .8;
+      margin: 0 0 6px;
+      display: block;
+      letter-spacing: .3px;
+    }
+
+    .input, .textarea, .select{
       width: 100%;
       border: 1px solid rgba(0,0,0,.18);
       border-radius: 8px;
@@ -269,9 +273,19 @@
       resize: vertical;
     }
 
+    .guest-list{
+      max-width: 460px;
+      margin: 6px auto 0;
+      text-align: left;
+    }
+
+    .guest-item{
+      margin: 10px 0;
+    }
+
     .btn-send{
       width: 100%;
-      max-width: 420px;
+      max-width: 460px;
       border: none;
       border-radius: 10px;
       padding: 14px 16px;
@@ -284,6 +298,19 @@
       cursor: pointer;
       margin-top: 12px;
       box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    }
+
+    .btn-send:disabled{
+      opacity: .7;
+      cursor: not-allowed;
+    }
+
+    .note{
+      font-size: 12px;
+      opacity: .75;
+      margin-top: 12px;
+      padding: 0 10px;
+      line-height: 1.4;
     }
 
     .rsvp-footer{
@@ -303,15 +330,6 @@
       opacity: .8;
       margin-top: 6px;
     }
-
-    /* Texto pequeño aclarando qué pasa al enviar */
-    .note{
-      font-size: 12px;
-      opacity: .75;
-      margin-top: 12px;
-      padding: 0 10px;
-      line-height: 1.4;
-    }
   </style>
 </head>
 
@@ -320,7 +338,7 @@
   <!-- =========================
        1) PORTADA
        - Foto grande de ustedes
-       - Archivo esperado en el repo: "foto-portada.jpg"
+       - Archivo esperado: "foto-portada.jpg"
        ========================= -->
   <section class="hero card">
     <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel"
@@ -393,7 +411,7 @@
   <section class="card">
     <h2>🎵 Música</h2>
     <p class="subtle">Toca el botón para activar la música</p>
-    <button onclick="document.getElementById('music').play()">▶️ Activar música</button>
+    <button class="music-btn" onclick="document.getElementById('music').play()">▶️ Activar música</button>
 
     <audio id="music" loop>
       <source src="musica.mp3" type="audio/mpeg">
@@ -404,7 +422,7 @@
   <div class="divider"></div>
 
   <!-- =========================
-       6) VESTIMENTA (con imágenes)
+       6) VESTIMENTA
        - Archivos esperados:
          "vestimenta-hombres.jpg"
          "vestimenta-mujeres.jpg"
@@ -439,10 +457,10 @@
   <div class="divider"></div>
 
   <!-- =========================
-       7) RSVP (CONFIRMAR ASISTENCIA) - ESTILO COMO TU EJEMPLO
-       - IMPORTANTE:
-         Por ahora, al enviar abre WhatsApp con el mensaje listo.
-         Luego lo podemos conectar a Google Sheets si quieres.
+       7) RSVP (GRUPO FAMILIAR HASTA 6)
+       - El responsable llena su nombre
+       - Elige cuántas personas incluye
+       - Se muestran campos para nombres de cada invitado
        ========================= -->
   <section class="card" style="padding-bottom: 80px;">
     <div class="rsvp-wrap">
@@ -454,7 +472,7 @@
           ¡Esperamos que estés allí!
         </div>
 
-        <!-- Opción de asistencia (Sí / No) -->
+        <!-- Selección de asistencia -->
         <div class="rsvp-row">
           <label class="radio">
             <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
@@ -467,29 +485,53 @@
           </label>
         </div>
 
-        <!-- Campos del formulario -->
+        <!-- Responsable -->
         <div class="field">
-          <input id="nombre" class="input" type="text" placeholder="Nombre y apellido">
+          <label class="label">Nombre del responsable (quien confirma)</label>
+          <input id="nombre_responsable" class="input" type="text" placeholder="Nombre y apellido">
         </div>
 
+        <!-- Cantidad de personas -->
         <div class="field">
-          <input id="alergias" class="input" type="text" placeholder="Intolerancias o alergias alimentarias:">
+          <label class="label">¿Cuántas personas incluye esta invitación?</label>
+          <select id="cantidad" class="select" onchange="actualizarInvitados()">
+            <option value="1" selected>1 persona</option>
+            <option value="2">2 personas</option>
+            <option value="3">3 personas</option>
+            <option value="4">4 personas</option>
+            <option value="5">5 personas</option>
+            <option value="6">6 personas</option>
+          </select>
         </div>
 
-        <div class="field">
-          <input id="cancion" class="input" type="text" placeholder="¿Qué canción no puede faltar?:">
+        <!-- Lista dinámica de invitados (aparece según cantidad) -->
+        <div class="guest-list" id="guestList">
+          <!-- Aquí se crean los campos automáticamente -->
         </div>
 
+        <!-- Alergias -->
         <div class="field">
-          <textarea id="mensaje" class="textarea" placeholder="Mensaje para los novios:"></textarea>
+          <label class="label">Intolerancias o alergias alimentarias</label>
+          <input id="alergias" class="input" type="text" placeholder="Ej: lactosa, frutos secos, ninguna...">
         </div>
 
-        <!-- Botón para enviar -->
+        <!-- Canción -->
+        <div class="field">
+          <label class="label">¿Qué canción no puede faltar?</label>
+          <input id="cancion" class="input" type="text" placeholder="Escribe aquí tu canción">
+        </div>
+
+        <!-- Mensaje -->
+        <div class="field">
+          <label class="label">Mensaje para los novios</label>
+          <textarea id="mensaje" class="textarea" placeholder="Escribe tu mensaje"></textarea>
+        </div>
+
+        <!-- Botón de enviar -->
         <button class="btn-send" onclick="enviarRSVP()">ENVIAR RESPUESTA</button>
 
         <div class="note">
-          *Al enviar, se abrirá WhatsApp con tu confirmación lista para enviarla.
-          (Luego si quieres, lo conectamos a Google Sheets.)
+          *Tu respuesta quedará guardada automáticamente en Google Sheets.
         </div>
 
         <div class="rsvp-footer">
@@ -504,7 +546,8 @@
   <!-- =========================
        8) SCRIPTS
        - Cuenta regresiva
-       - Envío RSVP por WhatsApp
+       - Formulario dinámico (1 a 6 invitados)
+       - Envío a Google Sheets (Apps Script)
        ========================= -->
   <script>
     /* ====== CUENTA REGRESIVA ====== */
@@ -530,41 +573,124 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    /* ====== RSVP: ENVÍO POR WHATSAPP ======
-       - Cambia el número si quieres (formato internacional):
-         Colombia: 57 + número (sin +)
-       - Ejemplo: 573001112233
-    */
-    const WHATSAPP_NUMBER = "57TU_NUMERO_AQUI";
+    /* ====== URL REAL DEL APPS SCRIPT (YA PEGADA) ====== */
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
-    function enviarRSVP() {
-      const nombre = document.getElementById("nombre").value.trim();
+    /* =========================
+       Crear campos de invitados según cantidad (1 a 6)
+       ========================= */
+    function actualizarInvitados() {
+      const cantidad = parseInt(document.getElementById("cantidad").value, 10);
+      const contenedor = document.getElementById("guestList");
+
+      // Limpiar los campos actuales
+      contenedor.innerHTML = "";
+
+      // Crear inputs: Invitado 1..cantidad
+      for (let i = 1; i <= cantidad; i++) {
+        const div = document.createElement("div");
+        div.className = "guest-item";
+
+        const label = document.createElement("label");
+        label.className = "label";
+        label.textContent = `Nombre del invitado ${i}`;
+
+        const input = document.createElement("input");
+        input.className = "input";
+        input.type = "text";
+        input.id = `invitado_${i}`;
+        input.placeholder = `Invitado ${i} - Nombre y apellido`;
+
+        div.appendChild(label);
+        div.appendChild(input);
+        contenedor.appendChild(div);
+      }
+    }
+
+    // Ejecutar una vez al cargar para que aparezca invitado_1
+    actualizarInvitados();
+
+    /* =========================
+       Enviar RSVP a Google Sheets
+       - Guarda: asistencia, responsable, cantidad, nombres invitados, alergias, canción, mensaje
+       ========================= */
+    async function enviarRSVP() {
+      const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "";
+      const responsable = document.getElementById("nombre_responsable").value.trim();
+      const cantidad = parseInt(document.getElementById("cantidad").value, 10);
+
+      // Validación mínima
+      if (!responsable) {
+        alert("Por favor escribe el nombre del responsable.");
+        return;
+      }
+
+      // Obtener nombres de invitados (hasta 6)
+      const invitados = [];
+      for (let i = 1; i <= cantidad; i++) {
+        const val = document.getElementById(`invitado_${i}`)?.value.trim() || "";
+        invitados.push(val);
+      }
+
+      // Si el invitado 1 está vacío, pedir al menos uno (sentido común)
+      if (!invitados[0]) {
+        alert("Por favor escribe al menos el nombre del invitado 1.");
+        return;
+      }
+
       const alergias = document.getElementById("alergias").value.trim();
       const cancion = document.getElementById("cancion").value.trim();
       const mensaje = document.getElementById("mensaje").value.trim();
 
-      // Tomar selección de asistencia (Sí/No)
-      const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "Sin seleccionar";
+      // Preparar datos para enviar
+      const payload = {
+        asistencia,
+        responsable,
+        cantidad,
+        invitados, // arreglo con nombres
+        alergias: alergias || "N/A",
+        cancion: cancion || "N/A",
+        mensaje: mensaje || "N/A",
+        info: navigator.userAgent
+      };
 
-      // Validación simple (para que no envíen vacío)
-      if (!nombre) {
-        alert("Por favor escribe tu nombre y apellido.");
-        return;
+      // Cambiar texto del botón mientras envía
+      const btn = document.querySelector(".btn-send");
+      const originalText = btn.textContent;
+      btn.textContent = "ENVIANDO...";
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (data.ok) {
+          alert("✅ ¡Gracias! Tu confirmación fue enviada y guardada.");
+
+          // Limpiar campos
+          document.getElementById("nombre_responsable").value = "";
+          document.getElementById("cantidad").value = "1";
+          actualizarInvitados();
+          document.getElementById("alergias").value = "";
+          document.getElementById("cancion").value = "";
+          document.getElementById("mensaje").value = "";
+        } else {
+          alert("❌ Ocurrió un error guardando la respuesta. Intenta de nuevo.");
+          console.log("Error del script:", data);
+        }
+
+      } catch (err) {
+        alert("❌ No se pudo enviar. Revisa tu conexión e intenta nuevamente.");
+        console.log("Error:", err);
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
       }
-
-      // Armar texto para WhatsApp
-      const texto =
-`Confirmación de asistencia - Boda Alexa y Daniel
-
-Asistencia: ${asistencia}
-Nombre: ${nombre}
-Alergias / intolerancias: ${alergias || "N/A"}
-Canción que no puede faltar: ${cancion || "N/A"}
-Mensaje: ${mensaje || "N/A"}`;
-
-      // URL WhatsApp
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
-      window.open(url, "_blank");
     }
   </script>
 
