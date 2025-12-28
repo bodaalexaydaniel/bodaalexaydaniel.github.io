@@ -2,742 +2,594 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>María Alexandra & Daniel | Boda en la Playa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Alexa & Daniel | Invitación</title>
+
   <!-- =========================
-       FUENTES (TIPOGRAFÍA)
-       - Montserrat: texto general
-       - Great Vibes: manuscrita (título tipo “nuestra boda”)
+       FUENTES (Google Fonts)
+       - "Great Vibes" para títulos tipo caligrafía
+       - "Montserrat" para el resto
        ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     /* =========================
-       COLORES Y ESTILO GENERAL
+       ESTILOS GENERALES
        ========================= */
     :root{
-      --fondo: #fffaf5;
-      --texto: #5a4a42;
-      --dorado: #c49b6c;
-      --menta: #8fb9a8;
-      --linea: rgba(90,74,66,.12);
+      --bg: #fbf6ef;
+      --text: #4d463f;
+      --muted: #7a726a;
+      --accent: #9aa38f;     /* verde suave (botones) */
+      --accentDark: #7f8775;
       --card: #ffffff;
-      --btn: #9aa08f; /* color similar al ejemplo del botón */
+      --border: #e8dfd3;
+      --title: #c3a06b;      /* dorado suave */
     }
 
     body{
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
-      text-align: center;
+      margin:0;
+      font-family: "Montserrat", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      text-align:center;
     }
 
-    /* Contenedor para centrar contenido */
-    .card{
-      max-width: 980px;
+    .wrap{
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 18px;
-    }
-
-    /* Línea divisoria */
-    .divider{
-      height: 1px;
-      background: var(--linea);
-      max-width: 980px;
-      margin: 0 auto;
-    }
-
-    section{
-      padding: 44px 0;
+      padding: 28px 16px 60px;
     }
 
     /* =========================
-       PORTADA (foto + título)
+       CABECERA / FOTO PORTADA
        ========================= */
     .hero{
-      padding-top: 26px;
-      padding-bottom: 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      margin-bottom: 22px;
     }
 
     .hero img{
       width: 100%;
-      max-width: 980px;
-      border-radius: 18px;
-      display: block;
-      margin: 0 auto;
-      box-shadow: 0 6px 26px rgba(0,0,0,.08);
+      height: auto;
+      display:block;
     }
 
-    .tiny-title{
-      font-size: 14px;
+    .hero-caption{
+      padding: 18px 18px 26px;
+      border-top: 1px solid var(--border);
+    }
+
+    .small-top{
       letter-spacing: 3px;
-      font-weight: 600;
-      text-transform: uppercase;
-      opacity: 0.8;
-      margin: 22px 0 6px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
     }
 
-    .script-title{
-      font-family: 'Great Vibes', cursive;
-      font-size: 56px;
-      font-weight: 400;
-      color: var(--texto);
-      margin: 0 0 8px;
-      line-height: 1.0;
+    .main-title{
+      font-family: "Great Vibes", cursive;
+      font-size: 62px;
+      margin: 10px 0 8px;
+      color: #3b352f;
+      line-height: 1;
     }
 
-    .subtle{
+    .subtitle{
       font-size: 18px;
-      margin: 10px 0;
-      font-weight: 400;
+      color: var(--muted);
+      margin: 0 0 6px;
+    }
+
+    .divider{
+      width: 80%;
+      max-width: 520px;
+      margin: 16px auto;
+      border: none;
+      border-top: 1px solid var(--border);
     }
 
     /* =========================
-       MENSAJE INICIAL (más pequeño)
+       TEXTO INICIAL (más pequeño)
        ========================= */
     .intro{
-      font-style: italic;
-      line-height: 1.7;
-      max-width: 860px;
-      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      margin-bottom: 22px;
     }
 
     .intro p{
-      margin: 16px 0;
-      font-size: 16px; /* más pequeño */
-      opacity: .95;
+      margin: 10px 0;
+      font-size: 15px;        /* más pequeño como pediste */
+      color: #5b524a;
+      line-height: 1.7;
     }
 
-    /* =========================
-       NOMBRES / FECHA / LUGAR
-       ========================= */
-    h1{
-      color: var(--dorado);
-      font-size: 34px;
-      margin: 10px 0 12px;
+    .poem{
+      font-style: italic;
+      color: #5c554e;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .strong-line{
       font-weight: 700;
-    }
-
-    h2{
-      color: var(--menta);
-      font-size: 26px;
-      margin: 12px 0;
-      font-weight: 700;
-    }
-
-    /* =========================
-       CUENTA REGRESIVA
-       ========================= */
-    #countdown{
-      font-size: 20px;
-      margin-top: 12px;
-      font-weight: 600;
-    }
-
-    /* =========================
-       BOTÓN (MÚSICA)
-       ========================= */
-    button.music-btn{
-      background: var(--dorado);
-      color: white;
-      border: none;
-      padding: 14px 22px;
-      font-size: 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 600;
-      box-shadow: 0 6px 18px rgba(0,0,0,.10);
-    }
-    button.music-btn:active{ transform: scale(0.99); }
-
-    /* =========================
-       VESTIMENTA (TARJETAS + IMÁGENES)
-       ========================= */
-    .dress-grid{
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      max-width: 980px;
-      margin: 18px auto 0;
-      padding: 0 18px;
-    }
-    @media (min-width: 860px){
-      .dress-grid{ grid-template-columns: 1fr 1fr; }
-    }
-    .dress-card{
-      background: var(--card);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 6px 22px rgba(0,0,0,.06);
-      text-align: left;
-    }
-    .dress-card h3{
-      margin: 6px 0 10px;
-      font-size: 18px;
-      color: var(--texto);
-    }
-    .dress-card p{
-      margin: 0 0 12px;
-      font-size: 15px;
-      line-height: 1.5;
-      opacity: .95;
-    }
-    .dress-card img{
-      width: 100%;
-      border-radius: 14px;
-      display: block;
       margin-top: 10px;
     }
 
     /* =========================
-       RSVP (FORMULARIO BONITO)
+       SECCIONES
        ========================= */
-    .rsvp-wrap{
-      display: flex;
-      justify-content: center;
-      padding: 0 18px;
+    .section{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      margin-bottom: 22px;
     }
 
-    .rsvp-card{
-      width: 100%;
-      max-width: 560px;
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 8px 26px rgba(0,0,0,.08);
-      border: 1px solid rgba(0,0,0,.06);
-      padding: 26px 18px 22px;
-      text-align: center;
-    }
-
-    .rsvp-title{
-      font-size: 24px;
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: #3b352f;
       letter-spacing: 2px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #4b4b4b;
-      margin: 6px 0 8px;
     }
 
-    .rsvp-sub{
-      color: #6d6d6d;
-      font-size: 14px;
-      line-height: 1.5;
+    .section .hint{
       margin: 0 0 18px;
+      color: var(--muted);
     }
 
-    .rsvp-row{
-      display: flex;
-      gap: 18px;
-      justify-content: center;
-      margin: 12px 0 18px;
-      flex-wrap: wrap;
-    }
-
-    .radio{
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      font-size: 14px;
-      color: #6b6b6b;
-    }
-
-    .field{
-      width: 100%;
-      max-width: 460px;
-      margin: 10px auto;
+    /* =========================
+       FORMULARIO RSVP (estilo tarjeta)
+       ========================= */
+    .form-card{
+      max-width: 560px;
+      margin: 0 auto;
       text-align: left;
     }
 
-    .label{
-      font-size: 12px;
-      opacity: .8;
-      margin: 0 0 6px;
-      display: block;
-      letter-spacing: .3px;
-    }
-
-    .input, .textarea, .select{
-      width: 100%;
-      border: 1px solid rgba(0,0,0,.18);
-      border-radius: 8px;
-      padding: 14px 12px;
+    label{
+      display:block;
+      margin: 14px 0 6px;
+      color: var(--muted);
       font-size: 14px;
-      outline: none;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #fff;
-      box-sizing: border-box;
     }
 
-    .textarea{
-      min-height: 110px;
+    input[type="text"], select, textarea{
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 10px;
+      border: 1px solid #d8d3cb;
+      font-size: 16px;
+      outline: none;
+      box-sizing: border-box;
+      background: #fff;
+    }
+
+    textarea{
+      min-height: 120px;
       resize: vertical;
     }
 
-    .guest-list{
-      max-width: 460px;
-      margin: 6px auto 0;
+    /* Radios (Sí / No) */
+    .radio-row{
+      display:flex;
+      gap: 20px;
+      justify-content: center;
+      align-items:center;
+      margin: 8px 0 8px;
+      flex-wrap: wrap;
+    }
+
+    .radio-row label{
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .radio-row input{
+      transform: scale(1.15);
+      margin-right: 8px;
+    }
+
+    /* Botón */
+    .btn{
+      width: 100%;
+      margin-top: 18px;
+      padding: 16px 18px;
+      border: none;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover{ background: var(--accentDark); }
+
+    /* Mensajes de estado (éxito/error) */
+    .status{
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align:center;
+    }
+
+    .status.ok{ color: #2f6b3f; font-weight: 600; }
+    .status.err{ color: #a53d3d; font-weight: 600; }
+
+    /* =========================
+       IMÁGENES DE VESTIMENTA
+       ========================= */
+    .dress-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 780px;
+      margin: 0 auto;
       text-align: left;
     }
 
-    .guest-item{
-      margin: 10px 0;
+    .dress-item{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow:hidden;
+      background: #fff;
     }
 
-    .btn-send{
+    .dress-item img{
       width: 100%;
-      max-width: 460px;
-      border: none;
-      border-radius: 10px;
-      padding: 14px 16px;
+      display:block;
+      height:auto;
+    }
+
+    .dress-item .cap{
+      padding: 14px;
+    }
+
+    .dress-item .cap h3{
+      margin: 0 0 6px;
+      color: #3b352f;
+    }
+
+    .dress-item .cap p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
       font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: var(--btn);
-      color: #fff;
-      cursor: pointer;
-      margin-top: 12px;
-      box-shadow: 0 8px 18px rgba(0,0,0,.12);
     }
 
-    .btn-send:disabled{
-      opacity: .7;
-      cursor: not-allowed;
-    }
-
-    .note{
-      font-size: 12px;
-      opacity: .75;
-      margin-top: 12px;
-      padding: 0 10px;
-      line-height: 1.4;
-    }
-
-    .rsvp-footer{
-      margin-top: 22px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 40px;
-      color: #6a6a6a;
-      line-height: 1.0;
-    }
-
-    .rsvp-footer small{
-      display: block;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: .8;
-      margin-top: 6px;
+    /* Ajustes responsive */
+    @media (min-width: 760px){
+      .dress-grid{ grid-template-columns: 1fr 1fr; }
+      .main-title{ font-size: 72px; }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-  <!-- =========================
-       1) PORTADA
-       - Foto grande de ustedes
-       - Nombre del archivo: foto-portada.jpg
-       ========================= -->
-  <section class="hero card">
-    <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel"
-         onerror="this.style.display='none'">
-    <div class="tiny-title">ESTÁS INVITADO A</div>
-    <div class="script-title">nuestra boda</div>
-    <p class="subtle" style="margin-top: 6px;">
-      Nos encantaría que seas parte de este momento tan especial para nosotros.
-    </p>
-  </section>
+    <!-- =========================
+         1) FOTO DE PORTADA (sube tu foto al repo y nómbrala EXACTO así)
+         Archivo: foto-portada.jpg
+         ========================= -->
+    <div class="hero">
+      <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel">
+      <div class="hero-caption">
+        <div class="small-top">ESTÁS INVITADO A</div>
+        <div class="main-title">nuestra boda</div>
+        <div class="subtitle">Nos encantaría que seas parte de este momento tan especial para nosotros.</div>
+      </div>
+    </div>
 
-  <div class="divider"></div>
-
-  <!-- =========================
-       2) TEXTO INICIAL
-       ========================= -->
-  <section class="card">
+    <!-- =========================
+         2) TEXTO INICIAL (más pequeño y con tus correcciones)
+         ========================= -->
     <div class="intro">
-      <p>
+      <p class="poem">
         Eres todo lo que tengo,<br>
         mi sonrisa, mi ilusión.<br>
         Que lo sepa el mundo entero:<br>
-        eres tú, mi gran pasión.
-      </p>
+        eres tú, mi gran pasión.<br><br>
 
-      <p>
         Te has robado mi energía,<br>
         mi tristeza y mi alegría.<br>
         Eres dueña de mi amor.
       </p>
 
+      <hr class="divider">
+
       <p>
-        Teniendo como testigo y guía de nuestra historia a <strong>Dios</strong>,<br>
-        sin temor a equivocarnos y con la firme convicción<br>
-        de que el final de esta historia solo lo decidirá Él<br>
-        cuando apague alguno de nuestros corazones,<br>
-        <strong>hemos decidido unir nuestras vidas en matrimonio.</strong>
+        Teniendo principalmente como testigo y guía de nuestra historia a <b>Dios</b>,
+        sin temor a equivocarnos y con la firme convicción de que el final de esta historia
+        solo lo decidirá Él cuando apague alguno de nuestros corazones, hemos decidido unir
+        nuestras vidas en matrimonio.
+      </p>
+
+      <p class="strong-line">Nos casamos</p>
+
+      <h1 style="margin:8px 0 0; color: var(--title); font-size: 40px;">
+        María Alexandra Gil &amp; Daniel Álvarez
+      </h1>
+      <p style="margin:10px 0 0; font-size: 22px; color: #8fb9a8; font-weight:700;">
+        Viernes 13 de noviembre de 2026
+      </p>
+      <p style="margin:8px 0 0; color: var(--muted);">
+        Coveñas, Sucre
       </p>
     </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- =========================
-       3) NOMBRES + FECHA + LUGAR
-       ========================= -->
-  <section class="card">
-    <p class="subtle">Nos casamos</p>
-    <h1>María Alexandra Gil &amp; Daniel Álvarez</h1>
-    <h2>Viernes 13 de noviembre de 2026</h2>
-    <p class="subtle">Coveñas, Sucre</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- =========================
-       4) CUENTA REGRESIVA
-       ========================= -->
-  <section class="card">
-    <h2>⏳ Cuenta regresiva</h2>
-    <div id="countdown">Cargando...</div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- =========================
-       5) MÚSICA
-       - Nombre del archivo: musica.mp3
-       ========================= -->
-  <section class="card">
-    <h2>🎵 Música</h2>
-    <p class="subtle">Toca el botón para activar la música</p>
-    <button class="music-btn" onclick="document.getElementById('music').play()">▶️ Activar música</button>
-
-    <audio id="music" loop>
-      <source src="musica.mp3" type="audio/mpeg">
-      Tu navegador no soporta audio.
-    </audio>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- =========================
-       6) VESTIMENTA
-       - Nombres de archivo EXACTOS:
+    <!-- =========================
+         3) VESTIMENTA (con espacio para imágenes de referencia)
+         Nombres recomendados:
          - vestimenta-hombres.jpg
          - vestimenta-mujeres.jpg
-       ========================= -->
-  <section class="card">
-    <h2>👗 Vestimenta</h2>
-    <p class="subtle">Estilo playa — tonos pasteles, arena, beige y champagne</p>
+         ========================= -->
+    <div class="section">
+      <h2>VESTIMENTA</h2>
+      <p class="hint">Playa elegante • colores pasteles • formal</p>
 
-    <div class="dress-grid">
-      <div class="dress-card">
-        <h3>👔 Hombres (referencia)</h3>
-        <p>
-          Camisa blanca (ideal lino/algodón), manga larga o doblada.<br>
-          Pantalón beige/arena/khaki.<br>
-          Calzado opcional: mocasín claro o sandalia elegante.
-        </p>
+      <div class="dress-grid">
+        <div class="dress-item">
+          <!-- Imagen de referencia hombres -->
+          <img src="vestimenta-hombres.jpg" alt="Referencia vestimenta hombres">
+          <div class="cap">
+            <h3>Hombres</h3>
+            <p>
+              Camisa blanca tipo lino o fresca, pantalón claro (beige/arena),
+              estilo elegante para playa. Zapato cómodo (puede ser mocasín) o sandalia fina.
+            </p>
+          </div>
+        </div>
 
-        <!-- Imagen hombres -->
-        <img src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
-      </div>
-
-      <div class="dress-card">
-        <h3>👗 Mujeres (referencia)</h3>
-        <p>
-          Vestido largo estilo playa, ideal en tonos champagne / dorado suave / beige.<br>
-          Tela sugerida: satín, seda o telas fluidas.<br>
-          Calzado: tacón bajo, sandalia elegante o cuña.
-        </p>
-
-        <!-- Imagen mujeres -->
-        <img src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
+        <div class="dress-item">
+          <!-- Imagen de referencia mujeres -->
+          <img src="vestimenta-mujeres.jpg" alt="Referencia vestimenta mujeres">
+          <div class="cap">
+            <h3>Mujeres</h3>
+            <p>
+              Vestido largo en tonos suaves / pasteles, tela fresca, estilo elegante para playa.
+              Calzado cómodo (sandalia formal o tacón ancho).
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <div class="divider"></div>
+    <!-- =========================
+         4) CONFIRMAR ASISTENCIA (guarda en Google Sheets)
+         IMPORTANTE:
+         - Pegamos tu URL del Apps Script aquí
+         ========================= -->
+    <div class="section">
+      <h2>CONFIRMAR ASISTENCIA</h2>
+      <p class="hint">Por favor, confirma tu asistencia. ¡Esperamos que estés allí!</p>
 
-  <!-- =========================
-       7) RSVP (Grupo familiar hasta 6)
-       - IMPORTANTE: aquí corregimos el “nombre”:
-         el campo se llama "responsable" (así lo espera Apps Script)
-       ========================= -->
-  <section class="card" style="padding-bottom: 80px;">
-    <div class="rsvp-wrap">
-      <div class="rsvp-card">
+      <div class="form-card">
 
-        <div class="rsvp-title">CONFIRMAR ASISTENCIA</div>
-        <div class="rsvp-sub">
-          Por favor, confirma tu asistencia<br>
-          ¡Esperamos que estés allí!
-        </div>
-
-        <!-- Selección de asistencia -->
-        <div class="rsvp-row">
-          <label class="radio">
-            <input type="radio" name="asistencia" value="Sí, allí estaré" checked onchange="toggleAsistencia()">
-            <span>Sí, allí estaré!</span>
+        <!-- =========================
+             Radios: Sí / No
+             name="asistencia" es lo que lee JS
+             ========================= -->
+        <div class="radio-row">
+          <label>
+            <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
+            Sí, allí estaré
           </label>
 
-          <label class="radio">
-            <input type="radio" name="asistencia" value="No podré asistir" onchange="toggleAsistencia()">
-            <span>No podré asistir</span>
+          <label>
+            <input type="radio" name="asistencia" value="No podré asistir">
+            No podré asistir
           </label>
         </div>
 
-        <!-- Responsable (NOMBRE CORREGIDO) -->
-        <div class="field">
-          <label class="label">Nombre del responsable (quien confirma)</label>
-          <!-- IMPORTANTE: id="responsable" y name="responsable" -->
-          <input id="responsable" name="responsable" class="input" type="text" placeholder="Nombre y apellido">
-        </div>
+        <!-- =========================
+             RESPONSABLE (ESTO ES LO QUE TE ESTÁ QUEDANDO VACÍO)
+             ✅ id="responsable" es CLAVE porque el JS lo toma por ID
+             ========================= -->
+        <label for="responsable">Nombre del responsable (quien confirma)</label>
+        <input type="text" id="responsable" placeholder="Ej: Fernando Álvarez" required>
 
-        <!-- Cantidad de personas -->
-        <div class="field" id="cantidadWrap">
-          <label class="label">¿Cuántas personas incluye esta invitación?</label>
-          <select id="cantidad" class="select" onchange="actualizarInvitados()">
-            <option value="1" selected>1 persona</option>
-            <option value="2">2 personas</option>
-            <option value="3">3 personas</option>
-            <option value="4">4 personas</option>
-            <option value="5">5 personas</option>
-            <option value="6">6 personas</option>
-          </select>
-        </div>
+        <!-- =========================
+             CANTIDAD (1 a 6)
+             ✅ id="cantidad" es CLAVE
+             ========================= -->
+        <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
+        <select id="cantidad">
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5 personas</option>
+          <option value="6">6 personas</option>
+        </select>
 
-        <!-- Lista dinámica de invitados -->
-        <div class="guest-list" id="guestList"></div>
+        <!-- =========================
+             INVITADOS (se generan dinámicamente 1..6)
+             El JS crea los inputs con ids:
+             invitado1, invitado2, ...
+             ========================= -->
+        <div id="invInputs"></div>
 
-        <!-- Alergias -->
-        <div class="field" id="alergiasWrap">
-          <label class="label">Intolerancias o alergias alimentarias</label>
-          <input id="alergias" class="input" type="text" placeholder="Ej: lactosa, frutos secos, ninguna...">
-        </div>
+        <!-- =========================
+             ALERGIAS
+             ========================= -->
+        <label for="alergias">Intolerancias o alergias alimentarias</label>
+        <input type="text" id="alergias" placeholder="Ej: Ninguna">
 
-        <!-- Canción -->
-        <div class="field" id="cancionWrap">
-          <label class="label">¿Qué canción no puede faltar?</label>
-          <input id="cancion" class="input" type="text" placeholder="Escribe aquí tu canción">
-        </div>
+        <!-- =========================
+             CANCIÓN
+             ========================= -->
+        <label for="cancion">¿Qué canción no puede faltar?</label>
+        <input type="text" id="cancion" placeholder="Ej: Mi canción favorita">
 
-        <!-- Mensaje -->
-        <div class="field" id="mensajeWrap">
-          <label class="label">Mensaje para los novios</label>
-          <textarea id="mensaje" class="textarea" placeholder="Escribe tu mensaje"></textarea>
-        </div>
+        <!-- =========================
+             MENSAJE
+             ========================= -->
+        <label for="mensaje">Mensaje para los novios</label>
+        <textarea id="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
 
-        <!-- Botón enviar -->
-        <button class="btn-send" onclick="enviarRSVP()">ENVIAR RESPUESTA</button>
+        <!-- =========================
+             BOTÓN ENVIAR
+             ========================= -->
+        <button class="btn" id="btnEnviar">ENVIAR RESPUESTA</button>
 
-        <div class="note">
+        <!-- Mensaje de estado -->
+        <div id="status" class="status">
           *Tu respuesta quedará guardada automáticamente en Google Sheets.
         </div>
 
-        <div class="rsvp-footer">
-          Te esperamos
-          <small>Alexa y Daniel</small>
-        </div>
-
       </div>
     </div>
-  </section>
 
-  <!-- =========================
-       8) JAVASCRIPT
-       - Cuenta regresiva
-       - Invitados dinámicos
-       - Ocultar campos si “No podré asistir”
-       - Envío a Google Sheets
-       ========================= -->
+  </div>
+
   <script>
-    /* =========================
-       CUENTA REGRESIVA
-       - Fecha: Viernes 13 de Noviembre 2026
-       ========================= */
-    const eventDate = new Date("November 13, 2026 16:00:00").getTime();
+    // =========================
+    // CONFIG: Tu Apps Script URL
+    // =========================
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
+    // =========================
+    // 1) Generar inputs de Invitados según cantidad
+    // =========================
+    const cantidadEl = document.getElementById("cantidad");
+    const invInputsEl = document.getElementById("invInputs");
 
-      if (distance <= 0) {
-        document.getElementById("countdown").innerHTML = "¡Hoy es el gran día! 💍";
-        return;
-      }
+    function renderInvitados() {
+      const n = parseInt(cantidadEl.value, 10);
+      invInputsEl.innerHTML = ""; // limpiamos
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-      document.getElementById("countdown").innerHTML =
-        `${days} días, ${hours} horas y ${minutes} minutos para nuestro gran día 💍`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    /* =========================
-       URL REAL DEL APPS SCRIPT
-       (La que nos diste)
-       ========================= */
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
-
-    /* =========================
-       Crear campos de invitados (1 a 6)
-       ========================= */
-    function actualizarInvitados() {
-      const cantidad = parseInt(document.getElementById("cantidad").value, 10);
-      const contenedor = document.getElementById("guestList");
-
-      contenedor.innerHTML = "";
-
-      for (let i = 1; i <= cantidad; i++) {
-        const div = document.createElement("div");
-        div.className = "guest-item";
-
+      // Creamos Invitado 1..n
+      for (let i = 1; i <= n; i++) {
         const label = document.createElement("label");
-        label.className = "label";
-        label.textContent = `Nombre del invitado ${i}`;
+        label.setAttribute("for", "invitado" + i);
+        label.textContent = "Nombre del invitado " + i;
 
         const input = document.createElement("input");
-        input.className = "input";
         input.type = "text";
-        input.id = `invitado_${i}`;
-        input.placeholder = `Invitado ${i} - Nombre y apellido`;
+        input.id = "invitado" + i;
+        input.placeholder = "Ej: Nombre Apellido";
 
-        div.appendChild(label);
-        div.appendChild(input);
-        contenedor.appendChild(div);
+        invInputsEl.appendChild(label);
+        invInputsEl.appendChild(input);
       }
     }
 
-    // Crear invitado_1 por defecto al cargar
-    actualizarInvitados();
+    // Render inicial y cuando cambie la cantidad
+    renderInvitados();
+    cantidadEl.addEventListener("change", renderInvitados);
 
-    /* =========================
-       Ocultar/mostrar campos si NO asiste
-       - Si marca “No podré asistir”, ocultamos:
-         cantidad, invitados, alergias, canción, mensaje (si quieres)
-       - También forzamos cantidad = 0 (solo para el envío)
-       ========================= */
-    function toggleAsistencia() {
+    // =========================
+    // 2) Enviar datos al Apps Script
+    // =========================
+    const btnEnviar = document.getElementById("btnEnviar");
+    const statusEl = document.getElementById("status");
+
+    btnEnviar.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+
+      // --- Tomamos asistencia del radio seleccionado ---
       const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "";
-      const noAsiste = (asistencia === "No podré asistir");
 
-      document.getElementById("cantidadWrap").style.display = noAsiste ? "none" : "block";
-      document.getElementById("guestList").style.display = noAsiste ? "none" : "block";
-      document.getElementById("alergiasWrap").style.display = noAsiste ? "none" : "block";
-      document.getElementById("cancionWrap").style.display = noAsiste ? "none" : "block";
-      document.getElementById("mensajeWrap").style.display = noAsiste ? "none" : "block";
-    }
-
-    // Ejecutar al cargar para que coincida con selección inicial
-    toggleAsistencia();
-
-    /* =========================
-       Enviar RSVP a Google Sheets
-       - IMPORTANTE: ahora enviamos "responsable"
-       ========================= */
-    async function enviarRSVP() {
-      const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "";
+      // --- Tomamos responsable (ESTO ES CLAVE) ---
       const responsable = document.getElementById("responsable").value.trim();
 
-      // Validación mínima: siempre pedir nombre del responsable
+      // Validación simple
       if (!responsable) {
-        alert("Por favor escribe el nombre del responsable.");
+        statusEl.className = "status err";
+        statusEl.textContent = "Por favor escribe el nombre del responsable.";
         return;
       }
 
-      const noAsiste = (asistencia === "No podré asistir");
+      // --- Tomamos cantidad ---
+      const cantidad = parseInt(document.getElementById("cantidad").value, 10);
 
-      // Si NO asiste, cantidad = 0 y lista de invitados vacía
-      let cantidad = 0;
-      let invitados = [];
-
-      if (!noAsiste) {
-        cantidad = parseInt(document.getElementById("cantidad").value, 10);
-
-        // Tomar nombres de invitados (hasta cantidad)
-        for (let i = 1; i <= cantidad; i++) {
-          const val = document.getElementById(`invitado_${i}`)?.value.trim() || "";
-          invitados.push(val);
-        }
-
-        // Pedir al menos el nombre del invitado 1 (si asiste)
-        if (!invitados[0]) {
-          alert("Por favor escribe al menos el nombre del invitado 1.");
-          return;
-        }
+      // --- Tomamos invitados ---
+      const invitados = [];
+      for (let i = 1; i <= cantidad; i++) {
+        const val = document.getElementById("invitado" + i)?.value?.trim() || "";
+        invitados.push(val);
       }
 
-      // Campos extra (solo si asiste; si no, mandamos N/A)
-      const alergias = noAsiste ? "N/A" : (document.getElementById("alergias").value.trim() || "N/A");
-      const cancion  = noAsiste ? "N/A" : (document.getElementById("cancion").value.trim() || "N/A");
-      const mensaje  = noAsiste ? "N/A" : (document.getElementById("mensaje").value.trim() || "N/A");
+      // --- Otros campos ---
+      const alergias = document.getElementById("alergias").value.trim();
+      const cancion = document.getElementById("cancion").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
 
-      // Datos que enviamos al Apps Script (CLAVES EXACTAS)
+      // --- Info del navegador (esto va a tu columna IP/Info) ---
+      const info = navigator.userAgent;
+
+      // --- Armamos payload EXACTO como tu Apps Script espera ---
       const payload = {
         asistencia: asistencia,
-        responsable: responsable,   // <--- ESTA ES LA CLAVE IMPORTANTE (ARREGLA TU PROBLEMA)
+        responsable: responsable,
         cantidad: cantidad,
-        invitados: invitados,       // arreglo con nombres
+        invitados: invitados,
         alergias: alergias,
         cancion: cancion,
         mensaje: mensaje,
-        info: navigator.userAgent
+        info: info
       };
 
-      // UI del botón
-      const btn = document.querySelector(".btn-send");
-      const originalText = btn.textContent;
-      btn.textContent = "ENVIANDO...";
-      btn.disabled = true;
+      // --- UI: desactivar botón mientras envía ---
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = "ENVIANDO...";
+
+      statusEl.className = "status";
+      statusEl.textContent = "Enviando confirmación...";
 
       try {
-        const res = await fetch(GOOGLE_SCRIPT_URL, {
+        const res = await fetch(APPS_SCRIPT_URL, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload)
         });
 
-        const data = await res.json();
+        const json = await res.json();
 
-        if (data.ok) {
-          alert("✅ ¡Gracias! Tu confirmación fue enviada y guardada.");
+        // Si el script respondió ok:true
+        if (json.ok) {
+          statusEl.className = "status ok";
+          statusEl.textContent = json.message || "¡Confirmación registrada!";
 
-          // Limpiar formulario
-          document.getElementById("responsable").value = "";
-          document.getElementById("cantidad").value = "1";
-          actualizarInvitados();
-          document.getElementById("alergias").value = "";
-          document.getElementById("cancion").value = "";
-          document.getElementById("mensaje").value = "";
-
-          // Volver selección a "Sí" por defecto (opcional)
-          document.querySelector('input[name="asistencia"][value="Sí, allí estaré"]').checked = true;
-          toggleAsistencia();
+          // (Opcional) limpiar formulario
+          // document.getElementById("responsable").value = "";
+          // document.getElementById("alergias").value = "";
+          // document.getElementById("cancion").value = "";
+          // document.getElementById("mensaje").value = "";
 
         } else {
-          alert("❌ Ocurrió un error guardando la respuesta. Intenta de nuevo.");
-          console.log("Error del script:", data);
+          statusEl.className = "status err";
+          statusEl.textContent = json.message || "No se pudo registrar. Intenta de nuevo.";
         }
 
       } catch (err) {
-        alert("❌ No se pudo enviar. Revisa tu conexión e intenta nuevamente.");
-        console.log("Error:", err);
+        statusEl.className = "status err";
+        statusEl.textContent = "Error enviando la confirmación. Revisa tu Apps Script / permisos.";
       } finally {
-        btn.textContent = originalText;
-        btn.disabled = false;
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "ENVIAR RESPUESTA";
       }
-    }
+    });
   </script>
 
 </body>
