@@ -44,7 +44,7 @@
       font-family: var(--body);
       color: var(--text);
 
-      /* Fondo real */
+      /* Fondo real (archivo fondo-playa.jpg) */
       background-color: var(--bg);
       background-image: url("fondo-playa.jpg");
       background-size: cover;
@@ -52,7 +52,7 @@
       background-attachment: fixed;
     }
 
-    /* Capa suave para lectura */
+    /* Capa suave para lectura sobre el fondo */
     .bg-overlay{
       min-height:100vh;
       background: linear-gradient(
@@ -67,7 +67,7 @@
       margin: 0 auto;
     }
 
-    /* Tarjetas */
+    /* Tarjetas (cada sección dentro de un “card”) */
     .card{
       background: var(--card);
       border-radius: var(--radius);
@@ -113,7 +113,7 @@
     }
 
     /* =========================
-       TÍTULOS
+       TÍTULOS GENERALES
        ========================= */
     .sec-title{
       font-family: var(--script);
@@ -190,7 +190,7 @@
 
     /* =========================
        VIDEO
-       - Autoplay: en móviles suele requerir muted
+       (autoplay suele requerir muted en móviles)
        ========================= */
     .video-wrap{ display:flex; justify-content:center; }
     video{
@@ -203,15 +203,14 @@
     }
 
     /* =========================
-       GALERÍA (FOTOS un poco más pequeñas)
-       - Más columnas => menos espacio ocupado
+       GALERÍA
        ========================= */
     .masonry{
-      column-count: 2;        /* móvil: 2 columnas => fotos más pequeñas */
+      column-count: 2;
       column-gap: 12px;
     }
     @media (min-width: 700px){
-      .masonry{ column-count: 3; } /* tablet/desktop: 3 columnas */
+      .masonry{ column-count: 3; }
     }
 
     .masonry img{
@@ -223,7 +222,7 @@
       border: 1px solid rgba(0,0,0,0.06);
       box-shadow: 0 8px 18px rgba(0,0,0,0.10);
 
-      /* Animación */
+      /* Animación (aparecen al hacer scroll) */
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 650ms ease, transform 650ms ease;
@@ -247,7 +246,6 @@
       .grid-2{ grid-template-columns: 1fr 1fr; }
     }
 
-    /* Centrar títulos Hombres/Mujeres */
     .mini-title{
       font-weight: 800;
       font-size: 18px;
@@ -261,7 +259,6 @@
       line-height: 1.8;
     }
 
-    /* Imagenes sin deformarse */
     .ref-img{
       width:100%;
       aspect-ratio: 16 / 10;
@@ -283,7 +280,7 @@
     }
 
     /* =========================
-       CONFIRMACIÓN (texto)
+       BLOQUES DE TEXTO IMPORTANTES
        ========================= */
     .important{
       text-align:center;
@@ -293,7 +290,58 @@
     }
     .important b{ color:#4f4a45; }
 
-    /* WhatsApp */
+    /* =========================
+       LLUVIA DE SOBRES (estilo cursivo especial)
+       ========================= */
+    .gift-title{
+      font-family: var(--script);
+      text-align:center;
+      color: var(--title);
+      font-size: clamp(34px, 4.5vw, 56px);
+      margin: 4px 0 8px;
+    }
+    .gift-sub{
+      text-align:center;
+      margin: 0;
+      color: #7a746f;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* =========================
+       ITINERARIO
+       ========================= */
+    .itinerary{
+      text-align:center;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .itinerary .pill{
+      display:inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.70);
+      font-weight: 800;
+      margin: 6px 0 10px;
+    }
+    .itinerary .days{
+      display:grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .itinerary .day{
+      border: 1px solid rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.75);
+      border-radius: 16px;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    .itinerary .day b{ color:#4f4a45; }
+
+    /* =========================
+       WHATSAPP
+       ========================= */
     .whats{
       display:flex;
       justify-content:center;
@@ -334,7 +382,6 @@
       line-height:1.6;
     }
 
-    /* Bloque del formulario centrado */
     form#rsvpForm{
       width: 100%;
       max-width: 720px;
@@ -343,7 +390,6 @@
       gap: 12px;
     }
 
-    /* Cada campo centrado */
     .field{
       display: grid;
       gap: 8px;
@@ -377,12 +423,10 @@
       text-align: left;
     }
 
-    /* =========================
-       RADIO: UNO A LA IZQ Y OTRO A LA DER (como pediste)
-       ========================= */
+    /* Radios izquierda/derecha */
     .radio-row{
       display:flex;
-      justify-content: space-between; /* izquierda / derecha */
+      justify-content: space-between;
       align-items:center;
       gap: 12px;
       flex-wrap: nowrap;
@@ -404,14 +448,9 @@
       text-align: center;
     }
 
-    /* En pantallas pequeñas, que bajen uno debajo del otro */
     @media (max-width: 420px){
-      .radio-row{
-        flex-wrap: wrap;
-      }
-      .radio-row label{
-        width: 100%;
-      }
+      .radio-row{ flex-wrap: wrap; }
+      .radio-row label{ width: 100%; }
     }
 
     .btn{
@@ -431,13 +470,6 @@
       font-size: 16px;
     }
     .btn:hover{ background: var(--accent-dark); }
-
-    .note{
-      text-align:center;
-      font-size: 13px;
-      color: #6f6a65;
-      margin-top: 6px;
-    }
 
     .status{
       margin-top: 6px;
@@ -469,7 +501,7 @@
 
 <body>
   <!-- =========================
-       AUDIO
+       AUDIO (música de fondo)
        ========================= -->
   <audio id="bgMusic" src="musica.mp3" preload="auto" loop></audio>
   <div id="audioToast" class="audio-toast">🔊 Toca aquí para activar el sonido</div>
@@ -506,7 +538,10 @@
       <div class="card section">
         <p class="sec-sub">Nuestra Boda</p>
         <div class="names">Alexandra Gil &amp; Daniel Álvarez</div>
-        <p class="date">Viernes 13 de noviembre de 2026</p>
+
+        <!-- ✅ CAMBIO 2: fecha con hora 4:00 PM -->
+        <p class="date">Viernes 13 de noviembre de 2026 a las 4:00 PM</p>
+
         <p class="place"><b>Lugar:</b> En alguna playa de Coveñas, Sucre 🏖️</p>
 
         <div class="countdown" id="countdown">
@@ -555,8 +590,7 @@
       </div>
 
       <!-- =========================
-           GALERÍA (20 fotos)
-           - fotos/foto-01.jpg ... foto-20.jpg
+           GALERÍA
            ========================= -->
       <div class="card section">
         <div class="sec-title">Nuestra Historia en Fotos</div>
@@ -592,8 +626,6 @@
         <div class="hr"></div>
 
         <div class="grid-2">
-
-          <!-- HOMBRES -->
           <div>
             <div class="mini-title">Hombres</div>
             <ul>
@@ -604,7 +636,6 @@
             <img class="ref-img" src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
           </div>
 
-          <!-- MUJERES -->
           <div>
             <div class="mini-title">Mujeres</div>
             <ul>
@@ -613,20 +644,63 @@
             </ul>
             <img class="ref-img" src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
           </div>
-
         </div>
 
         <div class="hint-center">(Estas imágenes son solo una guía de estilo)</div>
       </div>
 
-      <!-- =========================
-           CONFIRMACIÓN (1 MES + WHATSAPP)
-           ========================= -->
+      <!-- =========================================================
+           ✅ CAMBIO 5: ITINERARIO (ANTES DE CONFIRMACIÓN)
+           ========================================================= -->
+      <div class="card section">
+        <div class="sec-title">Itinerario</div>
+        <p class="sec-sub">13 al 15 de noviembre (3 días)</p>
+        <div class="hr"></div>
+
+        <div class="itinerary">
+          <div class="pill">💛 Hospedaje y comida incluidos</div>
+          <p style="margin: 0;">
+            Nosotros como pareja vamos a cubrir la invitación de <b>hospedaje y comida</b>, y será del <b>13 al 15 de Noviembre</b>.
+          </p>
+
+          <div class="days">
+            <div class="day">
+              <b>Día 1 – 13 de Noviembre:</b><br>
+              Fecha del matrimonio y <b>Boda</b>, evento principal.
+            </div>
+
+            <div class="day">
+              <b>Día 2 – 14 de Noviembre:</b><br>
+              <b>Desenguayabe</b> con los novios.
+            </div>
+
+            <div class="day">
+              <b>Día 3 – 15 de Noviembre:</b><br>
+              <b>Día Final</b>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           ✅ CAMBIO 3: LLUVIA DE SOBRES (ANTES DE CONFIRMACIÓN)
+           ========================================================= -->
+      <div class="card section">
+        <div class="gift-title">Lluvia de Sobres</div>
+        <p class="gift-sub">
+          Tu presencia es lo más importante para nosotros. <br>
+          Si deseas tener un detalle, puedes hacerlo por medio de <b>lluvia de sobres</b> 💌
+        </p>
+      </div>
+
+      <!-- =========================================================
+           ✅ CAMBIO 1: TEXTO DE CONFIRMACIÓN CON FECHA LÍMITE
+           ========================================================= -->
       <div class="card section">
         <div class="sec-title">Confirmación</div>
         <div class="important">
           Para nosotros es súper importante organizar todo de la mejor manera.
-          Por eso, te pedimos por favor confirmar tu asistencia <b>dentro del próximo mes</b>.
+          Por eso, te pedimos por favor confirmar tu asistencia <b>hasta el 20 de Febrero de 2026</b>.
           <br><br>
           Si no recibimos confirmación en ese tiempo, entenderemos (con todo cariño) que no podrás asistir.
           ¡Gracias por ayudarnos a planear este día tan especial!
@@ -654,8 +728,6 @@
         </p>
 
         <form id="rsvpForm">
-
-          <!-- Radios: izquierda y derecha -->
           <div class="radio-row">
             <label>
               <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
@@ -702,7 +774,7 @@
           </div>
 
           <button class="btn" type="submit" id="submitBtn">ENVIAR RESPUESTA</button>
-          <div class="note">*Tu respuesta quedará guardada automáticamente en Google Sheets.</div>
+          <!-- ✅ CAMBIO 6: eliminada la advertencia de Google Sheets -->
           <div id="status" class="status"></div>
         </form>
       </div>
@@ -712,14 +784,17 @@
 
   <script>
     /* ==========================================================
-       1) URL DE APPS SCRIPT
+       1) URL DE APPS SCRIPT (donde se guardan respuestas)
        ========================================================== */
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
     /* ==========================================================
        2) CONTADOR
+       - Importante: esto afecta el tiempo restante
+       - 4:00 PM en Colombia (-05:00)
        ========================================================== */
-    const weddingDate = new Date("2026-11-13T17:00:00-05:00");
+    const weddingDate = new Date("2026-11-13T16:00:00-05:00");
+
     function pad2(n){ return String(n).padStart(2, "0"); }
 
     function updateCountdown(){
@@ -756,6 +831,7 @@
 
     /* ==========================================================
        3) INVITADOS DINÁMICOS
+       - Crea inputs según la cantidad seleccionada
        ========================================================== */
     const cantidadEl = document.getElementById("cantidad");
     const guestFields = document.getElementById("guestFields");
@@ -780,6 +856,7 @@
 
     /* ==========================================================
        4) ENVÍO DEL FORMULARIO
+       - Envía datos a Apps Script (Google Sheets por detrás)
        ========================================================== */
     const form = document.getElementById("rsvpForm");
     const statusEl = document.getElementById("status");
@@ -839,7 +916,8 @@
     });
 
     /* ==========================================================
-       5) MÚSICA AUTOMÁTICA (con fallback)
+       5) MÚSICA AUTOMÁTICA
+       - Si el navegador bloquea autoplay, mostramos el botón
        ========================================================== */
     const bgMusic = document.getElementById("bgMusic");
     const audioToast = document.getElementById("audioToast");
