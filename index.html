@@ -1,312 +1,284 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación - Alexandra & Daniel</title>
 
   <!-- =========================
-       (1) TÍTULO DE LA PESTAÑA
-       ========================= -->
-  <title>Alexandra & Daniel | Nuestra Boda</title>
-
-  <!-- =========================
-       (2) FUENTES (Google Fonts)
-       - "Great Vibes": estilo caligráfico (como el ejemplo)
-       - "Montserrat": legible para textos
-       ========================= -->
+       FUENTES (Google Fonts)
+       =========================
+       - "Great Vibes": para títulos tipo letra elegante/script
+       - "Montserrat": para texto normal (limpio y moderno)
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
+  <!-- =========================
+       ESTILOS
+       ========================= -->
   <style>
     /* =========================
-       (3) VARIABLES DE COLORES
+       VARIABLES DE DISEÑO
        ========================= */
     :root{
-      --fondo: #fffaf5;
-      --texto: #5a4a42;
-      --dorado: #c49b6c;
-      --verde: #8fb9a8;
-      --gris: #6f6a66;
-      --tarjeta: #ffffff;
-      --borde: #e9e2dc;
-      --boton: #9aa08e; /* tono parecido al ejemplo del botón */
+      --bg: #f6f1ea;
+      --card: rgba(255,255,255,0.86);
+      --text: #5e5a55;
+      --title: #6a645f;
+      --accent: #9aa58e;        /* verde suave */
+      --accent-dark: #7f8a73;
+      --gold: #b89c6a;          /* dorado suave */
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --maxw: 980px;
+      --script: "Great Vibes", cursive;
+      --body: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     /* =========================
-       (4) ESTILOS GENERALES
+       BASE
        ========================= */
+    *{ box-sizing:border-box; }
     body{
-      margin: 0;
-      font-family: "Montserrat", Arial, sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
-      text-align: center;
+      margin:0;
+      font-family: var(--body);
+      color: var(--text);
+      background-color: var(--bg);
+
+      /* =========================
+         FONDO CON IMAGEN
+         =========================
+         1) Sube la imagen como: fondo-playa.jpg
+         2) Si NO quieres fondo con imagen, comenta estas 4 líneas:
+      */
+      background-image: url("fondo-playa.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    /* Contenedor principal para que todo quede “bonito” */
+    /* Capa suave encima del fondo para que todo sea legible */
+    .bg-overlay{
+      min-height:100vh;
+      background: linear-gradient(
+        rgba(246,241,234,0.92),
+        rgba(246,241,234,0.92)
+      );
+      padding: 18px 14px 60px;
+    }
+
     .wrap{
-      max-width: 900px;
+      max-width: var(--maxw);
       margin: 0 auto;
-      padding: 18px 16px 60px;
-    }
-
-    /* Línea divisoria suave */
-    .divider{
-      width: 100%;
-      max-width: 740px;
-      height: 1px;
-      background: #e8e0d9;
-      margin: 26px auto;
-      opacity: .9;
-    }
-
-    /* Título script (la fuente bonita del ejemplo) */
-    .script-title{
-      font-family: "Great Vibes", cursive;
-      font-weight: 400;
-      color: #5d524c;
-      line-height: 1;
-    }
-
-    /* Subtítulos con letra normal */
-    .subtle{
-      color: var(--gris);
-      font-weight: 400;
     }
 
     /* =========================
-       (5) PORTADA / FOTO PRINCIPAL
-       ========================= */
-    .hero{
-      background: transparent;
-      padding-top: 6px;
-    }
-
-    /* Imagen de portada (foto principal) */
-    .hero img{
-      width: 100%;
-      max-height: 520px;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid var(--borde);
-      box-shadow: 0 8px 25px rgba(0,0,0,.06);
-    }
-
-    /* =========================
-       (6) SECCIÓN INTRO
-       ========================= */
-    .intro{
-      margin-top: 14px;
-      padding: 10px 10px 0;
-    }
-
-    .intro .mini-title{
-      letter-spacing: 4px;
-      font-size: 14px;
-      color: #6f6a66;
-      font-weight: 600;
-      margin: 14px 0 6px;
-    }
-
-    .intro .big-script{
-      font-size: 62px;
-      margin: 0;
-    }
-
-    .intro .invite-line{
-      margin: 8px 0 0;
-      font-size: 18px;
-      color: #6f6a66;
-      font-weight: 400;
-    }
-
-    /* Texto inicial (más pequeño como pediste) */
-    .intro-text{
-      max-width: 760px;
-      margin: 18px auto 0;
-      font-size: 16px;          /* más pequeño */
-      line-height: 1.8;
-      color: #5f5752;
-    }
-
-    /* Énfasis en negrita suave */
-    .strong{
-      font-weight: 700;
-      color: #4f4742;
-    }
-
-    /* =========================
-       (7) NOMBRES + FECHA + LUGAR
-       ========================= */
-    .names-block{
-      padding: 6px 10px 0;
-    }
-
-    /* "Nuestra Boda" (script) */
-    .event-label{
-      font-size: 44px;
-      margin: 0;
-    }
-
-    /* Nombres (script, como pediste) */
-    .names{
-      font-size: 64px;
-      margin: 10px 0 6px;
-      color: var(--dorado);
-    }
-
-    /* Fecha grande (verde suave) */
-    .date-big{
-      font-size: 46px;
-      margin: 0;
-      color: var(--verde);
-      font-weight: 700;
-    }
-
-    /* Lugar */
-    .place{
-      margin-top: 8px;
-      font-size: 20px;
-      color: #6f6a66;
-    }
-    .place b{ color:#6a5e58; }
-
-    /* =========================
-       (8) COUNTDOWN
-       ========================= */
-    .countdown-card{
-      background: var(--tarjeta);
-      border: 1px solid var(--borde);
-      border-radius: 18px;
-      padding: 18px 14px;
-      max-width: 740px;
-      margin: 0 auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,.05);
-    }
-
-    .section-title{
-      font-family: "Great Vibes", cursive; /* Titulos de cada seccion en la misma fuente */
-      font-size: 48px;
-      margin: 0 0 12px;
-      color: #5d524c;
-    }
-
-    .countdown-grid{
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .time-box{
-      background: #fbf7f3;
-      border: 1px solid #eee4dc;
-      border-radius: 14px;
-      padding: 12px 8px;
-    }
-
-    .time-num{
-      font-size: 28px;
-      font-weight: 800;
-      color: #4f4742;
-    }
-
-    .time-lbl{
-      font-size: 12px;
-      letter-spacing: 1px;
-      color: #6f6a66;
-      margin-top: 6px;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 640px){
-      .intro .big-script{ font-size: 54px; }
-      .names{ font-size: 48px; }
-      .date-big{ font-size: 34px; }
-      .section-title{ font-size: 42px; }
-      .countdown-grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* =========================
-       (9) MÚSICA
-       ========================= */
-    .music-card{
-      background: var(--tarjeta);
-      border: 1px solid var(--borde);
-      border-radius: 18px;
-      padding: 16px 14px;
-      max-width: 740px;
-      margin: 0 auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,.05);
-    }
-
-    .btn{
-      background: var(--boton);
-      color: white;
-      border: none;
-      padding: 14px 18px;
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: 12px;
-      cursor: pointer;
-      width: min(420px, 100%);
-      letter-spacing: 1px;
-    }
-    .btn:active{ transform: scale(.99); }
-
-    .small-note{
-      font-size: 13px;
-      color: #6f6a66;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    /* =========================
-       (10) TARJETAS GENERALES (VESTIMENTA, WHATSAPP, RSVP, ETC.)
+       TARJETAS / SECCIONES
        ========================= */
     .card{
-      background: var(--tarjeta);
-      border: 1px solid var(--borde);
-      border-radius: 18px;
-      padding: 18px 14px;
-      max-width: 740px;
-      margin: 0 auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,.05);
-      text-align: left; /* Para que se vea tipo formulario */
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(6px);
     }
 
-    .card p, .card li{
-      color: #5f5752;
-      line-height: 1.65;
-      margin: 10px 0;
-      font-size: 16px;
+    .section{
+      margin-top: 16px;
+      padding: 22px 18px;
     }
 
-    /* Imágenes dentro de tarjeta */
-    .ref-img{
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid var(--borde);
-      margin-top: 10px;
-      object-fit: cover;
-      max-height: 380px;
+    .hr{
+      height:1px;
+      background: rgba(0,0,0,0.08);
+      margin: 18px 0;
     }
 
     /* =========================
-       (11) SECCIÓN RÁFAGA DE FOTOS
+       HERO / PORTADA
        ========================= */
-    .photo-wall{
-      background: var(--tarjeta);
-      border: 1px solid var(--borde);
-      border-radius: 18px;
-      padding: 14px;
-      max-width: 740px;
-      margin: 0 auto;
-      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+    .hero-img{
+      width:100%;
+      height: clamp(240px, 38vw, 480px);
+      object-fit: cover;
+      display:block;
     }
 
-    /* “Masonry” simple con columnas CSS */
+    .hero-head{
+      text-align:center;
+      padding: 22px 18px 10px;
+    }
+
+    .tiny{
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+      color: #7a746f;
+    }
+
+    .hero-title{
+      font-family: var(--script);
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1;
+      margin: 8px 0 10px;
+      color: var(--title);
+    }
+
+    .hero-sub{
+      font-size: clamp(14px, 2.2vw, 18px);
+      margin: 0;
+      color: #6f6a65;
+      font-weight: 400;
+    }
+
+    /* =========================
+       BLOQUE INTRO
+       ========================= */
+    .intro-text{
+      text-align:center;
+      font-size: 16px;
+      line-height: 1.8;
+      padding: 0 10px;
+    }
+
+    .intro-strong{
+      font-weight: 700;
+      color: #4f4a45;
+    }
+
+    /* =========================
+       TITULOS DE SECCIÓN (SCRIPT)
+       ========================= */
+    .sec-title{
+      font-family: var(--script);
+      text-align:center;
+      color: var(--title);
+      font-size: clamp(40px, 5vw, 64px);
+      margin: 6px 0 10px;
+    }
+
+    .sec-sub{
+      text-align:center;
+      margin: 0;
+      font-size: 16px;
+      color: #7a746f;
+    }
+
+    /* =========================
+       NOMBRES / FECHA
+       ========================= */
+    .names{
+      font-family: var(--script);
+      text-align:center;
+      font-size: clamp(40px, 6vw, 74px);
+      margin: 8px 0 6px;
+      color: var(--gold);
+      line-height: 1.05;
+    }
+
+    .date{
+      text-align:center;
+      font-size: clamp(18px, 3vw, 34px);
+      margin: 0;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .place{
+      text-align:center;
+      margin: 8px 0 0;
+      font-size: 16px;
+      color: #6d6863;
+    }
+
+    /* =========================
+       CONTADOR (DÍAS/HORAS/MIN/SEG)
+       ========================= */
+    .countdown{
+      display:flex;
+      gap: 10px;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .cd-box{
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 14px;
+      padding: 10px 14px;
+      min-width: 90px;
+      text-align:center;
+    }
+
+    .cd-num{
+      font-size: 26px;
+      font-weight: 800;
+      color: #4f4a45;
+    }
+
+    .cd-lbl{
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #7a746f;
+      margin-top: 4px;
+    }
+
+    /* =========================
+       VESTIMENTA
+       ========================= */
+    .grid-2{
+      display:grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px){
+      .grid-2{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .mini-title{
+      font-weight: 800;
+      font-size: 18px;
+      margin: 0 0 10px;
+      color: #5b564f;
+    }
+
+    ul{
+      margin: 0 0 14px 18px;
+      line-height: 1.8;
+    }
+
+    /* Imagen de referencia (arregla recorte/alto) */
+    .ref-img{
+      width:100%;
+      height: 260px;          /* Ajusta alto para que no se “estire raro” */
+      object-fit: cover;      /* Recorta bonito sin deformar */
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      display:block;
+      background: #fff;
+    }
+
+    /* Texto “solo guía” centrado */
+    .hint-center{
+      text-align:center;
+      font-size: 14px;
+      margin-top: 10px;
+      color: #6f6a65;
+      font-style: italic;
+    }
+
+    /* =========================
+       GALERÍA RÁFAGA (15 fotos)
+       ========================= */
     .masonry{
       column-count: 2;
       column-gap: 12px;
@@ -317,59 +289,54 @@
 
     .masonry img{
       width: 100%;
-      border-radius: 14px;
       margin: 0 0 12px;
+      border-radius: 16px;
+      display:block;
       break-inside: avoid;
-      border: 1px solid var(--borde);
-      box-shadow: 0 6px 16px rgba(0,0,0,.06);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
     }
 
     /* =========================
-       (12) FORMULARIO RSVP estilo “Confirmar Asistencia”
+       RSVP FORM
        ========================= */
-    .rsvp-title{
-      font-family: "Montserrat", Arial, sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #4f4a46;
-      text-align: center;
+    .form-title{
+      font-weight: 900;
+      font-size: 34px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align:center;
       margin: 0 0 10px;
+      color: #4f4a45;
     }
 
-    .rsvp-sub{
-      text-align: center;
-      color: #6f6a66;
+    .form-sub{
+      text-align:center;
       margin: 0 0 18px;
+      color: #6f6a65;
+      line-height:1.6;
     }
 
-    .rsvp-row{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 10px 0 14px;
-    }
-    @media (max-width: 640px){
-      .rsvp-row{ grid-template-columns: 1fr; }
+    .row{
+      display:grid;
+      gap: 10px;
     }
 
     label{
-      display: block;
       font-size: 14px;
-      color: #6f6a66;
-      margin: 10px 0 8px;
+      color: #6f6a65;
+      font-weight: 600;
     }
 
     input, select, textarea{
-      width: 100%;
+      width:100%;
       padding: 14px 14px;
-      border-radius: 12px;
-      border: 1px solid #ded6cf;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.15);
       outline: none;
+      font-family: var(--body);
       font-size: 16px;
-      font-family: "Montserrat", Arial, sans-serif;
-      background: #fff;
-      box-sizing: border-box;
+      background: rgba(255,255,255,0.92);
     }
 
     textarea{
@@ -377,232 +344,208 @@
       resize: vertical;
     }
 
-    .radio-line{
+    .radio-row{
+      display:flex;
+      gap: 18px;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin: 14px 0 6px;
+      color: #6f6a65;
+    }
+
+    .radio-row label{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .btn{
+      margin-top: 14px;
+      width: 100%;
+      padding: 16px 16px;
+      border-radius: 14px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover{ background: var(--accent-dark); }
+
+    .note{
+      text-align:center;
+      font-size: 13px;
+      color: #6f6a65;
+      margin-top: 12px;
+    }
+
+    .status{
+      margin-top: 10px;
+      text-align:center;
+      font-weight: 700;
+    }
+
+    /* =========================
+       BLOQUE “IMPORTANTE” (1 MES)
+       ========================= */
+    .important{
+      text-align:center;
+      line-height: 1.8;
+      font-size: 15px;
+      padding: 0 8px;
+    }
+    .important b{ color:#4f4a45; }
+
+    /* =========================
+       WHATSAPP LINK
+       ========================= */
+    .whats{
       display:flex;
       justify-content:center;
-      align-items:center;
-      gap: 28px;
-      margin: 10px 0 18px;
-      color: #6f6a66;
-      font-size: 18px;
-    }
-    .radio-line label{
-      margin: 0;
-      font-size: 18px;
-      cursor: pointer;
-    }
-    .radio-line input{
-      width: auto;
-      margin-right: 10px;
-      transform: scale(1.2);
-    }
-
-    .center{
-      text-align: center;
-    }
-
-    .rsvp-btn{
       margin-top: 14px;
-      text-transform: uppercase;
+    }
+    .whats a{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(0,0,0,0.08);
+      text-decoration:none;
+      color: #3f3b37;
       font-weight: 800;
-      letter-spacing: 2px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    }
+    .wa-icon{
+      width: 22px;
+      height: 22px;
+      display:inline-block;
     }
 
-    /* Mensajes de éxito/error */
-    .msg{
-      margin-top: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      display: none;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .msg.ok{
-      background: #e9f7f0;
-      border: 1px solid #bde8cf;
-      color: #1f6b45;
-    }
-    .msg.err{
-      background: #fdecec;
-      border: 1px solid #f5bdbd;
-      color: #8b1a1a;
-    }
-
-    /* Link WhatsApp */
-    .wa{
-      text-decoration: none;
-      color: #1d7c4f;
-      font-weight: 700;
+    /* =========================
+       AUDIO: aviso discreto si autoplay falla
+       ========================= */
+    .audio-toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.78);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      display:none; /* solo se muestra si el autoplay falla */
+      z-index: 9999;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      cursor: pointer;
+      user-select:none;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <!-- =========================
+       AUDIO (AUTOMÁTICO)
+       =========================
+       1) Sube tu mp3 como: cancion.mp3
+       2) El navegador puede bloquear autoplay con sonido. Si pasa, se mostrará
+          un aviso discreto abajo para “tocar y activar”.
+  -->
+  <audio id="bgMusic" src="cancion.mp3" preload="auto" loop></audio>
+  <div id="audioToast" class="audio-toast">🔊 Toca aquí para activar el sonido</div>
 
-    <!-- =========================
-         (A) PORTADA (FOTO PRINCIPAL)
-         - Debes subir: foto-portada.jpg
-         ========================= -->
-    <section class="hero">
-      <img src="foto-portada.jpg" alt="Foto de portada de Alexandra y Daniel" />
-    </section>
+  <div class="bg-overlay">
+    <div class="wrap">
 
-    <!-- =========================
-         (B) INTRO SUPERIOR
-         - Título con la fuente bonita (Great Vibes)
-         ========================= -->
-    <section class="intro">
-      <div class="mini-title">ESTÁS INVITADO A</div>
-      <h1 class="script-title big-script">nuestra boda</h1>
-      <p class="invite-line">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
+      <!-- =========================
+           PORTADA
+           ========================= -->
+      <div class="card">
+        <!-- Foto portada (archivo: foto-portada.jpg) -->
+        <img class="hero-img" src="foto-portada.jpg" alt="Foto de portada de Alexandra y Daniel" />
 
-      <div class="divider"></div>
+        <div class="hero-head">
+          <div class="tiny">ESTÁS INVITADO A</div>
+          <div class="hero-title">nuestra boda</div>
+          <p class="hero-sub">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
+        </div>
+      </div>
 
-      <!-- Texto inicial (sin la canción) -->
-      <p class="intro-text">
-        Teniendo principalmente como testigo y guía de nuestra historia a <span class="strong">Dios</span>,
-        sin temor a equivocarnos y con la firme convicción de que el final de esta historia solo lo decidirá Él
-        cuando apague alguno de nuestros corazones, <span class="strong">hemos decidido unir nuestras vidas en matrimonio.</span>
-        <br><br>
-        Y como cada uno de ustedes conoce y ha sido parte de nuestra historia, tenemos el gusto de contarles e invitarlos a:
-        <br>
-        <span class="strong">Nuestra Boda</span>
-      </p>
-    </section>
+      <!-- =========================
+           MENSAJE INICIAL
+           ========================= -->
+      <div class="card section">
+        <div class="intro-text">
+          Teniendo principalmente como testigo y guía de nuestra historia a <span class="intro-strong">Dios</span>,
+          sin temor a equivocarnos y con la firme convicción de que el final de esta historia solo lo decidirá Él
+          cuando apague alguno de nuestros corazones, <span class="intro-strong">hemos decidido unir nuestras vidas en matrimonio.</span>
 
-    <div class="divider"></div>
+          <div class="hr"></div>
 
-    <!-- =========================
-         (C) BLOQUE PRINCIPAL (NOMBRES / FECHA / LUGAR)
-         - "Nuestra Boda" reemplaza "Nos casamos"
-         - Nombres en fuente script
-         ========================= -->
-    <section class="names-block">
-      <h2 class="script-title event-label">Nuestra Boda</h2>
-
-      <h3 class="script-title names">Alexandra Gil &amp; Daniel Alvarez</h3>
-
-      <p class="date-big">Viernes 13 de noviembre de 2026</p>
-
-      <p class="place">
-        <b>Lugar:</b> Pendiente por confirmar (Coveñas, Sucre)
-      </p>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- =========================
-         (D) CUENTA REGRESIVA COMPLETA
-         - Muestra días, horas, minutos, segundos
-         ========================= -->
-    <section>
-      <div class="countdown-card">
-        <h2 class="section-title">Cuenta regresiva</h2>
-        <p class="subtle" style="margin:0 0 10px;">Faltan...</p>
-
-        <div class="countdown-grid">
-          <div class="time-box">
-            <div id="cd-days" class="time-num">0</div>
-            <div class="time-lbl">Días</div>
-          </div>
-          <div class="time-box">
-            <div id="cd-hours" class="time-num">0</div>
-            <div class="time-lbl">Horas</div>
-          </div>
-          <div class="time-box">
-            <div id="cd-mins" class="time-num">0</div>
-            <div class="time-lbl">Minutos</div>
-          </div>
-          <div class="time-box">
-            <div id="cd-secs" class="time-num">0</div>
-            <div class="time-lbl">Segundos</div>
-          </div>
+          Y como cada uno de ustedes nos conoce y ha sido parte de nuestra historia,
+          tenemos el gusto de contarles e invitarlos a:
         </div>
 
-        <p id="cd-status" class="small-note" style="margin-bottom:0;"></p>
+        <!-- OJO: Aquí NO repetimos “Nuestra Boda” si tú quieres quitarlo de este bloque.
+             Si después lo quieres, lo volvemos a poner. -->
       </div>
-    </section>
 
-    <div class="divider"></div>
+      <!-- =========================
+           NOMBRES / FECHA / LUGAR / CONTADOR
+           ========================= -->
+      <div class="card section">
+        <!-- Cambiado a "Nuestra Boda" en vez de "Nos casamos" -->
+        <p class="sec-sub">Nuestra Boda</p>
 
-    <!-- =========================
-         (E) MÚSICA
-         - Subir el archivo MP3 como: musica.mp3
-         - Intentamos autoplay (si el navegador lo bloquea, mostramos botón)
-         - También activamos al primer toque en pantalla
-         ========================= -->
-    <section>
-      <div class="music-card">
-        <h2 class="section-title">Música</h2>
+        <!-- Nombres en letra tipo script -->
+        <div class="names">Alexandra Gil &amp; Daniel Álvarez</div>
 
-        <!-- Audio (loop para que se repita) -->
-        <audio id="music" loop>
-          <source src="musica.mp3" type="audio/mpeg">
-          Tu navegador no soporta audio.
-        </audio>
+        <!-- Fecha -->
+        <p class="date">Viernes 13 de noviembre de 2026</p>
 
-        <button id="btnMusic" class="btn">▶ Activar música</button>
+        <!-- Lugar -->
+        <p class="place"><b>Lugar:</b> Pendiente por confirmar (Coveñas, Sucre)</p>
 
-        <p class="small-note" id="musicNote">
-          Nota: algunos celulares/navegadores requieren que presiones un botón o toques la pantalla para activar el sonido.
-        </p>
+        <!-- Contador (Días/Horas/Minutos/Segundos) -->
+        <div class="countdown" id="countdown">
+          <div class="cd-box">
+            <div class="cd-num" id="cdDays">--</div>
+            <div class="cd-lbl">Días</div>
+          </div>
+          <div class="cd-box">
+            <div class="cd-num" id="cdHours">--</div>
+            <div class="cd-lbl">Horas</div>
+          </div>
+          <div class="cd-box">
+            <div class="cd-num" id="cdMins">--</div>
+            <div class="cd-lbl">Min</div>
+          </div>
+          <div class="cd-box">
+            <div class="cd-num" id="cdSecs">--</div>
+            <div class="cd-lbl">Seg</div>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <div class="divider"></div>
+      <!-- =========================
+           GALERÍA DE FOTOS (RÁFAGA)
+           ========================= -->
+      <div class="card section">
+        <div class="sec-title">Fotos</div>
+        <p class="sec-sub">Algunos momentos que queremos compartir contigo</p>
+        <div class="hr"></div>
 
-    <!-- =========================
-         (F) VESTIMENTA (con espacio para imágenes de referencia)
-         - Subir:
-           - vestimenta-hombres.jpg
-           - vestimenta-mujeres.jpg
-         ========================= -->
-    <section>
-      <div class="card">
-        <h2 class="section-title" style="text-align:center;">Vestimenta</h2>
-
-        <!-- HOMBRES -->
-        <p class="strong">Hombres</p>
-        <ul>
-          <li>Camisa de lino o manga larga (preferiblemente clara).</li>
-          <li>Pantalón beige/arena o tonos neutros.</li>
-          <li>Estilo playero elegante.</li>
-        </ul>
-        <img class="ref-img" src="vestimenta-hombres.jpg" alt="Referencia vestimenta hombres" />
-
-        <div class="divider"></div>
-
-        <!-- MUJERES -->
-        <p class="strong">Mujeres</p>
-        <ul>
-          <li>Vestidos en tonos pasteles o neutros, estilo elegante y fresco.</li>
-          <li><span class="strong">Recomendación:</span> por ser en playa, es mejor evitar tacón (ideal sandalias/flat).</li>
-        </ul>
-        <img class="ref-img" src="vestimenta-mujeres.jpg" alt="Referencia vestimenta mujeres" />
-
-        <p class="small-note" style="margin-top:12px;">
-          (Estas imágenes son solo una guía de estilo).
-        </p>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- =========================
-         (G) SECCIÓN DE FOTOS “RÁFAGA”
-         - Debes crear carpeta /fotos/ y subir 15 imágenes:
-           fotos/01.jpg ... fotos/15.jpg
-         ========================= -->
-    <section>
-      <div class="photo-wall">
-        <h2 class="section-title" style="text-align:center;">Fotos</h2>
-        <p class="subtle" style="margin:0 0 12px; text-align:center;">
-          Algunos recuerdos que nos encantan 💛
-        </p>
-
+        <!--
+          SUBE 15 FOTOS EN carpeta /fotos:
+          fotos/01.jpg ... fotos/15.jpg
+        -->
         <div class="masonry">
-          <!-- 15 fotos (puedes cambiar por las tuyas) -->
           <img src="fotos/01.jpg" alt="Foto 01">
           <img src="fotos/02.jpg" alt="Foto 02">
           <img src="fotos/03.jpg" alt="Foto 03">
@@ -620,70 +563,99 @@
           <img src="fotos/15.jpg" alt="Foto 15">
         </div>
       </div>
-    </section>
 
-    <div class="divider"></div>
+      <!-- =========================
+           VESTIMENTA
+           ========================= -->
+      <div class="card section">
+        <div class="sec-title">Vestimenta</div>
+        <p class="sec-sub">Guía sugerida para la boda</p>
+        <div class="hr"></div>
 
-    <!-- =========================
-         (H) MENSAJE DE CONFIRMACIÓN (POLITE, con plazo de 1 mes)
-         - Calculamos fecha límite = hoy + 30 días
-         ========================= -->
-    <section>
-      <div class="card" style="text-align:center;">
-        <h2 class="section-title">Confirmación</h2>
-        <p style="margin:0;">
-          Por favor confirma tu asistencia dentro de los próximos <span class="strong">30 días</span>
-          (<span class="strong">fecha límite:</span> <span id="deadlineDate">—</span>).
-          <br>
-          Si no recibimos tu confirmación dentro de ese plazo, entenderemos (con todo cariño) que no podrás asistir,
-          para poder organizar todo de la mejor manera.
-        </p>
+        <div class="grid-2">
+          <!-- HOMBRES -->
+          <div>
+            <div class="mini-title">Hombres</div>
+            <ul>
+              <li>Camisa de lino o manga larga (preferiblemente clara).</li>
+              <li>Pantalón beige/arena o tonos neutros.</li>
+              <li>Estilo playero elegante.</li>
+            </ul>
+
+            <!-- Imagen referencia hombres -->
+            <img class="ref-img" src="referencia-hombres.jpg" alt="Referencia de vestimenta para hombres">
+          </div>
+
+          <!-- MUJERES -->
+          <div>
+            <div class="mini-title">Mujeres</div>
+            <ul>
+              <li>Vestidos en tonos pasteles o neutros, estilo elegante y fresco.</li>
+              <li><b>Recomendación:</b> por ser en playa, es recomendable <b>no</b> llevar tacón (ideal sandalias/flat).</li>
+            </ul>
+
+            <!-- Imagen referencia mujeres -->
+            <img class="ref-img" src="referencia-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
+          </div>
+        </div>
+
+        <!-- Texto centrado -->
+        <div class="hint-center">(Estas imágenes son solo una guía de estilo)</div>
       </div>
-    </section>
 
-    <div class="divider"></div>
+      <!-- =========================
+           IMPORTANTE: CONFIRMAR EN 1 MES
+           ========================= -->
+      <div class="card section">
+        <div class="sec-title">Confirmación</div>
+        <div class="important">
+          Para nosotros es súper importante organizar todo de la mejor manera.
+          Por eso, te pedimos por favor confirmar tu asistencia <b>dentro del próximo mes</b>.
+          <br><br>
+          Si no recibimos confirmación en ese tiempo, entenderemos (con todo cariño) que no podrás asistir.
+          ¡Gracias por ayudarnos a planear este día tan especial!
+        </div>
 
-    <!-- =========================
-         (I) WHATSAPP (link directo)
-         - Enlace directo a WhatsApp: https://wa.me/573028610838
-         ========================= -->
-    <section>
-      <div class="card" style="text-align:center;">
-        <h2 class="section-title">Dudas o preguntas</h2>
-        <p style="margin:0;">
-          Si tienes cualquier duda, escríbenos por WhatsApp:
-          <br>
-          <a class="wa" href="https://wa.me/573028610838" target="_blank" rel="noopener">
-            📲 +57 302 861 0838
+        <!-- WhatsApp con ícono + link directo -->
+        <div class="whats">
+          <a
+            href="https://wa.me/573212363753"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escríbenos por WhatsApp"
+          >
+            <!-- Ícono WhatsApp (SVG simple) -->
+            <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M16 3C9.1 3 3.5 8.5 3.5 15.3c0 2.4.7 4.7 2 6.7L4 29l7.2-1.9c1.9 1 4.1 1.6 6.3 1.6 6.9 0 12.5-5.5 12.5-12.3S22.9 3 16 3Z" fill="#25D366"/>
+              <path d="M24.1 19.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.6-.2-.9.2-.3.4-1 1-1.2 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-0.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.9-2.2-1.2-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.3 2.4 3.8 5.9 5.1.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z" fill="#fff"/>
+            </svg>
+            ¿Dudas? Escríbenos por WhatsApp: <b>+57 321 236 3753</b>
           </a>
-        </p>
+        </div>
       </div>
-    </section>
 
-    <div class="divider"></div>
+      <!-- =========================
+           RSVP (FORMULARIO)
+           ========================= -->
+      <div class="card section">
+        <div class="form-title">CONFIRMAR ASISTENCIA</div>
+        <p class="form-sub">
+          Por favor, confirma tu asistencia<br>
+          ¡Esperamos que estés allí!
+        </p>
 
-    <!-- =========================
-         (J) FORMULARIO RSVP (tipo imagen que enviaste)
-         - Guarda en Google Sheets usando tu Apps Script URL
-         - Soporta invitación de 1 a 6 personas
-         - Bloqueo local para evitar doble envío (cliente)
-         ========================= -->
-    <section>
-      <div class="card">
-        <div class="rsvp-title">CONFIRMAR ASISTENCIA</div>
-        <p class="rsvp-sub">Por favor, confirma tu asistencia. ¡Esperamos que estés allí!</p>
-
-        <!-- Mensaje de éxito/error -->
-        <div id="msgOk" class="msg ok"></div>
-        <div id="msgErr" class="msg err"></div>
-
-        <!-- FORM -->
-        <form id="rsvpForm">
-          <!-- Radios: Asiste / No asiste -->
-          <div class="radio-line">
+        <!-- =========================
+             FORMULARIO
+             =========================
+             - Envía datos a tu Apps Script (Google Sheets)
+             - Ajusta "SCRIPT_URL" si cambia tu URL
+        -->
+        <form id="rsvpForm" class="row">
+          <!-- Radios: asistencia -->
+          <div class="radio-row">
             <label>
               <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
-              Sí, allí estaré!
+              Sí, allí estaré
             </label>
             <label>
               <input type="radio" name="asistencia" value="No podré asistir">
@@ -692,230 +664,144 @@
           </div>
 
           <!-- Responsable -->
-          <label for="responsable">Nombre del responsable (quien confirma)</label>
-          <input id="responsable" name="responsable" type="text" placeholder="Ej: Andrés Alvarez" required>
+          <div>
+            <label for="responsable">Nombre del responsable (quien confirma)</label>
+            <input id="responsable" name="responsable" type="text" placeholder="Ej: Juan Pérez" required>
+          </div>
 
           <!-- Cantidad -->
-          <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
-          <select id="cantidad" name="cantidad" required>
-            <option value="1">1 persona</option>
-            <option value="2">2 personas</option>
-            <option value="3">3 personas</option>
-            <option value="4">4 personas</option>
-            <option value="5">5 personas</option>
-            <option value="6">6 personas</option>
-          </select>
+          <div>
+            <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
+            <select id="cantidad" name="cantidad" required>
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+              <option value="6">6 personas</option>
+            </select>
+          </div>
 
-          <!-- Contenedor dinámico de invitados 1..6 -->
-          <div id="invitadosContainer"></div>
+          <!-- Invitados dinámicos -->
+          <div id="guestFields"></div>
 
           <!-- Alergias -->
-          <label for="alergias">Intolerancias o alergias alimentarias</label>
-          <input id="alergias" name="alergias" type="text" placeholder="Ej: Ninguna">
+          <div>
+            <label for="alergias">Intolerancias o alergias alimentarias</label>
+            <input id="alergias" name="alergias" type="text" placeholder="Ej: Ninguna">
+          </div>
 
           <!-- Canción -->
-          <label for="cancion">¿Qué canción no puede faltar?</label>
-          <input id="cancion" name="cancion" type="text" placeholder="Ej: ...">
+          <div>
+            <label for="cancion">¿Qué canción no puede faltar?</label>
+            <input id="cancion" name="cancion" type="text" placeholder="Ej: Nuestra canción favorita">
+          </div>
 
           <!-- Mensaje -->
-          <label for="mensaje">Mensaje para los novios</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Déjanos un mensaje 💛"></textarea>
-
-          <div class="center">
-            <button id="btnEnviar" type="submit" class="btn rsvp-btn">ENVIAR RESPUESTA</button>
-            <p class="small-note">
-              *Tu respuesta quedará guardada automáticamente en Google Sheets.
-            </p>
+          <div>
+            <label for="mensaje">Mensaje para los novios</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..."></textarea>
           </div>
+
+          <button class="btn" type="submit" id="submitBtn">ENVIAR RESPUESTA</button>
+          <div class="note">*Tu respuesta quedará guardada automáticamente en Google Sheets.</div>
+          <div id="status" class="status"></div>
         </form>
       </div>
-    </section>
 
+    </div>
   </div>
 
+  <!-- =========================
+       SCRIPTS
+       ========================= -->
   <script>
-    /* =========================================================
-       CONFIGURACIÓN (CAMBIA SOLO SI LO NECESITAS)
-       ========================================================= */
+    // =========================
+    // 1) URL de Apps Script (Google Sheets)
+    // =========================
+    // IMPORTANTE: Usa tu URL /exec
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
-    // (1) Fecha del evento: Viernes 13 de noviembre de 2026, 4:00 PM (ajusta hora si quieres)
-    const EVENT_DATE = new Date("November 13, 2026 16:00:00").getTime();
+    // =========================
+    // 2) CONTADOR (DÍAS/HORAS/MIN/SEG)
+    // =========================
+    // Fecha objetivo (Coveñas) - ajusta la hora si quieres (ej: 17:00:00)
+    const weddingDate = new Date("2026-11-13T17:00:00-05:00");
 
-    // (2) URL de tu Apps Script (la que compartiste)
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
-
-    // (3) Llave local para bloquear doble envío en el mismo dispositivo
-    const LOCAL_SENT_KEY = "rsvp_enviado_alexandra_daniel_v1";
-
-    /* =========================================================
-       (1) CUENTA REGRESIVA (días/horas/min/seg)
-       ========================================================= */
-    function pad2(n){ return String(n).padStart(2,"0"); }
+    function pad2(n){ return String(n).padStart(2, "0"); }
 
     function updateCountdown(){
-      const now = Date.now();
-      let diff = EVENT_DATE - now;
+      const now = new Date();
+      const diff = weddingDate - now;
 
-      const status = document.getElementById("cd-status");
+      const dEl = document.getElementById("cdDays");
+      const hEl = document.getElementById("cdHours");
+      const mEl = document.getElementById("cdMins");
+      const sEl = document.getElementById("cdSecs");
+
+      // Si ya pasó la fecha
       if (diff <= 0){
-        document.getElementById("cd-days").textContent = "0";
-        document.getElementById("cd-hours").textContent = "00";
-        document.getElementById("cd-mins").textContent = "00";
-        document.getElementById("cd-secs").textContent = "00";
-        status.textContent = "¡Hoy es el gran día! 💛";
+        dEl.textContent = "0";
+        hEl.textContent = "00";
+        mEl.textContent = "00";
+        sEl.textContent = "00";
         return;
       }
 
-      const days = Math.floor(diff / (1000*60*60*24));
-      diff -= days * (1000*60*60*24);
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const mins = Math.floor((totalSeconds % 3600) / 60);
+      const secs = totalSeconds % 60;
 
-      const hours = Math.floor(diff / (1000*60*60));
-      diff -= hours * (1000*60*60);
-
-      const mins = Math.floor(diff / (1000*60));
-      diff -= mins * (1000*60);
-
-      const secs = Math.floor(diff / 1000);
-
-      document.getElementById("cd-days").textContent = days;
-      document.getElementById("cd-hours").textContent = pad2(hours);
-      document.getElementById("cd-mins").textContent = pad2(mins);
-      document.getElementById("cd-secs").textContent = pad2(secs);
-
-      status.textContent = "Preparando todo con mucho cariño ✨";
+      dEl.textContent = days;
+      hEl.textContent = pad2(hours);
+      mEl.textContent = pad2(mins);
+      sEl.textContent = pad2(secs);
     }
+
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    /* =========================================================
-       (2) FECHA LÍMITE CONFIRMACIÓN (HOY + 30 DÍAS)
-       ========================================================= */
-    function setDeadline(){
-      const d = new Date();
-      d.setDate(d.getDate() + 30);
+    // =========================
+    // 3) INVITADOS DINÁMICOS (1..6)
+    // =========================
+    const cantidadEl = document.getElementById("cantidad");
+    const guestFields = document.getElementById("guestFields");
 
-      // Formato bonito en español
-      const opts = { year:"numeric", month:"long", day:"numeric" };
-      document.getElementById("deadlineDate").textContent = d.toLocaleDateString("es-CO", opts);
-    }
-    setDeadline();
+    function renderGuestFields(){
+      const n = Number(cantidadEl.value || 1);
+      guestFields.innerHTML = "";
 
-    /* =========================================================
-       (3) MÚSICA
-       - Intento de autoplay: puede fallar por políticas del navegador
-       - Si falla, el usuario debe tocar el botón o tocar la pantalla
-       ========================================================= */
-    const music = document.getElementById("music");
-    const btnMusic = document.getElementById("btnMusic");
-    const musicNote = document.getElementById("musicNote");
-
-    async function tryPlayMusic(){
-      try{
-        await music.play();
-        btnMusic.textContent = "⏸ Música activada";
-        musicNote.textContent = "Música reproduciéndose 🎵";
-      }catch(e){
-        // Autoplay bloqueado (normal en móviles)
-        musicNote.textContent = "Tu navegador bloqueó el autoplay. Toca el botón (o toca la pantalla) para activar el audio.";
+      for (let i = 1; i <= n; i++){
+        const wrap = document.createElement("div");
+        wrap.innerHTML = `
+          <label for="inv${i}">Nombre del invitado ${i}</label>
+          <input id="inv${i}" name="inv${i}" type="text" placeholder="Invitado ${i}" ${i === 1 ? "required" : ""}>
+        `;
+        guestFields.appendChild(wrap);
       }
     }
 
-    // Botón para activar música manualmente
-    btnMusic.addEventListener("click", async () => {
-      if (!music.paused){
-        music.pause();
-        btnMusic.textContent = "▶ Activar música";
-        musicNote.textContent = "Música pausada.";
-        return;
-      }
-      await tryPlayMusic();
-    });
+    cantidadEl.addEventListener("change", renderGuestFields);
+    renderGuestFields();
 
-    // “Modo inteligente”: primer toque/click en cualquier parte activa música
-    // (Muy útil en iPhone: el usuario toca para scrollear y ahí se activa)
-    let firstInteraction = false;
-    function onFirstInteraction(){
-      if (firstInteraction) return;
-      firstInteraction = true;
-      tryPlayMusic();
-      window.removeEventListener("click", onFirstInteraction);
-      window.removeEventListener("touchstart", onFirstInteraction);
-    }
-    window.addEventListener("click", onFirstInteraction, { passive:true });
-    window.addEventListener("touchstart", onFirstInteraction, { passive:true });
-
-    // Intento inicial de autoplay (probablemente será bloqueado en móviles)
-    tryPlayMusic();
-
-    /* =========================================================
-       (4) RSVP: CAMPOS DINÁMICOS PARA INVITADOS 1..6
-       ========================================================= */
-    const cantidadSelect = document.getElementById("cantidad");
-    const invitadosContainer = document.getElementById("invitadosContainer");
-
-    function renderInvitados(){
-      const n = Number(cantidadSelect.value || 1);
-
-      // Limpiamos el contenedor
-      invitadosContainer.innerHTML = "";
-
-      // Creamos inputs Invitado 1..n
-      for (let i=1; i<=n; i++){
-        const label = document.createElement("label");
-        label.setAttribute("for", "inv"+i);
-        label.textContent = "Nombre del invitado " + i;
-
-        const input = document.createElement("input");
-        input.id = "inv"+i;
-        input.name = "inv"+i;
-        input.type = "text";
-        input.placeholder = "Ej: Nombre Apellido";
-        input.required = true;
-
-        invitadosContainer.appendChild(label);
-        invitadosContainer.appendChild(input);
-      }
-    }
-    cantidadSelect.addEventListener("change", renderInvitados);
-    renderInvitados(); // Inicial
-
-    /* =========================================================
-       (5) RSVP: ENVÍO A GOOGLE APPS SCRIPT
-       - Envía JSON con: asistencia, responsable, cantidad, invitados[], alergias, cancion, mensaje, info
-       - Bloquea doble envío (cliente) usando localStorage
-       ========================================================= */
+    // =========================
+    // 4) ENVÍO DEL FORMULARIO
+    // =========================
     const form = document.getElementById("rsvpForm");
-    const msgOk = document.getElementById("msgOk");
-    const msgErr = document.getElementById("msgErr");
-    const btnEnviar = document.getElementById("btnEnviar");
-
-    function showMsg(el, text){
-      el.style.display = "block";
-      el.textContent = text;
-    }
-    function hideMsgs(){
-      msgOk.style.display = "none";
-      msgErr.style.display = "none";
-      msgOk.textContent = "";
-      msgErr.textContent = "";
-    }
-
-    // Si ya envió antes desde este navegador
-    if (localStorage.getItem(LOCAL_SENT_KEY) === "1"){
-      showMsg(msgErr, "Este dispositivo/navegador ya registró una confirmación. Si necesitas corregir algo, contáctanos por WhatsApp.");
-      btnEnviar.disabled = true;
-      btnEnviar.style.opacity = .6;
-    }
+    const statusEl = document.getElementById("status");
+    const submitBtn = document.getElementById("submitBtn");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      hideMsgs();
 
-      // Bloqueo local (cliente) antes de enviar
-      if (localStorage.getItem(LOCAL_SENT_KEY) === "1"){
-        showMsg(msgErr, "Ya existe una confirmación registrada desde este dispositivo/navegador.");
-        return;
-      }
+      // Deshabilitar botón para evitar doble click
+      submitBtn.disabled = true;
+      submitBtn.textContent = "ENVIANDO...";
+
+      statusEl.textContent = "";
+      statusEl.style.color = "";
 
       // Tomar asistencia
       const asistencia = form.querySelector('input[name="asistencia"]:checked')?.value || "";
@@ -926,22 +812,22 @@
       // Cantidad
       const cantidad = Number(document.getElementById("cantidad").value || 0);
 
-      // Invitados
+      // Invitados (1..cantidad)
       const invitados = [];
-      for (let i=1; i<=cantidad; i++){
-        const v = (document.getElementById("inv"+i)?.value || "").trim();
-        if (v) invitados.push(v);
+      for (let i = 1; i <= cantidad; i++){
+        const v = (document.getElementById(`inv${i}`)?.value || "").trim();
+        invitados.push(v);
       }
 
-      // Otros campos
+      // Alergias, canción, mensaje
       const alergias = (document.getElementById("alergias").value || "").trim();
-      const cancion  = (document.getElementById("cancion").value  || "").trim();
-      const mensaje  = (document.getElementById("mensaje").value  || "").trim();
+      const cancion = (document.getElementById("cancion").value || "").trim();
+      const mensaje = (document.getElementById("mensaje").value || "").trim();
 
-      // “Info” (User-Agent) para tu lógica de bloqueo (NO es IP real)
-      const info = navigator.userAgent;
+      // Info del navegador (lo usas en el Apps Script como IP/Info)
+      const info = navigator.userAgent || "";
 
-      // Payload EXACTO como tu Apps Script espera
+      // Payload EXACTO para que tu Apps Script lo lea bien
       const payload = {
         asistencia,
         responsable,
@@ -953,13 +839,10 @@
         info
       };
 
-      // Enviar
-      try{
-        btnEnviar.disabled = true;
-        btnEnviar.textContent = "ENVIANDO...";
-
-        const res = await fetch(APPS_SCRIPT_URL, {
+      try {
+        const res = await fetch(SCRIPT_URL, {
           method: "POST",
+          mode: "cors",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload)
         });
@@ -967,20 +850,56 @@
         const data = await res.json();
 
         if (data.ok){
-          showMsg(msgOk, data.message || "Confirmación registrada correctamente.");
-          localStorage.setItem(LOCAL_SENT_KEY, "1"); // Bloqueo local para no duplicar
-        }else{
-          showMsg(msgErr, data.message || "No se pudo registrar. Intenta nuevamente.");
-          btnEnviar.disabled = false;
-          btnEnviar.textContent = "ENVIAR RESPUESTA";
+          statusEl.style.color = "#2f6f3e";
+          statusEl.textContent = "✅ " + (data.message || "Confirmación registrada correctamente.");
+          form.reset();
+          renderGuestFields();
+        } else {
+          statusEl.style.color = "#b00020";
+          statusEl.textContent = "⚠️ " + (data.message || "No se pudo registrar. Intenta de nuevo.");
         }
 
-      }catch(err){
-        showMsg(msgErr, "Error enviando el formulario. Revisa tu conexión e intenta de nuevo.");
-        btnEnviar.disabled = false;
-        btnEnviar.textContent = "ENVIAR RESPUESTA";
+      } catch (err){
+        statusEl.style.color = "#b00020";
+        statusEl.textContent = "⚠️ Error enviando la confirmación. Intenta de nuevo.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "ENVIAR RESPUESTA";
       }
     });
+
+    // =========================
+    // 5) MÚSICA AUTOMÁTICA (sin botón)
+    // =========================
+    // Nota: Muchos navegadores bloquean autoplay con sonido hasta que haya interacción del usuario.
+    // Aquí intentamos reproducir automáticamente. Si falla, mostramos un aviso pequeño para tocar.
+    const bgMusic = document.getElementById("bgMusic");
+    const audioToast = document.getElementById("audioToast");
+
+    async function tryAutoplay(){
+      try{
+        // Intento reproducir
+        await bgMusic.play();
+        audioToast.style.display = "none";
+      } catch (e){
+        // Autoplay bloqueado -> mostramos aviso discreto
+        audioToast.style.display = "block";
+      }
+    }
+
+    // Si el usuario toca el aviso, activamos la música
+    audioToast.addEventListener("click", async () => {
+      try{
+        await bgMusic.play();
+        audioToast.style.display = "none";
+      } catch(e){
+        // Si aún falla, lo dejamos visible
+        audioToast.style.display = "block";
+      }
+    });
+
+    // Intentar autoplay al cargar
+    document.addEventListener("DOMContentLoaded", tryAutoplay);
   </script>
 </body>
 </html>
