@@ -1,135 +1,291 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>María Alexandra & Daniel | Boda en la Playa</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- =========================
+       FUENTES (TIPOGRAFÍA)
+       - Montserrat: texto general (limpia y moderna)
+       - Great Vibes: estilo manuscrito/romántico (como tu ejemplo)
+       ========================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    /* =========================
+       ESTILO GENERAL (COLORES + BASE)
+       ========================= */
+    :root{
+      --fondo: #fffaf5;         /* fondo crema suave */
+      --texto: #5a4a42;         /* marrón suave */
+      --dorado: #c49b6c;        /* dorado/beige para títulos */
+      --menta: #8fb9a8;         /* verde menta pastel */
+      --linea: rgba(90,74,66,.12);
+      --card: #ffffff;
+    }
+
+    body{
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fffaf5;
-      color: #5a4a42;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
       text-align: center;
     }
 
-    section {
-      padding: 40px 20px;
-    }
-
-    .intro {
-      font-style: italic;
-      max-width: 820px;
+    /* Contenedor para limitar ancho y que se vea elegante en PC */
+    .card{
+      max-width: 980px;
       margin: 0 auto;
-      line-height: 1.7;
-      padding-top: 60px;
-      padding-bottom: 10px;
+      padding: 0 18px;
     }
 
-    .intro p {
+    /* Separador sutil entre secciones */
+    .divider{
+      height: 1px;
+      background: var(--linea);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Secciones con espacio arriba/abajo */
+    section{
+      padding: 44px 0;
+    }
+
+    /* =========================
+       PORTADA (FOTO ANTES DEL TEXTO INICIAL)
+       ========================= */
+    .hero{
+      padding-top: 26px;
+      padding-bottom: 18px;
+    }
+
+    .hero img{
+      width: 100%;
+      max-width: 980px;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 6px 26px rgba(0,0,0,.08);
+    }
+
+    /* Texto pequeño tipo "ESTÁS INVITADO A" */
+    .tiny-title{
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin: 22px 0 6px;
+    }
+
+    /* Título en manuscrito (como tu ejemplo) */
+    .script-title{
+      font-family: 'Great Vibes', cursive;
+      font-size: 58px;
+      font-weight: 400;
+      color: var(--texto);
+      margin: 0 0 10px;
+      line-height: 1.0;
+    }
+
+    /* =========================
+       NOMBRES / FECHA / UBICACIÓN
+       ========================= */
+    h1{
+      color: var(--dorado);
+      font-size: 34px;
+      margin: 10px 0 12px;
+      font-weight: 700;
+    }
+
+    h2{
+      color: var(--menta);
+      font-size: 26px;
+      margin: 12px 0;
+      font-weight: 700;
+    }
+
+    .subtle{
+      font-size: 18px;
+      margin: 10px 0;
+      font-weight: 400;
+    }
+
+    /* =========================
+       TEXTO INICIAL (CANCIÓN + MENSAJE)
+       ========================= */
+    .intro{
+      font-style: italic;
+      line-height: 1.75;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .intro p{
       margin: 18px 0;
       font-size: 18px;
     }
 
-    h1 {
-      color: #c49b6c;
-      font-size: 34px;
-      margin: 10px 0 10px;
-      padding: 0 10px;
-    }
-
-    h2 {
-      color: #8fb9a8;
-      font-size: 26px;
-      margin: 12px 0;
-    }
-
-    .subtle {
-      font-size: 18px;
-      margin: 8px 0;
-    }
-
-    .card {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    button {
-      background: #c49b6c;
+    /* =========================
+       BOTÓN (MÚSICA)
+       ========================= */
+    button{
+      background: var(--dorado);
       color: white;
       border: none;
       padding: 14px 22px;
       font-size: 16px;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(0,0,0,.10);
     }
+    button:active{ transform: scale(0.99); }
 
-    button:active {
-      transform: scale(0.99);
-    }
-
-    #countdown {
+    /* =========================
+       CUENTA REGRESIVA
+       ========================= */
+    #countdown{
       font-size: 20px;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    /* =========================
+       VESTIMENTA (IMÁGENES + TEXTO)
+       ========================= */
+    .dress-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 980px;
+      margin: 18px auto 0;
+      padding: 0 18px;
+    }
+
+    /* En pantallas grandes ponemos 2 columnas */
+    @media (min-width: 860px){
+      .dress-grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .dress-card{
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 6px 22px rgba(0,0,0,.06);
+      text-align: left;
+    }
+
+    .dress-card h3{
+      margin: 6px 0 10px;
+      font-size: 18px;
+      color: var(--texto);
+    }
+
+    .dress-card p{
+      margin: 0 0 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      opacity: .95;
+    }
+
+    .dress-card img{
+      width: 100%;
+      border-radius: 14px;
+      display: block;
       margin-top: 10px;
     }
 
-    iframe {
-      max-width: 900px;
+    /* =========================
+       RSVP (FORMULARIO)
+       ========================= */
+    iframe{
+      max-width: 980px;
       width: 100%;
       border: 0;
-      border-radius: 10px;
+      border-radius: 14px;
       background: white;
+      box-shadow: 0 6px 22px rgba(0,0,0,.06);
     }
 
-    .divider {
-      height: 1px;
-      background: rgba(90, 74, 66, 0.12);
-      max-width: 900px;
-      margin: 0 auto;
+    .note{
+      font-size: 14px;
+      opacity: 0.75;
+      margin-top: 14px;
+      padding: 0 18px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TEXTO ROMÁNTICO (VERSIÓN 1) -->
-  <section class="intro card">
-    <p>
-      Eres todo lo que tengo,<br>
-      mi sonrisa, mi ilusión.<br>
-      Que lo sepa el mundo entero:<br>
-      eres tú, mi gran pasión.
-    </p>
-
-    <p>
-      Te has robado mi energía,<br>
-      mi tristeza y mi alegría.<br>
-      Eres dueña de mi amor.
-    </p>
-
-    <p>
-      Teniendo como testigo y guía de nuestra historia a <strong>Dios</strong>,<br>
-      sin temor a equivocarnos y con la firme convicción<br>
-      de que el final de esta historia solo lo decidirá Él<br>
-      cuando apague alguno de nuestros corazones,<br>
-      <strong>hemos decidido unir nuestras vidas en matrimonio.</strong>
-    </p>
+  <!-- =========================
+       1) PORTADA (FOTO ANTES DEL TEXTO INICIAL)
+       - Aquí va la foto grande de ustedes
+       - Debes subir la imagen al repo con nombre: "foto-portada.jpg"
+       ========================= -->
+  <section class="hero card">
+    <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel">
+    <div class="tiny-title">ESTÁS INVITADO A</div>
+    <div class="script-title">nuestra boda</div>
+    <p class="subtle">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ENCABEZADO PRINCIPAL -->
+  <!-- =========================
+       2) TEXTO INICIAL (CANCIÓN + MENSAJE CON DIOS)
+       ========================= -->
+  <section class="card">
+    <div class="intro">
+      <p>
+        Eres todo lo que tengo,<br>
+        mi sonrisa, mi ilusión.<br>
+        Que lo sepa el mundo entero:<br>
+        eres tú, mi gran pasión.
+      </p>
+
+      <p>
+        Te has robado mi energía,<br>
+        mi tristeza y mi alegría.<br>
+        Eres dueña de mi amor.
+      </p>
+
+      <p>
+        Teniendo como testigo y guía de nuestra historia a <strong>Dios</strong>,<br>
+        sin temor a equivocarnos y con la firme convicción<br>
+        de que el final de esta historia solo lo decidirá Él<br>
+        cuando apague alguno de nuestros corazones,<br>
+        <strong>hemos decidido unir nuestras vidas en matrimonio.</strong>
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- =========================
+       3) ENCABEZADO PRINCIPAL (NOMBRES + FECHA + LUGAR)
+       - Fecha corregida a VIERNES 13 NOV 2026
+       ========================= -->
   <section class="card">
     <p class="subtle">Nos casamos</p>
     <h1>María Alexandra Gil &amp; Daniel Álvarez</h1>
-    <h2>16 de noviembre de 2026</h2>
+    <h2>Viernes 13 de noviembre de 2026</h2>
     <p class="subtle">Coveñas, Sucre</p>
   </section>
 
   <div class="divider"></div>
 
-  <!-- CUENTA REGRESIVA -->
+  <!-- =========================
+       4) CUENTA REGRESIVA
+       - Se calcula hacia la fecha del evento (13 Nov 2026)
+       - Puedes cambiar la hora si quieres (ej: "17:00:00")
+       ========================= -->
   <section class="card">
     <h2>⏳ Cuenta regresiva</h2>
     <div id="countdown">Cargando...</div>
@@ -137,7 +293,11 @@
 
   <div class="divider"></div>
 
-  <!-- MÚSICA -->
+  <!-- =========================
+       5) MÚSICA
+       - Para que suene, debes subir un mp3 al repo con nombre exacto: "musica.mp3"
+       - En celulares, la música no puede auto-iniciar, por eso el botón
+       ========================= -->
   <section class="card">
     <h2>🎵 Música</h2>
     <p class="subtle">Toca el botón para activar la música</p>
@@ -151,52 +311,97 @@
 
   <div class="divider"></div>
 
-  <!-- VESTIMENTA -->
+  <!-- =========================
+       6) VESTIMENTA (CON ESPACIO PARA IMÁGENES DE REFERENCIA)
+       - Aquí dejamos espacio para poner las imágenes que enviaste
+       - Sube al repo:
+           "vestimenta-hombres.jpg"
+           "vestimenta-mujeres.jpg"
+       ========================= -->
   <section class="card">
     <h2>👗 Vestimenta</h2>
-    <p class="subtle">Playero elegante – colores pasteles y formales</p>
+    <p class="subtle">Estilo playa — tonos pasteles, arena, beige y champagne</p>
+
+    <div class="dress-grid">
+
+      <!-- VESTIMENTA HOMBRES -->
+      <div class="dress-card">
+        <h3>👔 Hombres (referencia)</h3>
+        <p>
+          Camisa blanca (ideal lino/algodón), manga larga o doblada. <br>
+          Pantalón beige/arena/khaki. <br>
+          Calzado opcional: mocasín claro o sandalia elegante (según la arena). <br>
+          Accesorios sugeridos: boutonnière blanco, gafas de sol, cinturón claro.
+        </p>
+        <img src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres (camisa blanca y pantalón beige)">
+      </div>
+
+      <!-- VESTIMENTA MUJERES -->
+      <div class="dress-card">
+        <h3>👗 Mujeres (referencia)</h3>
+        <p>
+          Vestido largo estilo playa, ideal en tonos champagne / dorado suave / beige. <br>
+          Tela sugerida: satín, seda o telas fluidas. <br>
+          Calzado: tacón bajo, sandalia elegante o cuña.
+        </p>
+        <img src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres (vestidos largos tono champagne)">
+      </div>
+
+    </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- RSVP -->
+  <!-- =========================
+       7) RSVP (CONFIRMAR ASISTENCIA)
+       - Aquí va el Google Form (embed)
+       - Cuando lo tengas, reemplaza el link en src="..."
+       ========================= -->
   <section class="card" style="padding-bottom: 80px;">
     <h2>✅ Confirma tu asistencia</h2>
     <p class="subtle">Por favor confirma para ayudarnos con la organización 💕</p>
 
-    <!-- IMPORTANTE: Reemplaza el link de abajo por tu link real de Google Forms (embedded) -->
     <iframe
       src="PEGA_AQUI_TU_LINK_DE_GOOGLE_FORMS"
-      height="650"
+      height="680"
       loading="lazy">
     </iframe>
 
-    <p class="subtle" style="opacity:0.75; margin-top: 16px;">
-      *Si aún no has creado el formulario, esta sección mostrará error. Cuando pegues el link real, queda listo.
+    <p class="note">
+      Nota: si aún no has pegado el link del formulario, esta parte puede mostrar error. Cuando lo pegues, queda listo.
     </p>
   </section>
 
+  <!-- =========================
+       8) JAVASCRIPT (CUENTA REGRESIVA)
+       - Actualiza cada segundo
+       - Fecha objetivo: Viernes 13 Nov 2026
+       ========================= -->
   <script>
-    // Cuenta regresiva
-    const eventDate = new Date("November 16, 2026 16:00:00").getTime();
+    // Fecha/hora del evento (puedes ajustar la hora si quieres)
+    const eventDate = new Date("November 13, 2026 16:00:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = eventDate - now;
 
+      // Si ya pasó la fecha
       if (distance <= 0) {
         document.getElementById("countdown").innerHTML = "¡Hoy es el gran día! 💍";
         return;
       }
 
+      // Cálculos de tiempo
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
+      // Mostrar resultado
       document.getElementById("countdown").innerHTML =
         `${days} días, ${hours} horas y ${minutes} minutos para nuestro gran día 💍`;
     }
 
+    // Ejecuta una vez y luego cada 1 segundo
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
