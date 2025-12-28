@@ -7,8 +7,8 @@
 
   <!-- =========================
        FUENTES (TIPOGRAFÍA)
-       - Montserrat: texto general (limpia y moderna)
-       - Great Vibes: estilo manuscrito/romántico (como tu ejemplo)
+       - Montserrat: texto general (limpio y elegante)
+       - Great Vibes: manuscrita tipo "nuestra boda" (como tu ejemplo)
        ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +16,18 @@
 
   <style>
     /* =========================
-       ESTILO GENERAL (COLORES + BASE)
+       COLORES Y BASE GENERAL
        ========================= */
     :root{
-      --fondo: #fffaf5;         /* fondo crema suave */
-      --texto: #5a4a42;         /* marrón suave */
-      --dorado: #c49b6c;        /* dorado/beige para títulos */
-      --menta: #8fb9a8;         /* verde menta pastel */
+      --fondo: #fffaf5;
+      --texto: #5a4a42;
+      --dorado: #c49b6c;
+      --menta: #8fb9a8;
       --linea: rgba(90,74,66,.12);
       --card: #ffffff;
+      --gris: #6b6b6b;
+      --borde: rgba(0,0,0,.15);
+      --btn: #9aa08f; /* similar al botón gris verdoso del ejemplo */
     }
 
     body{
@@ -35,14 +38,12 @@
       text-align: center;
     }
 
-    /* Contenedor para limitar ancho y que se vea elegante en PC */
     .card{
       max-width: 980px;
       margin: 0 auto;
       padding: 0 18px;
     }
 
-    /* Separador sutil entre secciones */
     .divider{
       height: 1px;
       background: var(--linea);
@@ -50,13 +51,12 @@
       margin: 0 auto;
     }
 
-    /* Secciones con espacio arriba/abajo */
     section{
       padding: 44px 0;
     }
 
     /* =========================
-       PORTADA (FOTO ANTES DEL TEXTO INICIAL)
+       PORTADA
        ========================= */
     .hero{
       padding-top: 26px;
@@ -72,7 +72,7 @@
       box-shadow: 0 6px 26px rgba(0,0,0,.08);
     }
 
-    /* Texto pequeño tipo "ESTÁS INVITADO A" */
+    /* Texto pequeño arriba (ESTÁS INVITADO A) */
     .tiny-title{
       font-size: 14px;
       letter-spacing: 3px;
@@ -82,18 +82,35 @@
       margin: 22px 0 6px;
     }
 
-    /* Título en manuscrito (como tu ejemplo) */
+    /* Título manuscrito como tu ejemplo ("nuestra boda") */
     .script-title{
       font-family: 'Great Vibes', cursive;
-      font-size: 58px;
+      font-size: 56px;
       font-weight: 400;
       color: var(--texto);
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       line-height: 1.0;
     }
 
     /* =========================
-       NOMBRES / FECHA / UBICACIÓN
+       MENSAJE INICIAL (CANCIÓN + DIOS)
+       - Te lo hago más pequeño como pediste
+       ========================= */
+    .intro{
+      font-style: italic;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .intro p{
+      margin: 16px 0;
+      font-size: 16px; /* antes 18px, ahora más pequeño */
+      opacity: .95;
+    }
+
+    /* =========================
+       NOMBRES / FECHA / LUGAR
        ========================= */
     h1{
       color: var(--dorado);
@@ -116,21 +133,6 @@
     }
 
     /* =========================
-       TEXTO INICIAL (CANCIÓN + MENSAJE)
-       ========================= */
-    .intro{
-      font-style: italic;
-      line-height: 1.75;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .intro p{
-      margin: 18px 0;
-      font-size: 18px;
-    }
-
-    /* =========================
        BOTÓN (MÚSICA)
        ========================= */
     button{
@@ -147,9 +149,6 @@
     }
     button:active{ transform: scale(0.99); }
 
-    /* =========================
-       CUENTA REGRESIVA
-       ========================= */
     #countdown{
       font-size: 20px;
       margin-top: 12px;
@@ -157,7 +156,7 @@
     }
 
     /* =========================
-       VESTIMENTA (IMÁGENES + TEXTO)
+       VESTIMENTA (TARJETAS + IMÁGENES)
        ========================= */
     .dress-grid{
       display: grid;
@@ -167,12 +166,9 @@
       margin: 18px auto 0;
       padding: 0 18px;
     }
-
-    /* En pantallas grandes ponemos 2 columnas */
     @media (min-width: 860px){
       .dress-grid{ grid-template-columns: 1fr 1fr; }
     }
-
     .dress-card{
       background: var(--card);
       border-radius: 18px;
@@ -180,20 +176,17 @@
       box-shadow: 0 6px 22px rgba(0,0,0,.06);
       text-align: left;
     }
-
     .dress-card h3{
       margin: 6px 0 10px;
       font-size: 18px;
       color: var(--texto);
     }
-
     .dress-card p{
       margin: 0 0 12px;
       font-size: 15px;
       line-height: 1.5;
       opacity: .95;
     }
-
     .dress-card img{
       width: 100%;
       border-radius: 14px;
@@ -202,22 +195,122 @@
     }
 
     /* =========================
-       RSVP (FORMULARIO)
+       RSVP (FORMULARIO BONITO COMO TU EJEMPLO)
        ========================= */
-    iframe{
-      max-width: 980px;
-      width: 100%;
-      border: 0;
-      border-radius: 14px;
-      background: white;
-      box-shadow: 0 6px 22px rgba(0,0,0,.06);
+    .rsvp-wrap{
+      display: flex;
+      justify-content: center;
+      padding: 0 18px;
     }
 
-    .note{
+    .rsvp-card{
+      width: 100%;
+      max-width: 520px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 8px 26px rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.06);
+      padding: 26px 18px 22px;
+      text-align: center;
+    }
+
+    .rsvp-title{
+      font-size: 24px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #4b4b4b;
+      margin: 6px 0 8px;
+    }
+
+    .rsvp-sub{
+      color: #6d6d6d;
       font-size: 14px;
-      opacity: 0.75;
-      margin-top: 14px;
-      padding: 0 18px;
+      line-height: 1.5;
+      margin: 0 0 18px;
+    }
+
+    .rsvp-row{
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin: 12px 0 18px;
+      flex-wrap: wrap;
+    }
+
+    .radio{
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 14px;
+      color: #6b6b6b;
+    }
+
+    .field{
+      width: 100%;
+      max-width: 420px;
+      margin: 10px auto;
+    }
+
+    .input, .textarea{
+      width: 100%;
+      border: 1px solid rgba(0,0,0,.18);
+      border-radius: 8px;
+      padding: 14px 12px;
+      font-size: 14px;
+      outline: none;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    .textarea{
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .btn-send{
+      width: 100%;
+      max-width: 420px;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--btn);
+      color: #fff;
+      cursor: pointer;
+      margin-top: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.12);
+    }
+
+    .rsvp-footer{
+      margin-top: 22px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 40px;
+      color: #6a6a6a;
+      line-height: 1.0;
+    }
+
+    .rsvp-footer small{
+      display: block;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: .8;
+      margin-top: 6px;
+    }
+
+    /* Texto pequeño aclarando qué pasa al enviar */
+    .note{
+      font-size: 12px;
+      opacity: .75;
+      margin-top: 12px;
+      padding: 0 10px;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -225,21 +318,24 @@
 <body>
 
   <!-- =========================
-       1) PORTADA (FOTO ANTES DEL TEXTO INICIAL)
-       - Aquí va la foto grande de ustedes
-       - Debes subir la imagen al repo con nombre: "foto-portada.jpg"
+       1) PORTADA
+       - Foto grande de ustedes
+       - Archivo esperado en el repo: "foto-portada.jpg"
        ========================= -->
   <section class="hero card">
-    <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel">
+    <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel"
+         onerror="this.style.display='none'">
     <div class="tiny-title">ESTÁS INVITADO A</div>
     <div class="script-title">nuestra boda</div>
-    <p class="subtle">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
+    <p class="subtle" style="margin-top: 6px;">
+      Nos encantaría que seas parte de este momento tan especial para nosotros.
+    </p>
   </section>
 
   <div class="divider"></div>
 
   <!-- =========================
-       2) TEXTO INICIAL (CANCIÓN + MENSAJE CON DIOS)
+       2) TEXTO INICIAL (más pequeño)
        ========================= -->
   <section class="card">
     <div class="intro">
@@ -269,8 +365,7 @@
   <div class="divider"></div>
 
   <!-- =========================
-       3) ENCABEZADO PRINCIPAL (NOMBRES + FECHA + LUGAR)
-       - Fecha corregida a VIERNES 13 NOV 2026
+       3) NOMBRES + FECHA + LUGAR
        ========================= -->
   <section class="card">
     <p class="subtle">Nos casamos</p>
@@ -283,8 +378,6 @@
 
   <!-- =========================
        4) CUENTA REGRESIVA
-       - Se calcula hacia la fecha del evento (13 Nov 2026)
-       - Puedes cambiar la hora si quieres (ej: "17:00:00")
        ========================= -->
   <section class="card">
     <h2>⏳ Cuenta regresiva</h2>
@@ -295,8 +388,7 @@
 
   <!-- =========================
        5) MÚSICA
-       - Para que suene, debes subir un mp3 al repo con nombre exacto: "musica.mp3"
-       - En celulares, la música no puede auto-iniciar, por eso el botón
+       - Archivo esperado: "musica.mp3"
        ========================= -->
   <section class="card">
     <h2>🎵 Música</h2>
@@ -312,98 +404,168 @@
   <div class="divider"></div>
 
   <!-- =========================
-       6) VESTIMENTA (CON ESPACIO PARA IMÁGENES DE REFERENCIA)
-       - Aquí dejamos espacio para poner las imágenes que enviaste
-       - Sube al repo:
-           "vestimenta-hombres.jpg"
-           "vestimenta-mujeres.jpg"
+       6) VESTIMENTA (con imágenes)
+       - Archivos esperados:
+         "vestimenta-hombres.jpg"
+         "vestimenta-mujeres.jpg"
        ========================= -->
   <section class="card">
     <h2>👗 Vestimenta</h2>
     <p class="subtle">Estilo playa — tonos pasteles, arena, beige y champagne</p>
 
     <div class="dress-grid">
-
-      <!-- VESTIMENTA HOMBRES -->
       <div class="dress-card">
         <h3>👔 Hombres (referencia)</h3>
         <p>
-          Camisa blanca (ideal lino/algodón), manga larga o doblada. <br>
-          Pantalón beige/arena/khaki. <br>
-          Calzado opcional: mocasín claro o sandalia elegante (según la arena). <br>
-          Accesorios sugeridos: boutonnière blanco, gafas de sol, cinturón claro.
+          Camisa blanca (ideal lino/algodón), manga larga o doblada.<br>
+          Pantalón beige/arena/khaki.<br>
+          Calzado opcional: mocasín claro o sandalia elegante (según la arena).
         </p>
-        <img src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres (camisa blanca y pantalón beige)">
+        <img src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
       </div>
 
-      <!-- VESTIMENTA MUJERES -->
       <div class="dress-card">
         <h3>👗 Mujeres (referencia)</h3>
         <p>
-          Vestido largo estilo playa, ideal en tonos champagne / dorado suave / beige. <br>
-          Tela sugerida: satín, seda o telas fluidas. <br>
+          Vestido largo estilo playa, ideal en tonos champagne / dorado suave / beige.<br>
+          Tela sugerida: satín, seda o telas fluidas.<br>
           Calzado: tacón bajo, sandalia elegante o cuña.
         </p>
-        <img src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres (vestidos largos tono champagne)">
+        <img src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
       </div>
-
     </div>
   </section>
 
   <div class="divider"></div>
 
   <!-- =========================
-       7) RSVP (CONFIRMAR ASISTENCIA)
-       - Aquí va el Google Form (embed)
-       - Cuando lo tengas, reemplaza el link en src="..."
+       7) RSVP (CONFIRMAR ASISTENCIA) - ESTILO COMO TU EJEMPLO
+       - IMPORTANTE:
+         Por ahora, al enviar abre WhatsApp con el mensaje listo.
+         Luego lo podemos conectar a Google Sheets si quieres.
        ========================= -->
   <section class="card" style="padding-bottom: 80px;">
-    <h2>✅ Confirma tu asistencia</h2>
-    <p class="subtle">Por favor confirma para ayudarnos con la organización 💕</p>
+    <div class="rsvp-wrap">
+      <div class="rsvp-card">
 
-    <iframe
-      src="PEGA_AQUI_TU_LINK_DE_GOOGLE_FORMS"
-      height="680"
-      loading="lazy">
-    </iframe>
+        <div class="rsvp-title">CONFIRMAR ASISTENCIA</div>
+        <div class="rsvp-sub">
+          Por favor, confirma tu asistencia<br>
+          ¡Esperamos que estés allí!
+        </div>
 
-    <p class="note">
-      Nota: si aún no has pegado el link del formulario, esta parte puede mostrar error. Cuando lo pegues, queda listo.
-    </p>
+        <!-- Opción de asistencia (Sí / No) -->
+        <div class="rsvp-row">
+          <label class="radio">
+            <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
+            <span>Sí, allí estaré!</span>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="asistencia" value="No podré asistir">
+            <span>No podré asistir</span>
+          </label>
+        </div>
+
+        <!-- Campos del formulario -->
+        <div class="field">
+          <input id="nombre" class="input" type="text" placeholder="Nombre y apellido">
+        </div>
+
+        <div class="field">
+          <input id="alergias" class="input" type="text" placeholder="Intolerancias o alergias alimentarias:">
+        </div>
+
+        <div class="field">
+          <input id="cancion" class="input" type="text" placeholder="¿Qué canción no puede faltar?:">
+        </div>
+
+        <div class="field">
+          <textarea id="mensaje" class="textarea" placeholder="Mensaje para los novios:"></textarea>
+        </div>
+
+        <!-- Botón para enviar -->
+        <button class="btn-send" onclick="enviarRSVP()">ENVIAR RESPUESTA</button>
+
+        <div class="note">
+          *Al enviar, se abrirá WhatsApp con tu confirmación lista para enviarla.
+          (Luego si quieres, lo conectamos a Google Sheets.)
+        </div>
+
+        <div class="rsvp-footer">
+          Te esperamos
+          <small>Alexa y Daniel</small>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- =========================
-       8) JAVASCRIPT (CUENTA REGRESIVA)
-       - Actualiza cada segundo
-       - Fecha objetivo: Viernes 13 Nov 2026
+       8) SCRIPTS
+       - Cuenta regresiva
+       - Envío RSVP por WhatsApp
        ========================= -->
   <script>
-    // Fecha/hora del evento (puedes ajustar la hora si quieres)
+    /* ====== CUENTA REGRESIVA ====== */
     const eventDate = new Date("November 13, 2026 16:00:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = eventDate - now;
 
-      // Si ya pasó la fecha
       if (distance <= 0) {
         document.getElementById("countdown").innerHTML = "¡Hoy es el gran día! 💍";
         return;
       }
 
-      // Cálculos de tiempo
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-      // Mostrar resultado
       document.getElementById("countdown").innerHTML =
         `${days} días, ${hours} horas y ${minutes} minutos para nuestro gran día 💍`;
     }
 
-    // Ejecuta una vez y luego cada 1 segundo
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    /* ====== RSVP: ENVÍO POR WHATSAPP ======
+       - Cambia el número si quieres (formato internacional):
+         Colombia: 57 + número (sin +)
+       - Ejemplo: 573001112233
+    */
+    const WHATSAPP_NUMBER = "57TU_NUMERO_AQUI";
+
+    function enviarRSVP() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const alergias = document.getElementById("alergias").value.trim();
+      const cancion = document.getElementById("cancion").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+
+      // Tomar selección de asistencia (Sí/No)
+      const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "Sin seleccionar";
+
+      // Validación simple (para que no envíen vacío)
+      if (!nombre) {
+        alert("Por favor escribe tu nombre y apellido.");
+        return;
+      }
+
+      // Armar texto para WhatsApp
+      const texto =
+`Confirmación de asistencia - Boda Alexa y Daniel
+
+Asistencia: ${asistencia}
+Nombre: ${nombre}
+Alergias / intolerancias: ${alergias || "N/A"}
+Canción que no puede faltar: ${cancion || "N/A"}
+Mensaje: ${mensaje || "N/A"}`;
+
+      // URL WhatsApp
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+      window.open(url, "_blank");
+    }
   </script>
 
 </body>
