@@ -8,7 +8,7 @@
   <!-- =========================
        FUENTES (TIPOGRAFÍA)
        - Montserrat: texto general
-       - Great Vibes: manuscrita (título tipo "nuestra boda")
+       - Great Vibes: manuscrita (título tipo “nuestra boda”)
        ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
 
   <style>
     /* =========================
-       COLORES Y BASE GENERAL
+       COLORES Y ESTILO GENERAL
        ========================= */
     :root{
       --fondo: #fffaf5;
@@ -25,7 +25,7 @@
       --menta: #8fb9a8;
       --linea: rgba(90,74,66,.12);
       --card: #ffffff;
-      --btn: #9aa08f; /* similar al ejemplo */
+      --btn: #9aa08f; /* color similar al ejemplo del botón */
     }
 
     body{
@@ -36,12 +36,14 @@
       text-align: center;
     }
 
+    /* Contenedor para centrar contenido */
     .card{
       max-width: 980px;
       margin: 0 auto;
       padding: 0 18px;
     }
 
+    /* Línea divisoria */
     .divider{
       height: 1px;
       background: var(--linea);
@@ -54,7 +56,7 @@
     }
 
     /* =========================
-       PORTADA
+       PORTADA (foto + título)
        ========================= */
     .hero{
       padding-top: 26px;
@@ -86,6 +88,12 @@
       color: var(--texto);
       margin: 0 0 8px;
       line-height: 1.0;
+    }
+
+    .subtle{
+      font-size: 18px;
+      margin: 10px 0;
+      font-weight: 400;
     }
 
     /* =========================
@@ -121,10 +129,13 @@
       font-weight: 700;
     }
 
-    .subtle{
-      font-size: 18px;
-      margin: 10px 0;
-      font-weight: 400;
+    /* =========================
+       CUENTA REGRESIVA
+       ========================= */
+    #countdown{
+      font-size: 20px;
+      margin-top: 12px;
+      font-weight: 600;
     }
 
     /* =========================
@@ -143,12 +154,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,.10);
     }
     button.music-btn:active{ transform: scale(0.99); }
-
-    #countdown{
-      font-size: 20px;
-      margin-top: 12px;
-      font-weight: 600;
-    }
 
     /* =========================
        VESTIMENTA (TARJETAS + IMÁGENES)
@@ -338,7 +343,7 @@
   <!-- =========================
        1) PORTADA
        - Foto grande de ustedes
-       - Archivo esperado: "foto-portada.jpg"
+       - Nombre del archivo: foto-portada.jpg
        ========================= -->
   <section class="hero card">
     <img src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel"
@@ -353,7 +358,7 @@
   <div class="divider"></div>
 
   <!-- =========================
-       2) TEXTO INICIAL (más pequeño)
+       2) TEXTO INICIAL
        ========================= -->
   <section class="card">
     <div class="intro">
@@ -406,7 +411,7 @@
 
   <!-- =========================
        5) MÚSICA
-       - Archivo esperado: "musica.mp3"
+       - Nombre del archivo: musica.mp3
        ========================= -->
   <section class="card">
     <h2>🎵 Música</h2>
@@ -423,9 +428,9 @@
 
   <!-- =========================
        6) VESTIMENTA
-       - Archivos esperados:
-         "vestimenta-hombres.jpg"
-         "vestimenta-mujeres.jpg"
+       - Nombres de archivo EXACTOS:
+         - vestimenta-hombres.jpg
+         - vestimenta-mujeres.jpg
        ========================= -->
   <section class="card">
     <h2>👗 Vestimenta</h2>
@@ -437,8 +442,10 @@
         <p>
           Camisa blanca (ideal lino/algodón), manga larga o doblada.<br>
           Pantalón beige/arena/khaki.<br>
-          Calzado opcional: mocasín claro o sandalia elegante (según la arena).
+          Calzado opcional: mocasín claro o sandalia elegante.
         </p>
+
+        <!-- Imagen hombres -->
         <img src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
       </div>
 
@@ -449,6 +456,8 @@
           Tela sugerida: satín, seda o telas fluidas.<br>
           Calzado: tacón bajo, sandalia elegante o cuña.
         </p>
+
+        <!-- Imagen mujeres -->
         <img src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
       </div>
     </div>
@@ -457,10 +466,9 @@
   <div class="divider"></div>
 
   <!-- =========================
-       7) RSVP (GRUPO FAMILIAR HASTA 6)
-       - El responsable llena su nombre
-       - Elige cuántas personas incluye
-       - Se muestran campos para nombres de cada invitado
+       7) RSVP (Grupo familiar hasta 6)
+       - IMPORTANTE: aquí corregimos el “nombre”:
+         el campo se llama "responsable" (así lo espera Apps Script)
        ========================= -->
   <section class="card" style="padding-bottom: 80px;">
     <div class="rsvp-wrap">
@@ -475,24 +483,25 @@
         <!-- Selección de asistencia -->
         <div class="rsvp-row">
           <label class="radio">
-            <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
+            <input type="radio" name="asistencia" value="Sí, allí estaré" checked onchange="toggleAsistencia()">
             <span>Sí, allí estaré!</span>
           </label>
 
           <label class="radio">
-            <input type="radio" name="asistencia" value="No podré asistir">
+            <input type="radio" name="asistencia" value="No podré asistir" onchange="toggleAsistencia()">
             <span>No podré asistir</span>
           </label>
         </div>
 
-        <!-- Responsable -->
+        <!-- Responsable (NOMBRE CORREGIDO) -->
         <div class="field">
           <label class="label">Nombre del responsable (quien confirma)</label>
-          <input id="nombre_responsable" class="input" type="text" placeholder="Nombre y apellido">
+          <!-- IMPORTANTE: id="responsable" y name="responsable" -->
+          <input id="responsable" name="responsable" class="input" type="text" placeholder="Nombre y apellido">
         </div>
 
         <!-- Cantidad de personas -->
-        <div class="field">
+        <div class="field" id="cantidadWrap">
           <label class="label">¿Cuántas personas incluye esta invitación?</label>
           <select id="cantidad" class="select" onchange="actualizarInvitados()">
             <option value="1" selected>1 persona</option>
@@ -504,30 +513,28 @@
           </select>
         </div>
 
-        <!-- Lista dinámica de invitados (aparece según cantidad) -->
-        <div class="guest-list" id="guestList">
-          <!-- Aquí se crean los campos automáticamente -->
-        </div>
+        <!-- Lista dinámica de invitados -->
+        <div class="guest-list" id="guestList"></div>
 
         <!-- Alergias -->
-        <div class="field">
+        <div class="field" id="alergiasWrap">
           <label class="label">Intolerancias o alergias alimentarias</label>
           <input id="alergias" class="input" type="text" placeholder="Ej: lactosa, frutos secos, ninguna...">
         </div>
 
         <!-- Canción -->
-        <div class="field">
+        <div class="field" id="cancionWrap">
           <label class="label">¿Qué canción no puede faltar?</label>
           <input id="cancion" class="input" type="text" placeholder="Escribe aquí tu canción">
         </div>
 
         <!-- Mensaje -->
-        <div class="field">
+        <div class="field" id="mensajeWrap">
           <label class="label">Mensaje para los novios</label>
           <textarea id="mensaje" class="textarea" placeholder="Escribe tu mensaje"></textarea>
         </div>
 
-        <!-- Botón de enviar -->
+        <!-- Botón enviar -->
         <button class="btn-send" onclick="enviarRSVP()">ENVIAR RESPUESTA</button>
 
         <div class="note">
@@ -544,13 +551,17 @@
   </section>
 
   <!-- =========================
-       8) SCRIPTS
+       8) JAVASCRIPT
        - Cuenta regresiva
-       - Formulario dinámico (1 a 6 invitados)
-       - Envío a Google Sheets (Apps Script)
+       - Invitados dinámicos
+       - Ocultar campos si “No podré asistir”
+       - Envío a Google Sheets
        ========================= -->
   <script>
-    /* ====== CUENTA REGRESIVA ====== */
+    /* =========================
+       CUENTA REGRESIVA
+       - Fecha: Viernes 13 de Noviembre 2026
+       ========================= */
     const eventDate = new Date("November 13, 2026 16:00:00").getTime();
 
     function updateCountdown() {
@@ -573,20 +584,21 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    /* ====== URL REAL DEL APPS SCRIPT (YA PEGADA) ====== */
+    /* =========================
+       URL REAL DEL APPS SCRIPT
+       (La que nos diste)
+       ========================= */
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
     /* =========================
-       Crear campos de invitados según cantidad (1 a 6)
+       Crear campos de invitados (1 a 6)
        ========================= */
     function actualizarInvitados() {
       const cantidad = parseInt(document.getElementById("cantidad").value, 10);
       const contenedor = document.getElementById("guestList");
 
-      // Limpiar los campos actuales
       contenedor.innerHTML = "";
 
-      // Crear inputs: Invitado 1..cantidad
       for (let i = 1; i <= cantidad; i++) {
         const div = document.createElement("div");
         div.className = "guest-item";
@@ -607,54 +619,83 @@
       }
     }
 
-    // Ejecutar una vez al cargar para que aparezca invitado_1
+    // Crear invitado_1 por defecto al cargar
     actualizarInvitados();
 
     /* =========================
+       Ocultar/mostrar campos si NO asiste
+       - Si marca “No podré asistir”, ocultamos:
+         cantidad, invitados, alergias, canción, mensaje (si quieres)
+       - También forzamos cantidad = 0 (solo para el envío)
+       ========================= */
+    function toggleAsistencia() {
+      const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "";
+      const noAsiste = (asistencia === "No podré asistir");
+
+      document.getElementById("cantidadWrap").style.display = noAsiste ? "none" : "block";
+      document.getElementById("guestList").style.display = noAsiste ? "none" : "block";
+      document.getElementById("alergiasWrap").style.display = noAsiste ? "none" : "block";
+      document.getElementById("cancionWrap").style.display = noAsiste ? "none" : "block";
+      document.getElementById("mensajeWrap").style.display = noAsiste ? "none" : "block";
+    }
+
+    // Ejecutar al cargar para que coincida con selección inicial
+    toggleAsistencia();
+
+    /* =========================
        Enviar RSVP a Google Sheets
-       - Guarda: asistencia, responsable, cantidad, nombres invitados, alergias, canción, mensaje
+       - IMPORTANTE: ahora enviamos "responsable"
        ========================= */
     async function enviarRSVP() {
       const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "";
-      const responsable = document.getElementById("nombre_responsable").value.trim();
-      const cantidad = parseInt(document.getElementById("cantidad").value, 10);
+      const responsable = document.getElementById("responsable").value.trim();
 
-      // Validación mínima
+      // Validación mínima: siempre pedir nombre del responsable
       if (!responsable) {
         alert("Por favor escribe el nombre del responsable.");
         return;
       }
 
-      // Obtener nombres de invitados (hasta 6)
-      const invitados = [];
-      for (let i = 1; i <= cantidad; i++) {
-        const val = document.getElementById(`invitado_${i}`)?.value.trim() || "";
-        invitados.push(val);
+      const noAsiste = (asistencia === "No podré asistir");
+
+      // Si NO asiste, cantidad = 0 y lista de invitados vacía
+      let cantidad = 0;
+      let invitados = [];
+
+      if (!noAsiste) {
+        cantidad = parseInt(document.getElementById("cantidad").value, 10);
+
+        // Tomar nombres de invitados (hasta cantidad)
+        for (let i = 1; i <= cantidad; i++) {
+          const val = document.getElementById(`invitado_${i}`)?.value.trim() || "";
+          invitados.push(val);
+        }
+
+        // Pedir al menos el nombre del invitado 1 (si asiste)
+        if (!invitados[0]) {
+          alert("Por favor escribe al menos el nombre del invitado 1.");
+          return;
+        }
       }
 
-      // Si el invitado 1 está vacío, pedir al menos uno (sentido común)
-      if (!invitados[0]) {
-        alert("Por favor escribe al menos el nombre del invitado 1.");
-        return;
-      }
+      // Campos extra (solo si asiste; si no, mandamos N/A)
+      const alergias = noAsiste ? "N/A" : (document.getElementById("alergias").value.trim() || "N/A");
+      const cancion  = noAsiste ? "N/A" : (document.getElementById("cancion").value.trim() || "N/A");
+      const mensaje  = noAsiste ? "N/A" : (document.getElementById("mensaje").value.trim() || "N/A");
 
-      const alergias = document.getElementById("alergias").value.trim();
-      const cancion = document.getElementById("cancion").value.trim();
-      const mensaje = document.getElementById("mensaje").value.trim();
-
-      // Preparar datos para enviar
+      // Datos que enviamos al Apps Script (CLAVES EXACTAS)
       const payload = {
-        asistencia,
-        responsable,
-        cantidad,
-        invitados, // arreglo con nombres
-        alergias: alergias || "N/A",
-        cancion: cancion || "N/A",
-        mensaje: mensaje || "N/A",
+        asistencia: asistencia,
+        responsable: responsable,   // <--- ESTA ES LA CLAVE IMPORTANTE (ARREGLA TU PROBLEMA)
+        cantidad: cantidad,
+        invitados: invitados,       // arreglo con nombres
+        alergias: alergias,
+        cancion: cancion,
+        mensaje: mensaje,
         info: navigator.userAgent
       };
 
-      // Cambiar texto del botón mientras envía
+      // UI del botón
       const btn = document.querySelector(".btn-send");
       const originalText = btn.textContent;
       btn.textContent = "ENVIANDO...";
@@ -672,13 +713,18 @@
         if (data.ok) {
           alert("✅ ¡Gracias! Tu confirmación fue enviada y guardada.");
 
-          // Limpiar campos
-          document.getElementById("nombre_responsable").value = "";
+          // Limpiar formulario
+          document.getElementById("responsable").value = "";
           document.getElementById("cantidad").value = "1";
           actualizarInvitados();
           document.getElementById("alergias").value = "";
           document.getElementById("cancion").value = "";
           document.getElementById("mensaje").value = "";
+
+          // Volver selección a "Sí" por defecto (opcional)
+          document.querySelector('input[name="asistencia"][value="Sí, allí estaré"]').checked = true;
+          toggleAsistencia();
+
         } else {
           alert("❌ Ocurrió un error guardando la respuesta. Intenta de nuevo.");
           console.log("Error del script:", data);
