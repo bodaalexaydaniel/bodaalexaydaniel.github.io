@@ -2,396 +2,437 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Alexa & Daniel | Invitación de Boda</title>
+  <!-- =========================
+       (1) TÍTULO DE LA PESTAÑA
+       ========================= -->
+  <title>Alexandra & Daniel | Nuestra Boda</title>
 
-  <!-- =========================================================
-       FUENTES (Google Fonts)
-       - Great Vibes: para el estilo tipo "nuestra boda"
-       - Montserrat: para el texto general
-       ========================================================= -->
+  <!-- =========================
+       (2) FUENTES (Google Fonts)
+       - "Great Vibes": estilo caligráfico (como el ejemplo)
+       - "Montserrat": legible para textos
+       ========================= -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       ESTILOS GENERALES
-       ========================================================= */
-    :root {
-      --bg: #fbf7f2;
-      --card: #ffffff;
-      --text: #4b433d;
-      --muted: #7a716a;
-      --accent: #b79262;   /* doradito */
-      --accent2: #8fb9a8;  /* verde suave */
-      --btn: #9aa08f;      /* botón RSVP */
-      --shadow: 0 12px 30px rgba(0,0,0,0.08);
-      --radius: 18px;
+    /* =========================
+       (3) VARIABLES DE COLORES
+       ========================= */
+    :root{
+      --fondo: #fffaf5;
+      --texto: #5a4a42;
+      --dorado: #c49b6c;
+      --verde: #8fb9a8;
+      --gris: #6f6a66;
+      --tarjeta: #ffffff;
+      --borde: #e9e2dc;
+      --boton: #9aa08e; /* tono parecido al ejemplo del botón */
     }
 
-    body {
+    /* =========================
+       (4) ESTILOS GENERALES
+       ========================= */
+    body{
       margin: 0;
       font-family: "Montserrat", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--fondo);
+      color: var(--texto);
       text-align: center;
     }
 
-    .wrap {
+    /* Contenedor principal para que todo quede “bonito” */
+    .wrap{
       max-width: 900px;
       margin: 0 auto;
-      padding: 18px;
+      padding: 18px 16px 60px;
     }
 
-    /* =========================================================
-       TARJETA / SECCIONES
-       ========================================================= */
-    .card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(8px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px 18px;
-      margin: 18px 0;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .divider {
-      width: 70%;
-      max-width: 520px;
-      margin: 18px auto;
+    /* Línea divisoria suave */
+    .divider{
+      width: 100%;
+      max-width: 740px;
       height: 1px;
-      background: rgba(0,0,0,0.08);
+      background: #e8e0d9;
+      margin: 26px auto;
+      opacity: .9;
     }
 
-    /* =========================================================
-       PORTADA / HERO
-       ========================================================= */
-    .hero-img {
+    /* Título script (la fuente bonita del ejemplo) */
+    .script-title{
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      color: #5d524c;
+      line-height: 1;
+    }
+
+    /* Subtítulos con letra normal */
+    .subtle{
+      color: var(--gris);
+      font-weight: 400;
+    }
+
+    /* =========================
+       (5) PORTADA / FOTO PRINCIPAL
+       ========================= */
+    .hero{
+      background: transparent;
+      padding-top: 6px;
+    }
+
+    /* Imagen de portada (foto principal) */
+    .hero img{
       width: 100%;
       max-height: 520px;
       object-fit: cover;
-      border-radius: var(--radius);
-      display: block;
-      margin: 0 auto 12px auto;
+      border-radius: 18px;
+      border: 1px solid var(--borde);
+      box-shadow: 0 8px 25px rgba(0,0,0,.06);
     }
 
-    .small-top-title {
-      letter-spacing: 5px;
+    /* =========================
+       (6) SECCIÓN INTRO
+       ========================= */
+    .intro{
+      margin-top: 14px;
+      padding: 10px 10px 0;
+    }
+
+    .intro .mini-title{
+      letter-spacing: 4px;
       font-size: 14px;
-      color: var(--muted);
+      color: #6f6a66;
       font-weight: 600;
+      margin: 14px 0 6px;
+    }
+
+    .intro .big-script{
+      font-size: 62px;
+      margin: 0;
+    }
+
+    .intro .invite-line{
+      margin: 8px 0 0;
+      font-size: 18px;
+      color: #6f6a66;
+      font-weight: 400;
+    }
+
+    /* Texto inicial (más pequeño como pediste) */
+    .intro-text{
+      max-width: 760px;
+      margin: 18px auto 0;
+      font-size: 16px;          /* más pequeño */
+      line-height: 1.8;
+      color: #5f5752;
+    }
+
+    /* Énfasis en negrita suave */
+    .strong{
+      font-weight: 700;
+      color: #4f4742;
+    }
+
+    /* =========================
+       (7) NOMBRES + FECHA + LUGAR
+       ========================= */
+    .names-block{
+      padding: 6px 10px 0;
+    }
+
+    /* "Nuestra Boda" (script) */
+    .event-label{
+      font-size: 44px;
+      margin: 0;
+    }
+
+    /* Nombres (script, como pediste) */
+    .names{
+      font-size: 64px;
+      margin: 10px 0 6px;
+      color: var(--dorado);
+    }
+
+    /* Fecha grande (verde suave) */
+    .date-big{
+      font-size: 46px;
+      margin: 0;
+      color: var(--verde);
+      font-weight: 700;
+    }
+
+    /* Lugar */
+    .place{
+      margin-top: 8px;
+      font-size: 20px;
+      color: #6f6a66;
+    }
+    .place b{ color:#6a5e58; }
+
+    /* =========================
+       (8) COUNTDOWN
+       ========================= */
+    .countdown-card{
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      padding: 18px 14px;
+      max-width: 740px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+    }
+
+    .section-title{
+      font-family: "Great Vibes", cursive; /* Titulos de cada seccion en la misma fuente */
+      font-size: 48px;
+      margin: 0 0 12px;
+      color: #5d524c;
+    }
+
+    .countdown-grid{
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
       margin-top: 10px;
     }
 
-    /* Título tipo “nuestra boda” */
-    .script-title {
-      font-family: "Great Vibes", cursive;
-      font-size: 56px;
-      line-height: 1;
-      margin: 10px 0 8px;
-      color: #4a3e35;
+    .time-box{
+      background: #fbf7f3;
+      border: 1px solid #eee4dc;
+      border-radius: 14px;
+      padding: 12px 8px;
     }
 
-    .subtitle {
-      font-size: 18px;
-      color: var(--muted);
-      margin: 8px 0 0;
-    }
-
-    /* =========================================================
-       TEXTO INICIAL (más pequeño, como pediste)
-       ========================================================= */
-    .intro-text {
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 16px;        /* más pequeño */
-      line-height: 1.8;
-      color: #5c524b;
-    }
-
-    .intro-text strong {
-      color: #3e3630;
-    }
-
-    /* =========================================================
-       NOMBRES Y FECHA
-       ========================================================= */
-    .names {
-      font-size: 42px;
-      margin: 8px 0;
-      color: var(--accent);
-      font-weight: 800;
-      letter-spacing: 0.4px;
-    }
-
-    .date-big {
-      font-size: 34px;
-      color: var(--accent2);
-      margin: 8px 0;
-      font-weight: 700;
-    }
-
-    .place {
-      font-size: 18px;
-      margin: 0;
-      color: var(--muted);
-    }
-
-    /* =========================================================
-       COUNTDOWN
-       ========================================================= */
-    .count-title {
-      font-weight: 800;
-      letter-spacing: 1px;
-      font-size: 24px;
-      margin-bottom: 6px;
-      color: #657f74;
-    }
-
-    .count-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(90px, 1fr));
-      gap: 12px;
-      max-width: 520px;
-      margin: 18px auto 0 auto;
-    }
-
-    .count-box {
-      background: rgba(255,255,255,0.9);
-      border-radius: 16px;
-      padding: 14px 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .count-num {
+    .time-num{
       font-size: 28px;
       font-weight: 800;
-      color: #4a3e35;
-      margin: 0;
+      color: #4f4742;
     }
 
-    .count-label {
-      margin: 4px 0 0;
+    .time-lbl{
       font-size: 12px;
-      color: var(--muted);
       letter-spacing: 1px;
+      color: #6f6a66;
+      margin-top: 6px;
       text-transform: uppercase;
     }
 
-    /* =========================================================
-       MUSICA
-       ========================================================= */
-    .btn {
-      background: var(--accent);
-      color: #fff;
+    @media (max-width: 640px){
+      .intro .big-script{ font-size: 54px; }
+      .names{ font-size: 48px; }
+      .date-big{ font-size: 34px; }
+      .section-title{ font-size: 42px; }
+      .countdown-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* =========================
+       (9) MÚSICA
+       ========================= */
+    .music-card{
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      padding: 16px 14px;
+      max-width: 740px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+    }
+
+    .btn{
+      background: var(--boton);
+      color: white;
       border: none;
-      padding: 12px 16px;
-      border-radius: 12px;
+      padding: 14px 18px;
       font-size: 16px;
-      cursor: pointer;
       font-weight: 700;
-      box-shadow: 0 10px 25px rgba(183,146,98,0.25);
+      border-radius: 12px;
+      cursor: pointer;
+      width: min(420px, 100%);
+      letter-spacing: 1px;
+    }
+    .btn:active{ transform: scale(.99); }
+
+    .small-note{
+      font-size: 13px;
+      color: #6f6a66;
+      margin-top: 10px;
+      line-height: 1.5;
     }
 
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
+    /* =========================
+       (10) TARJETAS GENERALES (VESTIMENTA, WHATSAPP, RSVP, ETC.)
+       ========================= */
+    .card{
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      padding: 18px 14px;
+      max-width: 740px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+      text-align: left; /* Para que se vea tipo formulario */
     }
 
-    /* =========================================================
-       VESTIMENTA
-       ========================================================= */
-    .dress-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 14px;
+    .card p, .card li{
+      color: #5f5752;
+      line-height: 1.65;
+      margin: 10px 0;
+      font-size: 16px;
     }
 
-    @media (min-width: 760px) {
-      .dress-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .dress-card {
-      background: rgba(255,255,255,0.9);
-      border-radius: 16px;
-      padding: 16px;
-      text-align: left;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .dress-card h3 {
-      margin: 0 0 6px;
-      color: #4a3e35;
-    }
-
-    .dress-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .dress-img {
+    /* Imágenes dentro de tarjeta */
+    .ref-img{
       width: 100%;
       border-radius: 14px;
-      margin-top: 12px;
+      border: 1px solid var(--borde);
+      margin-top: 10px;
       object-fit: cover;
-      max-height: 360px;
+      max-height: 380px;
     }
 
-    /* =========================================================
-       SECCION GALERIA / RAFAGA
-       - Usamos CSS columns para que se vea tipo collage
-       ========================================================= */
-    .gallery {
+    /* =========================
+       (11) SECCIÓN RÁFAGA DE FOTOS
+       ========================= */
+    .photo-wall{
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 18px;
+      padding: 14px;
+      max-width: 740px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+    }
+
+    /* “Masonry” simple con columnas CSS */
+    .masonry{
       column-count: 2;
       column-gap: 12px;
-      max-width: 900px;
-      margin: 14px auto 0 auto;
+    }
+    @media (min-width: 900px){
+      .masonry{ column-count: 3; }
     }
 
-    @media (min-width: 860px) {
-      .gallery {
-        column-count: 3;
-      }
-    }
-
-    .gallery img {
+    .masonry img{
       width: 100%;
       border-radius: 14px;
       margin: 0 0 12px;
-      display: inline-block;
       break-inside: avoid;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+      border: 1px solid var(--borde);
+      box-shadow: 0 6px 16px rgba(0,0,0,.06);
     }
 
-    /* =========================================================
-       RSVP (FORM)
-       ========================================================= */
-    .rsvp-title {
-      font-size: 34px;
-      font-weight: 900;
-      color: #3f3f3f;
+    /* =========================
+       (12) FORMULARIO RSVP estilo “Confirmar Asistencia”
+       ========================= */
+    .rsvp-title{
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 36px;
+      font-weight: 800;
       letter-spacing: 2px;
-      margin-bottom: 6px;
+      color: #4f4a46;
+      text-align: center;
+      margin: 0 0 10px;
     }
 
-    .rsvp-sub {
-      color: var(--muted);
+    .rsvp-sub{
+      text-align: center;
+      color: #6f6a66;
       margin: 0 0 18px;
     }
 
-    .form-wrap {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: left;
+    .rsvp-row{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 10px 0 14px;
+    }
+    @media (max-width: 640px){
+      .rsvp-row{ grid-template-columns: 1fr; }
     }
 
-    .row {
-      margin-bottom: 14px;
-    }
-
-    label {
+    label{
       display: block;
       font-size: 14px;
-      color: var(--muted);
-      margin: 0 0 6px;
+      color: #6f6a66;
+      margin: 10px 0 8px;
     }
 
-    input[type="text"], textarea, select {
+    input, select, textarea{
       width: 100%;
-      padding: 14px 12px;
+      padding: 14px 14px;
       border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.15);
-      font-size: 16px;
+      border: 1px solid #ded6cf;
       outline: none;
+      font-size: 16px;
       font-family: "Montserrat", Arial, sans-serif;
       background: #fff;
+      box-sizing: border-box;
     }
 
-    textarea {
+    textarea{
       min-height: 120px;
       resize: vertical;
     }
 
-    .radio-row {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 16px 0;
+    .radio-line{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 28px;
+      margin: 10px 0 18px;
+      color: #6f6a66;
+      font-size: 18px;
+    }
+    .radio-line label{
+      margin: 0;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .radio-line input{
+      width: auto;
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .center{
       text-align: center;
     }
 
-    .radio-row label {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      font-size: 18px;
-      color: #5a534d;
-      margin: 0;
-    }
-
-    .send-btn {
-      width: 100%;
-      padding: 16px;
-      border-radius: 14px;
-      border: none;
-      background: var(--btn);
-      color: #fff;
-      font-size: 18px;
+    .rsvp-btn{
+      margin-top: 14px;
+      text-transform: uppercase;
       font-weight: 800;
       letter-spacing: 2px;
-      cursor: pointer;
-      box-shadow: 0 12px 24px rgba(154,160,143,0.25);
-      margin-top: 8px;
     }
 
-    .result {
+    /* Mensajes de éxito/error */
+    .msg{
       margin-top: 12px;
-      font-size: 15px;
-      color: #4a3e35;
-      text-align: center;
-      min-height: 20px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      display: none;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .msg.ok{
+      background: #e9f7f0;
+      border: 1px solid #bde8cf;
+      color: #1f6b45;
+    }
+    .msg.err{
+      background: #fdecec;
+      border: 1px solid #f5bdbd;
+      color: #8b1a1a;
     }
 
-    .fineprint {
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 10px;
-    }
-
-    /* =========================================================
-       WHATSAPP
-       ========================================================= */
-    .whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      justify-content: center;
+    /* Link WhatsApp */
+    .wa{
       text-decoration: none;
-      padding: 12px 16px;
-      border-radius: 14px;
-      background: #25D366;
-      color: white;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      box-shadow: 0 12px 24px rgba(37,211,102,0.25);
-      margin-top: 8px;
-    }
-
-    .wa-icon {
-      font-size: 20px;
-      line-height: 1;
+      color: #1d7c4f;
+      font-weight: 700;
     }
   </style>
 </head>
@@ -399,195 +440,250 @@
 <body>
   <div class="wrap">
 
-    <!-- =========================================================
-         1) PORTADA (FOTO PRINCIPAL)
-         - Cambia "foto-portada.jpg" si tu archivo tiene otro nombre
-         ========================================================= -->
-    <div class="card">
-      <img class="hero-img" src="foto-portada.jpg" alt="Foto de portada de María Alexandra y Daniel">
-      <div class="small-top-title">ESTÁS INVITADO A</div>
-      <div class="script-title">nuestra boda</div>
-      <p class="subtitle">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
-    </div>
+    <!-- =========================
+         (A) PORTADA (FOTO PRINCIPAL)
+         - Debes subir: foto-portada.jpg
+         ========================= -->
+    <section class="hero">
+      <img src="foto-portada.jpg" alt="Foto de portada de Alexandra y Daniel" />
+    </section>
 
-    <!-- =========================================================
-         2) TEXTO INICIAL (SIN LA LETRA DE LA CANCIÓN)
-         ========================================================= -->
-    <div class="card">
-      <div class="intro-text">
-        Teniendo principalmente como testigo y guía de nuestra historia a <strong>Dios</strong>,
-        sin temor a equivocarnos y con la firme convicción de que el final de esta historia
-        solo lo decidirá Él cuando apague alguno de nuestros corazones,
-        <strong>hemos decidido unir nuestras vidas en matrimonio.</strong>
-      </div>
+    <!-- =========================
+         (B) INTRO SUPERIOR
+         - Título con la fuente bonita (Great Vibes)
+         ========================= -->
+    <section class="intro">
+      <div class="mini-title">ESTÁS INVITADO A</div>
+      <h1 class="script-title big-script">nuestra boda</h1>
+      <p class="invite-line">Nos encantaría que seas parte de este momento tan especial para nosotros.</p>
 
       <div class="divider"></div>
 
-      <div style="margin-top:10px; font-size:18px; color: var(--muted);">Nos casamos</div>
-      <div class="names">María Alexandra Gil &amp; Daniel Álvarez</div>
+      <!-- Texto inicial (sin la canción) -->
+      <p class="intro-text">
+        Teniendo principalmente como testigo y guía de nuestra historia a <span class="strong">Dios</span>,
+        sin temor a equivocarnos y con la firme convicción de que el final de esta historia solo lo decidirá Él
+        cuando apague alguno de nuestros corazones, <span class="strong">hemos decidido unir nuestras vidas en matrimonio.</span>
+        <br><br>
+        Y como cada uno de ustedes conoce y ha sido parte de nuestra historia, tenemos el gusto de contarles e invitarlos a:
+        <br>
+        <span class="strong">Nuestra Boda</span>
+      </p>
+    </section>
 
-      <!-- =========================================================
-           3) FECHA (CORREGIDA)
-           ========================================================= -->
-      <div class="date-big">Viernes 13 de noviembre de 2026</div>
+    <div class="divider"></div>
 
-      <!-- =========================================================
-           4) LUGAR (PENDIENTE POR CONFIRMAR)
-           ========================================================= -->
-      <p class="place"><strong>Lugar:</strong> Pendiente por confirmar (Coveñas, Sucre)</p>
-    </div>
+    <!-- =========================
+         (C) BLOQUE PRINCIPAL (NOMBRES / FECHA / LUGAR)
+         - "Nuestra Boda" reemplaza "Nos casamos"
+         - Nombres en fuente script
+         ========================= -->
+    <section class="names-block">
+      <h2 class="script-title event-label">Nuestra Boda</h2>
 
-    <!-- =========================================================
-         5) CUENTA REGRESIVA (DÍAS, HORAS, MINUTOS, SEGUNDOS)
-         ========================================================= -->
-    <div class="card">
-      <div class="count-title">⏳ Cuenta regresiva</div>
-      <div style="color: var(--muted); font-size: 14px;">Faltan...</div>
+      <h3 class="script-title names">Alexandra Gil &amp; Daniel Alvarez</h3>
 
-      <div class="count-grid" aria-label="Contador">
-        <div class="count-box">
-          <p class="count-num" id="cdDays">--</p>
-          <p class="count-label">Días</p>
+      <p class="date-big">Viernes 13 de noviembre de 2026</p>
+
+      <p class="place">
+        <b>Lugar:</b> Pendiente por confirmar (Coveñas, Sucre)
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- =========================
+         (D) CUENTA REGRESIVA COMPLETA
+         - Muestra días, horas, minutos, segundos
+         ========================= -->
+    <section>
+      <div class="countdown-card">
+        <h2 class="section-title">Cuenta regresiva</h2>
+        <p class="subtle" style="margin:0 0 10px;">Faltan...</p>
+
+        <div class="countdown-grid">
+          <div class="time-box">
+            <div id="cd-days" class="time-num">0</div>
+            <div class="time-lbl">Días</div>
+          </div>
+          <div class="time-box">
+            <div id="cd-hours" class="time-num">0</div>
+            <div class="time-lbl">Horas</div>
+          </div>
+          <div class="time-box">
+            <div id="cd-mins" class="time-num">0</div>
+            <div class="time-lbl">Minutos</div>
+          </div>
+          <div class="time-box">
+            <div id="cd-secs" class="time-num">0</div>
+            <div class="time-lbl">Segundos</div>
+          </div>
         </div>
-        <div class="count-box">
-          <p class="count-num" id="cdHours">--</p>
-          <p class="count-label">Horas</p>
-        </div>
-        <div class="count-box">
-          <p class="count-num" id="cdMinutes">--</p>
-          <p class="count-label">Minutos</p>
-        </div>
-        <div class="count-box">
-          <p class="count-num" id="cdSeconds">--</p>
-          <p class="count-label">Segundos</p>
-        </div>
+
+        <p id="cd-status" class="small-note" style="margin-bottom:0;"></p>
       </div>
-    </div>
+    </section>
 
-    <!-- =========================================================
-         6) MÚSICA
-         - SUBE tu MP3 con el nombre: musica.mp3
-         - Los navegadores SOLO permiten autoplay si el usuario interactúa,
-           por eso usamos un botón.
-         ========================================================= -->
-    <div class="card">
-      <h2 style="margin:0; color:#657f74;">🎵 Música</h2>
-      <p style="color: var(--muted); margin-top:8px;">
-        Presiona el botón para activar la música.
-      </p>
+    <div class="divider"></div>
 
-      <button class="btn" id="btnMusic">▶️ Activar música</button>
+    <!-- =========================
+         (E) MÚSICA
+         - Subir el archivo MP3 como: musica.mp3
+         - Intentamos autoplay (si el navegador lo bloquea, mostramos botón)
+         - También activamos al primer toque en pantalla
+         ========================= -->
+    <section>
+      <div class="music-card">
+        <h2 class="section-title">Música</h2>
 
-      <audio id="music" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio.
-      </audio>
-    </div>
+        <!-- Audio (loop para que se repita) -->
+        <audio id="music" loop>
+          <source src="musica.mp3" type="audio/mpeg">
+          Tu navegador no soporta audio.
+        </audio>
 
-    <!-- =========================================================
-         7) GALERÍA (COLLAGE / RAFAGA) - 15 FOTOS
-         - Sube fotos con nombres: galeria-01.jpg ... galeria-15.jpg
-         ========================================================= -->
-    <div class="card">
-      <h2 style="margin:0; color:#657f74;">📸 Recuerdos</h2>
-      <p style="color: var(--muted); margin-top:8px;">
-        Algunas fotos de nuestra historia ❤️
-      </p>
+        <button id="btnMusic" class="btn">▶ Activar música</button>
 
-      <div class="gallery">
-        <img src="galeria-01.jpg" alt="Galería 01">
-        <img src="galeria-02.jpg" alt="Galería 02">
-        <img src="galeria-03.jpg" alt="Galería 03">
-        <img src="galeria-04.jpg" alt="Galería 04">
-        <img src="galeria-05.jpg" alt="Galería 05">
-        <img src="galeria-06.jpg" alt="Galería 06">
-        <img src="galeria-07.jpg" alt="Galería 07">
-        <img src="galeria-08.jpg" alt="Galería 08">
-        <img src="galeria-09.jpg" alt="Galería 09">
-        <img src="galeria-10.jpg" alt="Galería 10">
-        <img src="galeria-11.jpg" alt="Galería 11">
-        <img src="galeria-12.jpg" alt="Galería 12">
-        <img src="galeria-13.jpg" alt="Galería 13">
-        <img src="galeria-14.jpg" alt="Galería 14">
-        <img src="galeria-15.jpg" alt="Galería 15">
+        <p class="small-note" id="musicNote">
+          Nota: algunos celulares/navegadores requieren que presiones un botón o toques la pantalla para activar el sonido.
+        </p>
       </div>
+    </section>
 
-      <p class="fineprint">
-        *Si alguna foto no aparece, revisa que el nombre del archivo esté EXACTO.
-      </p>
-    </div>
+    <div class="divider"></div>
 
-    <!-- =========================================================
-         8) VESTIMENTA (ACTUALIZADA)
-         - Mujeres: quitar "tacón bajo" e indicar que se recomienda no llevar tacón
-         - Espacio para imágenes de referencia
-         ========================================================= -->
-    <div class="card">
-      <h2 style="margin:0; color:#657f74;">👗 Vestimenta</h2>
-      <p style="color: var(--muted); margin-top:8px;">
-        Boda en la playa – colores pasteles, estilo elegante.
-      </p>
-
-      <div class="dress-grid">
+    <!-- =========================
+         (F) VESTIMENTA (con espacio para imágenes de referencia)
+         - Subir:
+           - vestimenta-hombres.jpg
+           - vestimenta-mujeres.jpg
+         ========================= -->
+    <section>
+      <div class="card">
+        <h2 class="section-title" style="text-align:center;">Vestimenta</h2>
 
         <!-- HOMBRES -->
-        <div class="dress-card">
-          <h3>🤵 Hombres</h3>
-          <p>
-            Camisa blanca o tonos claros, pantalón beige/arena, estilo fresco y elegante para clima de playa.
-          </p>
+        <p class="strong">Hombres</p>
+        <ul>
+          <li>Camisa de lino o manga larga (preferiblemente clara).</li>
+          <li>Pantalón beige/arena o tonos neutros.</li>
+          <li>Estilo playero elegante.</li>
+        </ul>
+        <img class="ref-img" src="vestimenta-hombres.jpg" alt="Referencia vestimenta hombres" />
 
-          <!-- Imagen de referencia hombres -->
-          <img class="dress-img" src="vestimenta-hombres.jpg" alt="Referencia de vestimenta para hombres">
-        </div>
+        <div class="divider"></div>
 
         <!-- MUJERES -->
-        <div class="dress-card">
-          <h3>👰 Mujeres</h3>
-          <p>
-            Vestido largo en tonos pasteles o tierra, tela fresca (ideal para playa).
-            <strong>Recomendamos no llevar tacón</strong> por la arena (mejor sandalias elegantes o plataformas).
-          </p>
+        <p class="strong">Mujeres</p>
+        <ul>
+          <li>Vestidos en tonos pasteles o neutros, estilo elegante y fresco.</li>
+          <li><span class="strong">Recomendación:</span> por ser en playa, es mejor evitar tacón (ideal sandalias/flat).</li>
+        </ul>
+        <img class="ref-img" src="vestimenta-mujeres.jpg" alt="Referencia vestimenta mujeres" />
 
-          <!-- Imagen de referencia mujeres -->
-          <img class="dress-img" src="vestimenta-mujeres.jpg" alt="Referencia de vestimenta para mujeres">
-        </div>
-
+        <p class="small-note" style="margin-top:12px;">
+          (Estas imágenes son solo una guía de estilo).
+        </p>
       </div>
-    </div>
+    </section>
 
-    <!-- =========================================================
-         9) MENSAJE IMPORTANTE (CONFIRMAR EN 1 MES)
-         - “Muy polite” pero firme
-         ========================================================= -->
-    <div class="card">
-      <h2 style="margin:0; color:#657f74;">🕊️ Confirmación</h2>
-      <p style="color: var(--muted); margin-top:10px; max-width:760px; margin-left:auto; margin-right:auto; line-height:1.7;">
-        Para una mejor organización, te agradecemos confirmar tu asistencia
-        <strong>dentro del plazo de 1 mes</strong> a partir de recibir esta invitación.
-        <br><br>
-        Si no recibimos tu confirmación dentro de ese tiempo, asumiremos con mucho respeto que no podrás acompañarnos.
-        ¡Gracias por ayudarnos a planear este día tan especial!
-      </p>
-    </div>
+    <div class="divider"></div>
 
-    <!-- =========================================================
-         10) RSVP (FORMULARIO) - ENVIAR A GOOGLE SHEETS (APPS SCRIPT)
-         - Usamos tu URL: (NO la cambiamos)
-         - Bloqueo extra por navegador se puede activar con localStorage
-         ========================================================= -->
-    <div class="card">
-      <div class="rsvp-title">CONFIRMAR ASISTENCIA</div>
-      <p class="rsvp-sub">Por favor, confirma tu asistencia. ¡Esperamos que estés allí!</p>
+    <!-- =========================
+         (G) SECCIÓN DE FOTOS “RÁFAGA”
+         - Debes crear carpeta /fotos/ y subir 15 imágenes:
+           fotos/01.jpg ... fotos/15.jpg
+         ========================= -->
+    <section>
+      <div class="photo-wall">
+        <h2 class="section-title" style="text-align:center;">Fotos</h2>
+        <p class="subtle" style="margin:0 0 12px; text-align:center;">
+          Algunos recuerdos que nos encantan 💛
+        </p>
 
-      <div class="form-wrap">
+        <div class="masonry">
+          <!-- 15 fotos (puedes cambiar por las tuyas) -->
+          <img src="fotos/01.jpg" alt="Foto 01">
+          <img src="fotos/02.jpg" alt="Foto 02">
+          <img src="fotos/03.jpg" alt="Foto 03">
+          <img src="fotos/04.jpg" alt="Foto 04">
+          <img src="fotos/05.jpg" alt="Foto 05">
+          <img src="fotos/06.jpg" alt="Foto 06">
+          <img src="fotos/07.jpg" alt="Foto 07">
+          <img src="fotos/08.jpg" alt="Foto 08">
+          <img src="fotos/09.jpg" alt="Foto 09">
+          <img src="fotos/10.jpg" alt="Foto 10">
+          <img src="fotos/11.jpg" alt="Foto 11">
+          <img src="fotos/12.jpg" alt="Foto 12">
+          <img src="fotos/13.jpg" alt="Foto 13">
+          <img src="fotos/14.jpg" alt="Foto 14">
+          <img src="fotos/15.jpg" alt="Foto 15">
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- =========================
+         (H) MENSAJE DE CONFIRMACIÓN (POLITE, con plazo de 1 mes)
+         - Calculamos fecha límite = hoy + 30 días
+         ========================= -->
+    <section>
+      <div class="card" style="text-align:center;">
+        <h2 class="section-title">Confirmación</h2>
+        <p style="margin:0;">
+          Por favor confirma tu asistencia dentro de los próximos <span class="strong">30 días</span>
+          (<span class="strong">fecha límite:</span> <span id="deadlineDate">—</span>).
+          <br>
+          Si no recibimos tu confirmación dentro de ese plazo, entenderemos (con todo cariño) que no podrás asistir,
+          para poder organizar todo de la mejor manera.
+        </p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- =========================
+         (I) WHATSAPP (link directo)
+         - Enlace directo a WhatsApp: https://wa.me/573028610838
+         ========================= -->
+    <section>
+      <div class="card" style="text-align:center;">
+        <h2 class="section-title">Dudas o preguntas</h2>
+        <p style="margin:0;">
+          Si tienes cualquier duda, escríbenos por WhatsApp:
+          <br>
+          <a class="wa" href="https://wa.me/573028610838" target="_blank" rel="noopener">
+            📲 +57 302 861 0838
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- =========================
+         (J) FORMULARIO RSVP (tipo imagen que enviaste)
+         - Guarda en Google Sheets usando tu Apps Script URL
+         - Soporta invitación de 1 a 6 personas
+         - Bloqueo local para evitar doble envío (cliente)
+         ========================= -->
+    <section>
+      <div class="card">
+        <div class="rsvp-title">CONFIRMAR ASISTENCIA</div>
+        <p class="rsvp-sub">Por favor, confirma tu asistencia. ¡Esperamos que estés allí!</p>
+
+        <!-- Mensaje de éxito/error -->
+        <div id="msgOk" class="msg ok"></div>
+        <div id="msgErr" class="msg err"></div>
+
+        <!-- FORM -->
         <form id="rsvpForm">
-
-          <!-- Radios asistencia -->
-          <div class="radio-row">
+          <!-- Radios: Asiste / No asiste -->
+          <div class="radio-line">
             <label>
               <input type="radio" name="asistencia" value="Sí, allí estaré" checked>
-              Sí, allí estaré
+              Sí, allí estaré!
             </label>
             <label>
               <input type="radio" name="asistencia" value="No podré asistir">
@@ -596,292 +692,293 @@
           </div>
 
           <!-- Responsable -->
-          <div class="row">
-            <label for="responsable">Nombre del responsable (quien confirma)</label>
-            <input id="responsable" type="text" placeholder="Ej: Fernando Alvarez" required>
-          </div>
+          <label for="responsable">Nombre del responsable (quien confirma)</label>
+          <input id="responsable" name="responsable" type="text" placeholder="Ej: Andrés Alvarez" required>
 
           <!-- Cantidad -->
-          <div class="row">
-            <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
-            <select id="cantidad" required>
-              <option value="1">1 persona</option>
-              <option value="2">2 personas</option>
-              <option value="3">3 personas</option>
-              <option value="4">4 personas</option>
-              <option value="5">5 personas</option>
-              <option value="6">6 personas</option>
-            </select>
-          </div>
+          <label for="cantidad">¿Cuántas personas incluye esta invitación?</label>
+          <select id="cantidad" name="cantidad" required>
+            <option value="1">1 persona</option>
+            <option value="2">2 personas</option>
+            <option value="3">3 personas</option>
+            <option value="4">4 personas</option>
+            <option value="5">5 personas</option>
+            <option value="6">6 personas</option>
+          </select>
 
-          <!-- Invitados -->
-          <div class="row">
-            <label for="inv1">Nombre del invitado 1</label>
-            <input id="inv1" type="text" placeholder="Ej: Fernando Alvarez" required>
-          </div>
-
-          <div class="row" id="rowInv2" style="display:none;">
-            <label for="inv2">Nombre del invitado 2</label>
-            <input id="inv2" type="text" placeholder="Ej: ..." />
-          </div>
-
-          <div class="row" id="rowInv3" style="display:none;">
-            <label for="inv3">Nombre del invitado 3</label>
-            <input id="inv3" type="text" placeholder="Ej: ..." />
-          </div>
-
-          <div class="row" id="rowInv4" style="display:none;">
-            <label for="inv4">Nombre del invitado 4</label>
-            <input id="inv4" type="text" placeholder="Ej: ..." />
-          </div>
-
-          <div class="row" id="rowInv5" style="display:none;">
-            <label for="inv5">Nombre del invitado 5</label>
-            <input id="inv5" type="text" placeholder="Ej: ..." />
-          </div>
-
-          <div class="row" id="rowInv6" style="display:none;">
-            <label for="inv6">Nombre del invitado 6</label>
-            <input id="inv6" type="text" placeholder="Ej: ..." />
-          </div>
+          <!-- Contenedor dinámico de invitados 1..6 -->
+          <div id="invitadosContainer"></div>
 
           <!-- Alergias -->
-          <div class="row">
-            <label for="alergias">Intolerancias o alergias alimentarias</label>
-            <input id="alergias" type="text" placeholder="Ej: Ninguna" />
-          </div>
+          <label for="alergias">Intolerancias o alergias alimentarias</label>
+          <input id="alergias" name="alergias" type="text" placeholder="Ej: Ninguna">
 
           <!-- Canción -->
-          <div class="row">
-            <label for="cancion">¿Qué canción no puede faltar?</label>
-            <input id="cancion" type="text" placeholder="Ej: ..." />
-          </div>
+          <label for="cancion">¿Qué canción no puede faltar?</label>
+          <input id="cancion" name="cancion" type="text" placeholder="Ej: ...">
 
           <!-- Mensaje -->
-          <div class="row">
-            <label for="mensaje">Mensaje para los novios</label>
-            <textarea id="mensaje" placeholder="Escribe aquí tu mensaje..."></textarea>
-          </div>
+          <label for="mensaje">Mensaje para los novios</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Déjanos un mensaje 💛"></textarea>
 
-          <!-- Botón enviar -->
-          <button class="send-btn" id="btnSend" type="submit">ENVIAR RESPUESTA</button>
-
-          <!-- Mensaje resultado -->
-          <div class="result" id="result"></div>
-
-          <div class="fineprint">
-            *Tu respuesta quedará guardada automáticamente en Google Sheets.
+          <div class="center">
+            <button id="btnEnviar" type="submit" class="btn rsvp-btn">ENVIAR RESPUESTA</button>
+            <p class="small-note">
+              *Tu respuesta quedará guardada automáticamente en Google Sheets.
+            </p>
           </div>
         </form>
       </div>
-    </div>
-
-    <!-- =========================================================
-         11) WHATSAPP (LINK DIRECTO)
-         - Símbolo WhatsApp + link directo a tu número
-         ========================================================= -->
-    <div class="card">
-      <h2 style="margin:0; color:#657f74;">❓ ¿Dudas o preguntas?</h2>
-      <p style="color: var(--muted); margin-top:10px;">
-        Escríbenos por WhatsApp y con gusto te ayudamos.
-      </p>
-
-      <a class="whatsapp" target="_blank"
-         href="https://wa.me/573028610838?text=Hola%20Alexa%20y%20Daniel%2C%20tengo%20una%20pregunta%20sobre%20la%20boda%20%E2%9D%A4%EF%B8%8F">
-        <span class="wa-icon">🟢</span>
-        <span>WhatsApp: +57 302 861 0838</span>
-      </a>
-    </div>
+    </section>
 
   </div>
 
   <script>
     /* =========================================================
-       CONFIGURACIÓN
+       CONFIGURACIÓN (CAMBIA SOLO SI LO NECESITAS)
        ========================================================= */
 
-    // URL de tu Apps Script (la que ya me diste)
+    // (1) Fecha del evento: Viernes 13 de noviembre de 2026, 4:00 PM (ajusta hora si quieres)
+    const EVENT_DATE = new Date("November 13, 2026 16:00:00").getTime();
+
+    // (2) URL de tu Apps Script (la que compartiste)
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
-    // Bloqueo opcional por navegador (si lo quieres activar)
-    const LOCAL_LOCK_KEY = "rsvp_submitted_v1";
+    // (3) Llave local para bloquear doble envío en el mismo dispositivo
+    const LOCAL_SENT_KEY = "rsvp_enviado_alexandra_daniel_v1";
 
     /* =========================================================
-       1) COUNTDOWN (DÍAS, HORAS, MINUTOS, SEGUNDOS)
-       - Ajusta la hora si quieres (ej: 16:00)
+       (1) CUENTA REGRESIVA (días/horas/min/seg)
        ========================================================= */
-    const weddingDate = new Date("November 13, 2026 16:00:00").getTime();
+    function pad2(n){ return String(n).padStart(2,"0"); }
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      let distance = weddingDate - now;
+    function updateCountdown(){
+      const now = Date.now();
+      let diff = EVENT_DATE - now;
 
-      // Si ya pasó la fecha
-      if (distance < 0) distance = 0;
+      const status = document.getElementById("cd-status");
+      if (diff <= 0){
+        document.getElementById("cd-days").textContent = "0";
+        document.getElementById("cd-hours").textContent = "00";
+        document.getElementById("cd-mins").textContent = "00";
+        document.getElementById("cd-secs").textContent = "00";
+        status.textContent = "¡Hoy es el gran día! 💛";
+        return;
+      }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
 
-      document.getElementById("cdDays").textContent = String(days).padStart(2, "0");
-      document.getElementById("cdHours").textContent = String(hours).padStart(2, "0");
-      document.getElementById("cdMinutes").textContent = String(minutes).padStart(2, "0");
-      document.getElementById("cdSeconds").textContent = String(seconds).padStart(2, "0");
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins * (1000*60);
+
+      const secs = Math.floor(diff / 1000);
+
+      document.getElementById("cd-days").textContent = days;
+      document.getElementById("cd-hours").textContent = pad2(hours);
+      document.getElementById("cd-mins").textContent = pad2(mins);
+      document.getElementById("cd-secs").textContent = pad2(secs);
+
+      status.textContent = "Preparando todo con mucho cariño ✨";
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
     /* =========================================================
-       2) MÚSICA (botón)
+       (2) FECHA LÍMITE CONFIRMACIÓN (HOY + 30 DÍAS)
        ========================================================= */
-    const btnMusic = document.getElementById("btnMusic");
-    const music = document.getElementById("music");
+    function setDeadline(){
+      const d = new Date();
+      d.setDate(d.getDate() + 30);
 
-    btnMusic.addEventListener("click", async () => {
-      try {
-        await music.play();
-        btnMusic.textContent = "⏸️ Pausar música";
-        btnMusic.onclick = () => {
-          if (!music.paused) {
-            music.pause();
-            btnMusic.textContent = "▶️ Activar música";
-            btnMusic.onclick = null;
-            btnMusic.addEventListener("click", async () => {
-              await music.play();
-              btnMusic.textContent = "⏸️ Pausar música";
-            }, { once: true });
-          }
-        };
-      } catch (e) {
-        alert("Tu navegador bloqueó el audio. Intenta nuevamente tocando el botón.");
-      }
-    });
+      // Formato bonito en español
+      const opts = { year:"numeric", month:"long", day:"numeric" };
+      document.getElementById("deadlineDate").textContent = d.toLocaleDateString("es-CO", opts);
+    }
+    setDeadline();
 
     /* =========================================================
-       3) MOSTRAR/OCULTAR INVITADOS SEGÚN CANTIDAD
+       (3) MÚSICA
+       - Intento de autoplay: puede fallar por políticas del navegador
+       - Si falla, el usuario debe tocar el botón o tocar la pantalla
        ========================================================= */
-    const cantidadEl = document.getElementById("cantidad");
-    const rows = {
-      2: document.getElementById("rowInv2"),
-      3: document.getElementById("rowInv3"),
-      4: document.getElementById("rowInv4"),
-      5: document.getElementById("rowInv5"),
-      6: document.getElementById("rowInv6"),
-    };
+    const music = document.getElementById("music");
+    const btnMusic = document.getElementById("btnMusic");
+    const musicNote = document.getElementById("musicNote");
 
-    function toggleGuests() {
-      const cantidad = Number(cantidadEl.value);
-
-      // Ocultamos todos del 2 al 6
-      Object.values(rows).forEach(r => r.style.display = "none");
-
-      // Mostramos solo los necesarios
-      for (let i = 2; i <= cantidad; i++) {
-        if (rows[i]) rows[i].style.display = "block";
+    async function tryPlayMusic(){
+      try{
+        await music.play();
+        btnMusic.textContent = "⏸ Música activada";
+        musicNote.textContent = "Música reproduciéndose 🎵";
+      }catch(e){
+        // Autoplay bloqueado (normal en móviles)
+        musicNote.textContent = "Tu navegador bloqueó el autoplay. Toca el botón (o toca la pantalla) para activar el audio.";
       }
     }
 
-    cantidadEl.addEventListener("change", toggleGuests);
-    toggleGuests();
+    // Botón para activar música manualmente
+    btnMusic.addEventListener("click", async () => {
+      if (!music.paused){
+        music.pause();
+        btnMusic.textContent = "▶ Activar música";
+        musicNote.textContent = "Música pausada.";
+        return;
+      }
+      await tryPlayMusic();
+    });
+
+    // “Modo inteligente”: primer toque/click en cualquier parte activa música
+    // (Muy útil en iPhone: el usuario toca para scrollear y ahí se activa)
+    let firstInteraction = false;
+    function onFirstInteraction(){
+      if (firstInteraction) return;
+      firstInteraction = true;
+      tryPlayMusic();
+      window.removeEventListener("click", onFirstInteraction);
+      window.removeEventListener("touchstart", onFirstInteraction);
+    }
+    window.addEventListener("click", onFirstInteraction, { passive:true });
+    window.addEventListener("touchstart", onFirstInteraction, { passive:true });
+
+    // Intento inicial de autoplay (probablemente será bloqueado en móviles)
+    tryPlayMusic();
 
     /* =========================================================
-       4) FORM SUBMIT → Apps Script
-       - Envia EXACTAMENTE: asistencia, responsable, cantidad, invitados[], alergias, cancion, mensaje, info
+       (4) RSVP: CAMPOS DINÁMICOS PARA INVITADOS 1..6
+       ========================================================= */
+    const cantidadSelect = document.getElementById("cantidad");
+    const invitadosContainer = document.getElementById("invitadosContainer");
+
+    function renderInvitados(){
+      const n = Number(cantidadSelect.value || 1);
+
+      // Limpiamos el contenedor
+      invitadosContainer.innerHTML = "";
+
+      // Creamos inputs Invitado 1..n
+      for (let i=1; i<=n; i++){
+        const label = document.createElement("label");
+        label.setAttribute("for", "inv"+i);
+        label.textContent = "Nombre del invitado " + i;
+
+        const input = document.createElement("input");
+        input.id = "inv"+i;
+        input.name = "inv"+i;
+        input.type = "text";
+        input.placeholder = "Ej: Nombre Apellido";
+        input.required = true;
+
+        invitadosContainer.appendChild(label);
+        invitadosContainer.appendChild(input);
+      }
+    }
+    cantidadSelect.addEventListener("change", renderInvitados);
+    renderInvitados(); // Inicial
+
+    /* =========================================================
+       (5) RSVP: ENVÍO A GOOGLE APPS SCRIPT
+       - Envía JSON con: asistencia, responsable, cantidad, invitados[], alergias, cancion, mensaje, info
+       - Bloquea doble envío (cliente) usando localStorage
        ========================================================= */
     const form = document.getElementById("rsvpForm");
-    const btnSend = document.getElementById("btnSend");
-    const result = document.getElementById("result");
+    const msgOk = document.getElementById("msgOk");
+    const msgErr = document.getElementById("msgErr");
+    const btnEnviar = document.getElementById("btnEnviar");
+
+    function showMsg(el, text){
+      el.style.display = "block";
+      el.textContent = text;
+    }
+    function hideMsgs(){
+      msgOk.style.display = "none";
+      msgErr.style.display = "none";
+      msgOk.textContent = "";
+      msgErr.textContent = "";
+    }
+
+    // Si ya envió antes desde este navegador
+    if (localStorage.getItem(LOCAL_SENT_KEY) === "1"){
+      showMsg(msgErr, "Este dispositivo/navegador ya registró una confirmación. Si necesitas corregir algo, contáctanos por WhatsApp.");
+      btnEnviar.disabled = true;
+      btnEnviar.style.opacity = .6;
+    }
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      hideMsgs();
 
-      // Si quieres activar bloqueo fuerte por navegador:
-      // if (localStorage.getItem(LOCAL_LOCK_KEY) === "1") {
-      //   alert("Ya registraste una confirmación desde este navegador.");
-      //   return;
-      // }
+      // Bloqueo local (cliente) antes de enviar
+      if (localStorage.getItem(LOCAL_SENT_KEY) === "1"){
+        showMsg(msgErr, "Ya existe una confirmación registrada desde este dispositivo/navegador.");
+        return;
+      }
 
-      btnSend.disabled = true;
-      result.textContent = "Enviando...";
-
-      // Asistencia
-      const asistencia = document.querySelector('input[name="asistencia"]:checked')?.value || "";
+      // Tomar asistencia
+      const asistencia = form.querySelector('input[name="asistencia"]:checked')?.value || "";
 
       // Responsable
       const responsable = document.getElementById("responsable").value.trim();
 
       // Cantidad
-      const cantidad = Number(document.getElementById("cantidad").value);
+      const cantidad = Number(document.getElementById("cantidad").value || 0);
 
-      // Invitados (solo visibles)
+      // Invitados
       const invitados = [];
-      const inv1 = document.getElementById("inv1").value.trim();
-      const inv2 = document.getElementById("inv2").value.trim();
-      const inv3 = document.getElementById("inv3").value.trim();
-      const inv4 = document.getElementById("inv4").value.trim();
-      const inv5 = document.getElementById("inv5").value.trim();
-      const inv6 = document.getElementById("inv6").value.trim();
-
-      if (inv1) invitados.push(inv1);
-      if (cantidad >= 2 && inv2) invitados.push(inv2);
-      if (cantidad >= 3 && inv3) invitados.push(inv3);
-      if (cantidad >= 4 && inv4) invitados.push(inv4);
-      if (cantidad >= 5 && inv5) invitados.push(inv5);
-      if (cantidad >= 6 && inv6) invitados.push(inv6);
-
-      // Otros campos
-      const alergias = document.getElementById("alergias").value.trim();
-      const cancion = document.getElementById("cancion").value.trim();
-      const mensaje = document.getElementById("mensaje").value.trim();
-
-      // Info del navegador (NO es IP real, pero ayuda para bloqueo)
-      const info = navigator.userAgent || "";
-
-      // Si marcan "No podré asistir", opcionalmente ponemos cantidad 0 y limpiamos invitados
-      // (Si quieres que sea obligatorio así, lo dejamos)
-      let finalCantidad = cantidad;
-      let finalInvitados = invitados;
-
-      if (asistencia.toLowerCase().includes("no podré")) {
-        finalCantidad = 0;
-        finalInvitados = [];
+      for (let i=1; i<=cantidad; i++){
+        const v = (document.getElementById("inv"+i)?.value || "").trim();
+        if (v) invitados.push(v);
       }
 
-      // Payload final
+      // Otros campos
+      const alergias = (document.getElementById("alergias").value || "").trim();
+      const cancion  = (document.getElementById("cancion").value  || "").trim();
+      const mensaje  = (document.getElementById("mensaje").value  || "").trim();
+
+      // “Info” (User-Agent) para tu lógica de bloqueo (NO es IP real)
+      const info = navigator.userAgent;
+
+      // Payload EXACTO como tu Apps Script espera
       const payload = {
         asistencia,
         responsable,
-        cantidad: finalCantidad,
-        invitados: finalInvitados,
+        cantidad,
+        invitados,
         alergias,
         cancion,
         mensaje,
         info
       };
 
-      try {
+      // Enviar
+      try{
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = "ENVIANDO...";
+
         const res = await fetch(APPS_SCRIPT_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
         });
 
         const data = await res.json();
 
-        if (data.ok) {
-          result.textContent = "✅ " + (data.message || "Confirmación registrada correctamente.");
-          localStorage.setItem(LOCAL_LOCK_KEY, "1");
-          // form.reset(); toggleGuests(); // si quieres resetear tras enviar
-        } else {
-          result.textContent = "❌ " + (data.message || "No se pudo registrar.");
-          btnSend.disabled = false;
+        if (data.ok){
+          showMsg(msgOk, data.message || "Confirmación registrada correctamente.");
+          localStorage.setItem(LOCAL_SENT_KEY, "1"); // Bloqueo local para no duplicar
+        }else{
+          showMsg(msgErr, data.message || "No se pudo registrar. Intenta nuevamente.");
+          btnEnviar.disabled = false;
+          btnEnviar.textContent = "ENVIAR RESPUESTA";
         }
 
-      } catch (err) {
-        result.textContent = "❌ Error enviando: " + err.toString();
-        btnSend.disabled = false;
+      }catch(err){
+        showMsg(msgErr, "Error enviando el formulario. Revisa tu conexión e intenta de nuevo.");
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = "ENVIAR RESPUESTA";
       }
     });
   </script>
