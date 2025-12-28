@@ -190,7 +190,6 @@
 
     /* =========================
        VIDEO
-       (autoplay suele requerir muted en móviles)
        ========================= */
     .video-wrap{ display:flex; justify-content:center; }
     video{
@@ -291,7 +290,7 @@
     .important b{ color:#4f4a45; }
 
     /* =========================
-       LLUVIA DE SOBRES (estilo cursivo especial)
+       LLUVIA DE SOBRES
        ========================= */
     .gift-title{
       font-family: var(--script);
@@ -330,12 +329,14 @@
       gap: 10px;
       margin-top: 12px;
     }
+
+    /* ✅ CAMBIO: cada “Día” completamente centrado */
     .itinerary .day{
       border: 1px solid rgba(0,0,0,0.06);
       background: rgba(255,255,255,0.75);
       border-radius: 16px;
       padding: 12px 14px;
-      text-align: left;
+      text-align: center; /* <- antes estaba left */
     }
     .itinerary .day b{ color:#4f4a45; }
 
@@ -423,7 +424,6 @@
       text-align: left;
     }
 
-    /* Radios izquierda/derecha */
     .radio-row{
       display:flex;
       justify-content: space-between;
@@ -538,10 +538,7 @@
       <div class="card section">
         <p class="sec-sub">Nuestra Boda</p>
         <div class="names">Alexandra Gil &amp; Daniel Álvarez</div>
-
-        <!-- ✅ CAMBIO 2: fecha con hora 4:00 PM -->
         <p class="date">Viernes 13 de noviembre de 2026 a las 4:00 PM</p>
-
         <p class="place"><b>Lugar:</b> En alguna playa de Coveñas, Sucre 🏖️</p>
 
         <div class="countdown" id="countdown">
@@ -566,8 +563,6 @@
 
       <!-- =========================
            VIDEO (AUTOPLAY)
-           - Archivo: video.mp4
-           - muted para permitir autoplay en móvil
            ========================= -->
       <div class="card section">
         <div class="sec-title">Cuando nos dijimos que SI</div>
@@ -649,9 +644,9 @@
         <div class="hint-center">(Estas imágenes son solo una guía de estilo)</div>
       </div>
 
-      <!-- =========================================================
-           ✅ CAMBIO 5: ITINERARIO (ANTES DE CONFIRMACIÓN)
-           ========================================================= -->
+      <!-- =========================
+           ITINERARIO
+           ========================= -->
       <div class="card section">
         <div class="sec-title">Itinerario</div>
         <p class="sec-sub">13 al 15 de noviembre (3 días)</p>
@@ -682,9 +677,9 @@
         </div>
       </div>
 
-      <!-- =========================================================
-           ✅ CAMBIO 3: LLUVIA DE SOBRES (ANTES DE CONFIRMACIÓN)
-           ========================================================= -->
+      <!-- =========================
+           LLUVIA DE SOBRES
+           ========================= -->
       <div class="card section">
         <div class="gift-title">Lluvia de Sobres</div>
         <p class="gift-sub">
@@ -693,9 +688,9 @@
         </p>
       </div>
 
-      <!-- =========================================================
-           ✅ CAMBIO 1: TEXTO DE CONFIRMACIÓN CON FECHA LÍMITE
-           ========================================================= -->
+      <!-- =========================
+           CONFIRMACIÓN
+           ========================= -->
       <div class="card section">
         <div class="sec-title">Confirmación</div>
         <div class="important">
@@ -774,7 +769,6 @@
           </div>
 
           <button class="btn" type="submit" id="submitBtn">ENVIAR RESPUESTA</button>
-          <!-- ✅ CAMBIO 6: eliminada la advertencia de Google Sheets -->
           <div id="status" class="status"></div>
         </form>
       </div>
@@ -784,14 +778,12 @@
 
   <script>
     /* ==========================================================
-       1) URL DE APPS SCRIPT (donde se guardan respuestas)
+       1) URL DE APPS SCRIPT
        ========================================================== */
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyfFfm4Xi_17QaxKPAN8RLziPAw1NiYuByWMy6ttifwUANZecb_v5DNStsm5pCtvhzk7w/exec";
 
     /* ==========================================================
-       2) CONTADOR
-       - Importante: esto afecta el tiempo restante
-       - 4:00 PM en Colombia (-05:00)
+       2) CONTADOR (4:00 PM)
        ========================================================== */
     const weddingDate = new Date("2026-11-13T16:00:00-05:00");
 
@@ -831,7 +823,6 @@
 
     /* ==========================================================
        3) INVITADOS DINÁMICOS
-       - Crea inputs según la cantidad seleccionada
        ========================================================== */
     const cantidadEl = document.getElementById("cantidad");
     const guestFields = document.getElementById("guestFields");
@@ -856,7 +847,6 @@
 
     /* ==========================================================
        4) ENVÍO DEL FORMULARIO
-       - Envía datos a Apps Script (Google Sheets por detrás)
        ========================================================== */
     const form = document.getElementById("rsvpForm");
     const statusEl = document.getElementById("status");
@@ -917,7 +907,6 @@
 
     /* ==========================================================
        5) MÚSICA AUTOMÁTICA
-       - Si el navegador bloquea autoplay, mostramos el botón
        ========================================================== */
     const bgMusic = document.getElementById("bgMusic");
     const audioToast = document.getElementById("audioToast");
